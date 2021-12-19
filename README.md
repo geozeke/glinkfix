@@ -8,9 +8,9 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/geozeke/glinkfix)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/glinkfix)
 
-<html>
-	<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=True" width="120"/>
-</html>
+<br>
+
+<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=True" width="120"/>
 
 # Google Drive Link Fixer
 
