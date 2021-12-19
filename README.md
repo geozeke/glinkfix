@@ -69,5 +69,5 @@ optional arguments:
 
 ## Version History
 
-* 1.0.2 (2021-12-19)
+* 1.0.4 (2021-12-19)
 	* Initial release<br>
