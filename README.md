@@ -9,7 +9,7 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/glinkfix)
 
 <html>
-	<img src="./assets/logo.png" width="120"/>
+	<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=True" width="120"/>
 </html>
 
 # Google Drive Link Fixer
@@ -69,5 +69,5 @@ optional arguments:
 
 ## Version History
 
-* 1.0.1 (2021-12-19)
+* 1.0.2 (2021-12-19)
 	* Initial release<br>
