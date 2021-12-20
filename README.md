@@ -43,6 +43,7 @@ Now run `glinkfix` and paste the link into the terminal. Copy the "fixed" versio
 ![](https://drive.google.com/uc?export=view&id=1wrrGh-cm_Hf7hH5WN_aCO-wwxIsrk6j5)
 
 <hr>
+
 To display the help menu, run: `glinkfix -h`
 
 ```shell
