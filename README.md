@@ -10,7 +10,7 @@
 
 <br>
 
-<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=True" width="120"/>
+<img src="https://drive.google.com/uc?export=view&id=1H04KVAA3ohH_dLXIrC0bXuJXDn3VutKc" width="120"/>
 
 # Google Drive Link Fixer
 
