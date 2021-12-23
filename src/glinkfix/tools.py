@@ -1,5 +1,6 @@
 import os
 
+
 def clear():
     """Clear the screen
 
@@ -14,7 +15,7 @@ def clear():
 def fixlink(args):
 
     clear()
-    
+
     template = "https://drive.google.com/uc?export=ACTION&id=IDNUM"
     print('Enter a Google Drive URL to be repackaged:\n')
     oldlink = input()

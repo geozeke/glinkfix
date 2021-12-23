@@ -10,7 +10,7 @@
 
 <br>
 
-<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=True" width="120"/>
+<img src="https://drive.google.com/uc?export=view&id=1H04KVAA3ohH_dLXIrC0bXuJXDn3VutKc" width="120"/>
 
 # Google Drive Link Fixer
 
@@ -18,7 +18,7 @@
 
 The Google Drive Link Fixer is lightweight, pure Python, with no third-party dependencies.
 
-```shell
+```
 pip3 install glinkfix  
 ```
 
@@ -43,9 +43,10 @@ Now run `glinkfix` and paste the link into the terminal. Copy the "fixed" versio
 ![](https://drive.google.com/uc?export=view&id=1wrrGh-cm_Hf7hH5WN_aCO-wwxIsrk6j5)
 
 <hr>
+
 To display the help menu, run: `glinkfix -h`
 
-```shell
+```
 usage: glinkfix [-h] (-v | -d)
 
 This program takes a Google Drive sharing link for a file and repackages it into a link
@@ -69,5 +70,8 @@ optional arguments:
 
 ## Version History
 
+* 1.0.5 (2021-12-23)
+	* Code linting.
+	* Documentation cleaup.<br><br>
 * 1.0.4 (2021-12-19)
 	* Initial release<br>

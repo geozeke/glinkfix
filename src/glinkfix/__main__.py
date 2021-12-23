@@ -6,6 +6,7 @@ from glinkfix import fixlink
 
 # --------------------------------------------------------------------
 
+
 def main():
 
     # Build a python argument parser
@@ -16,7 +17,7 @@ def main():
     image in a markdown document). Note: there is a size limit of 40MB
     for a single file when using Google Drive links in this manner."""
 
-    epi = "Version: 1.0.4"
+    epi = "Version: 1.0.5"
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
     group = parser.add_mutually_exclusive_group(required=True)
 
