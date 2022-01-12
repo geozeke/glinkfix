@@ -15,9 +15,6 @@ import argparse
 import os
 import subprocess as sp
 import textwrap
-import webbrowser
-
-from pathlib import Path
 
 # -------------------------------------------------------------------
 
@@ -123,7 +120,7 @@ def bump(category):
 def performTask(args):
 
     # This is the name of the project.
-    basename = 'glinkfix'
+    # basename = 'glinkfix'
 
     if args.clean:
         clean()
@@ -154,7 +151,7 @@ def main():
     msg = """Perform various utility operations for a pypi development
     project."""
 
-    epi = "Latest update: 11 Dec 2021"
+    epi = "Latest update: 01/12/22"
 
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
 
@@ -208,7 +205,7 @@ if __name__ == '__main__':
 
 # MIT License
 
-# Copyright 2021 Peter Nardi
+# Copyright 2021-2022 Peter Nardi
 
 # Terms of use for source code:
 
