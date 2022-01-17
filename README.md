@@ -70,6 +70,8 @@ optional arguments:
 
 ## Version History
 
+* 1.0.6 (2022-01-17)
+	* Code cleanup.<br><br>
 * 1.0.5 (2021-12-23)
 	* Code linting.
 	* Documentation cleaup.<br><br>
