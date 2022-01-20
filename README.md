@@ -18,7 +18,7 @@
 
 The Google Drive Link Fixer is lightweight, pure Python, with no third-party dependencies.
 
-```shell
+```text
 pip3 install glinkfix  
 ```
 
@@ -46,7 +46,7 @@ Now run `glinkfix` and paste the link into the terminal. Copy the "fixed" versio
 
 To display the help menu, run: `glinkfix -h`
 
-```shell
+```text
 usage: glinkfix [-h] (-v | -d)
 
 This program takes a Google Drive sharing link for a file and repackages it into a link
