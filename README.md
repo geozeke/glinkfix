@@ -18,7 +18,7 @@
 
 The Google Drive Link Fixer is lightweight, pure Python, with no third-party dependencies.
 
-```
+```shell
 pip3 install glinkfix  
 ```
 
@@ -30,23 +30,23 @@ It's not especially hard to repackage the link, but it's a pain. You have to cop
 
 *Note: The animated gifs below are actually hosted on Google Drive, and the corrected links are embedded into this README file.*
 
-<hr>
+---
 
 Start by getting a link to a file on Google Drive. Make sure it's set up for public access (*Anyone with the link*):
 
-![](https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2)
+![Retrieving Google Link](https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2)
 
-<hr>
+---
 
 Now run `glinkfix` and paste the link into the terminal. Copy the "fixed" version and use is as required.
 
-![](https://drive.google.com/uc?export=view&id=1wrrGh-cm_Hf7hH5WN_aCO-wwxIsrk6j5)
+![Using Google Link](https://drive.google.com/uc?export=view&id=1wrrGh-cm_Hf7hH5WN_aCO-wwxIsrk6j5)
 
-<hr>
+---
 
 To display the help menu, run: `glinkfix -h`
 
-```
+```shell
 usage: glinkfix [-h] (-v | -d)
 
 This program takes a Google Drive sharing link for a file and repackages it into a link
@@ -67,13 +67,12 @@ optional arguments:
 * When creating a download link for use with `curl`, make sure to use `curl`'s `-L` option to allow for redirects.
 * `glinkfix` supports links that use Google's [resource key](https://support.google.com/a/answer/10685032) security feature.
 
-
 ## Version History
 
 * 1.0.6 (2022-01-17)
-	* Code cleanup.<br><br>
+  * Code cleanup.<br><br>
 * 1.0.5 (2021-12-23)
-	* Code linting.
-	* Documentation cleaup.<br><br>
+  * Code linting.
+  * Documentation cleanup.<br><br>
 * 1.0.4 (2021-12-19)
-	* Initial release<br>
+  * Initial release<br>
