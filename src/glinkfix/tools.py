@@ -1,19 +1,33 @@
+"""Tools to perform link fixing."""
+
 import os
 
 
 def clear():
-    """Clear the screen
+    """Clear the screen.
 
     This is an os-agnostic version, which will work with both Windows
     and Linux.
     """
-    return os.system('clear' if os.name == 'posix' else 'cls')
+    os.system('clear' if os.name == 'posix' else 'cls')
 
 # --------------------------------------------------------------------
 
 
 def fixlink(args):
+    """Fix broken Google links.
 
+    Prompt for a Google link to fix (usually entered by pasting into the
+    terminal) and generate a corrected version.
+
+    Parameters
+    ----------
+    args : argparse
+        Command line arguments to determine how to prep the fixed link.
+        If `-v` was selected (`args.view`) then prep the link for
+        embedding into a file. If `-d` was selected (`args.download`)
+        then prep the link for use with a download tool like `curl`.
+    """
     clear()
 
     template = "https://drive.google.com/uc?export=ACTION&id=IDNUM"

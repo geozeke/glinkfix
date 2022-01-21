@@ -11,8 +11,8 @@ pytest
 
 autopep8
 flake8
+flake8-docstrings
 bump2version
-# pdoc3
 
 # pypi
 
