@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Main module."""
+
 import argparse
 
 from glinkfix import fixlink
@@ -8,9 +10,11 @@ from glinkfix import fixlink
 
 
 def main():
+    """Initiate link fixing.
 
-    # Build a python argument parser
-
+    1. Generate an argument parser to collect command line input.
+    2. Call `fixlink` to perform link correction.
+    """
     msg = """This program takes a Google Drive sharing link for a
     file and repackages it into a link that can be downloaded directly
     (e.g. using curl) or embedded in a document to be viewed (e.g. an
