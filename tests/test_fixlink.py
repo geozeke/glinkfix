@@ -2,19 +2,20 @@
 """Test fixlink."""
 
 import csv
-import sys
 from argparse import Namespace
-from importlib import import_module
 from pathlib import Path
+
+import pytest
+from glinkfix.tools import InvalidLinkError
+from glinkfix.tools import fixlink
 
 # Adjust path for local imports and data file opening. moduleLocation
 # represents the location of the module we want to import for testing. Use
 # import_module so we can perform the import after adjusting the path.
-local = Path(__file__).resolve().parent
-TESTDATA = local/'testdata.dat'
-moduleLocation = local.parent/'src/glinkfix'
-sys.path.append(str(moduleLocation))
-fixlink = import_module('tools').fixlink
+TESTDATA = Path(__file__).resolve().parent/'testdata.dat'
+# moduleLocation = local.parent/'src/glinkfix'
+# sys.path.append(str(moduleLocation))
+# fixlink = import_module('tools').fixlink
 
 
 def pytest_generate_tests(metafunc):
@@ -28,10 +29,10 @@ def pytest_generate_tests(metafunc):
     with open(TESTDATA, 'r') as f:
         reader = csv.reader(filter(lambda row: row.strip(), f))
         testcases = [row for row in reader if row[0][0] != '#']
-    metafunc.parametrize('testcase', testcases)
+    metafunc.parametrize('case', testcases)
 
 
-def test_fixlink(capsys, monkeypatch, testcase):
+def test_fixlink(capsys, monkeypatch, case):
     """Test the fixlink function.
 
     Parameters
@@ -44,18 +45,23 @@ def test_fixlink(capsys, monkeypatch, testcase):
     testcase : [str, str, str]
         A list of three strings that have been parameterized to be used
         for testing. The three strings represent (in order):
-        mode (view | download), input link, output link.
+        mode (view | download), status (raise | noraise) input link,
+        output link.
     """
-    mode, linkin, linkout = testcase[0], testcase[1], testcase[2]
+    mode, status, linkin, linkout = tuple(case)
     args = Namespace()
     args.view = True if mode == 'view' else None
     args.download = True if mode == 'download' else None
     monkeypatch.setattr('builtins.input', lambda: linkin)
-    fixlink(args)
-    useroutput, codeerrors = capsys.readouterr()
-    monkeypatch.delattr('builtins.input')
+    if status == 'noraise':
+        fixlink(args)
+        useroutput, codeerrors = capsys.readouterr()
+        # If the assertion is successful, the print statement below will be
+        # suppressed.
+        print(f'Simulated user input: {linkin}')
+        assert linkout in useroutput
+    else:
+        with pytest.raises(InvalidLinkError):
+            fixlink(args)
 
-    # If the assertion is successful, the print statement below will be
-    # suppressed.
-    print(f'Simulated user input: {linkin}')
-    assert linkout in useroutput
+    monkeypatch.delattr('builtins.input')

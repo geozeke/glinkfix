@@ -3,8 +3,26 @@
 
 # Repackage a valid link for viewing
 
-view,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
+view,noraise,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
 
 # Repackage a valid link for downloading
 
-download,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,https://drive.google.com/uc?export=download&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
+download,noraise,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,https://drive.google.com/uc?export=download&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
+
+# Repackage a invalid link for viewing
+
+view,raise,https://ubuntu.com,Invalid
+
+# Repackage a invalid link for downloading
+
+download,raise,https://ubuntu.com,Invalid
+
+# Repackage valid link with resource key for downloading
+
+download,noraise,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=sharing&resourcekey=sdfdf-PsdfUjdfhTereu,https://drive.google.com/uc?export=download&id=0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
+
+# Repackage valid link with resource key for viewing
+
+view,noraise,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=sharing&resourcekey=sdfdf-PsdfUjdfhTereu,https://drive.google.com/uc?export=view&id=0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
+
+
