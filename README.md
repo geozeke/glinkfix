@@ -69,6 +69,11 @@ optional arguments:
 
 ## Version History
 
+* 1.0.7 (2022-07-15)
+  * Fixed handling of URLs with resource keys.
+  * Code cleanup and refactoring.
+  * Implemented custom exception handling.
+  * Implemented testing infrastructure.<br><br>
 * 1.0.6 (2022-01-17)
   * Code cleanup.<br><br>
 * 1.0.5 (2021-12-23)

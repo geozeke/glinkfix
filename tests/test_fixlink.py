@@ -13,9 +13,6 @@ from glinkfix.tools import fixlink
 # represents the location of the module we want to import for testing. Use
 # import_module so we can perform the import after adjusting the path.
 TESTDATA = Path(__file__).resolve().parent/'testdata.dat'
-# moduleLocation = local.parent/'src/glinkfix'
-# sys.path.append(str(moduleLocation))
-# fixlink = import_module('tools').fixlink
 
 
 def pytest_generate_tests(metafunc):
