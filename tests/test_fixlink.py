@@ -4,19 +4,17 @@
 import csv
 import sys
 from argparse import Namespace
+from importlib import import_module
 from pathlib import Path
 
-# Adjust path for local imports and data file opening. modlocation represents
-# the location of the module we want to import.
+# Adjust path for local imports and data file opening. moduleLocation
+# represents the location of the module we want to import for testing. Use
+# import_module so we can perform the import after adjusting the path.
 local = Path(__file__).resolve().parent
 TESTDATA = local/'testdata.dat'
-modlocation = local.parent/'src/glinkfix'
-sys.path.append(str(modlocation))
-
-try:
-    from tools import fixlink  # type: ignore
-except ModuleNotFoundError as e:
-    raise(e)
+moduleLocation = local.parent/'src/glinkfix'
+sys.path.append(str(moduleLocation))
+fixlink = import_module('tools').fixlink
 
 
 def pytest_generate_tests(metafunc):
@@ -54,8 +52,8 @@ def test_fixlink(capsys, monkeypatch, testcase):
     args.download = True if mode == 'download' else None
     monkeypatch.setattr('builtins.input', lambda: linkin)
     fixlink(args)
-    monkeypatch.delattr('builtins.input')
     useroutput, codeerrors = capsys.readouterr()
+    monkeypatch.delattr('builtins.input')
 
     # If the assertion is successful, the print statement below will be
     # suppressed.
