@@ -21,7 +21,7 @@ def main():
     image in a markdown document). Note: there is a size limit of 40MB
     for a single file when using Google Drive links in this manner."""
 
-    epi = "Version: 1.0.6"
+    epi = "Version: 1.0.7"
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
     group = parser.add_mutually_exclusive_group(required=True)
 

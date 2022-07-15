@@ -1,26 +1,18 @@
 #!/usr/bin/env python3
+"""Wright is a makefile alternative written in pure Python.
 
-# Author: Peter Nardi
-# Date: 12/11/21
-# License: (see MIT License at the end of this file)
-
-# Title: make
-
-# This script performs various utility operations on a pypi development
-# project -- similar to a makefile.
-
-# Imports
+wright /rīt/, noun ARCHAIC: a person who makes or builds things,
+especially out of wood.
+"""
 
 import argparse
 import os
 import subprocess as sp
 import textwrap
 
-# -------------------------------------------------------------------
 
-
-def clean():
-
+def clean(*args):
+    """Clean the project build artifacts."""
     # Whole directories to delete
     directories = []
     directories.append('__pycache__')
@@ -54,11 +46,9 @@ def clean():
 
     return
 
-# -------------------------------------------------------------------
 
-
-def dist():
-
+def dist(*args):
+    """Build distribution products."""
     clean()
 
     commands = []
@@ -71,11 +61,9 @@ def dist():
 
     return
 
-# -------------------------------------------------------------------
 
-
-def pushtest():
-
+def pushtest(*args):
+    """Push a distribution build to test.pypi.org."""
     dist()
 
     command = 'twine upload --repository-url https://test.pypi.org/legacy/ '
@@ -86,26 +74,37 @@ def pushtest():
     return
 
 
-# -------------------------------------------------------------------
-
-
-def release():
-
-    dist()
-
-    command = 'twine upload dist/*'
+def test(*args):
+    """Run pytest."""
+    command = 'pytest --tb=short'
     print(command)
     sp.run(command.split())
 
     return
 
-# -------------------------------------------------------------------
+
+def release(*args):
+    """Build a distribution and release it to pypi.org."""
+    dist()
+
+    command = 'twine upload dist/* --repository glinkfix'
+    print(command)
+    sp.run(command.split())
+
+    return
 
 
-def bump(category):
+def bump(*args):
+    """Bump the version number of the project.
 
+    Parameters
+    ----------
+    *args : [Any]
+        0 or more arguments. In this case, it will be one of the
+        following bump categories: patch, minor, major.
+    """
     dry = input('Dry run (y/n)? ')[0].lower()
-    command = 'bump2version ' + category
+    command = 'bump2version ' + args[0]
     if dry != 'n':
         command += ' --verbose -n'
     print(command)
@@ -114,37 +113,33 @@ def bump(category):
     return
 
 
-# -------------------------------------------------------------------
-
-
 def performTask(args):
+    """Perform the selected task on the project.
 
+    Parameters
+    ----------
+    args : Namespace
+        A Namespace containing all the argparse-generated values. Since
+        the range of operations is mutually exclusive (only one will /
+        can be run at a time), iterate over the dictionary of the
+        Namespace object (`args`) until a valid operation is found. If
+        none is found, then print a status message and return.
+    """
     # This is the name of the project.
     # basename = 'glinkfix'
+    for k, v in args.__dict__.items():
+        if v:
+            eval(f'{k}')(f'{v}')
+            return
 
-    if args.clean:
-        clean()
-    elif args.dist:
-        dist()
-    elif args.pushtest:
-        pushtest()
-    elif args.release:
-        release()
-    elif args.bump:
-        bump(args.bump)
-    # elif args.docs:
-    #     docs(basename)
-    else:
-        msg = "Please provide a task to perform. Use "
-        msg += f"./{os.path.basename(__file__)} -h for help."
-        print('\n' + textwrap.fill(msg) + '\n')
+    msg = "Please provide a task to perform. Use "
+    msg += f"./{os.path.basename(__file__)} -h for help."
+    print('\n' + textwrap.fill(msg) + '\n')
 
     return
 
-# -------------------------------------------------------------------
 
-
-def main():
+def main():  # noqa
 
     # Build a python argument parser
 
@@ -169,12 +164,17 @@ def main():
                         action='store_true',
                         dest='dist')
 
-    msg = """create and push a distribution package to
-    test.pypi.org."""
+    msg = """create and push a distribution package to test.pypi.org."""
     parser.add_argument('-p', '--pushtest',
                         help=msg,
                         action='store_true',
                         dest='pushtest')
+
+    msg = """run pytest with the --tb=short option."""
+    parser.add_argument('-t', '--test',
+                        help=msg,
+                        action='store_true',
+                        dest='test')
 
     msg = """bump the version number of the project based on the
     provided choice: major, minor, patch."""
@@ -195,34 +195,6 @@ def main():
 
     return
 
-# -------------------------------------------------------------------
-
 
 if __name__ == '__main__':
     main()
-
-# ========================================================================
-
-# MIT License
-
-# Copyright 2021-2022 Peter Nardi
-
-# Terms of use for source code:
-
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
