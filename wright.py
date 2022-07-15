@@ -87,7 +87,7 @@ def release(*args):
     """Build a distribution and release it to pypi.org."""
     dist()
 
-    command = 'twine upload dist/*'
+    command = 'twine upload dist/* --repository glinkfix'
     print(command)
     sp.run(command.split())
 
