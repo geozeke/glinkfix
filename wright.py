@@ -190,7 +190,6 @@ def main():  # noqa
                         dest='release')
 
     args = parser.parse_args()
-    print(args)
 
     performTask(args)
 

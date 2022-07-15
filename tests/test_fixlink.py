@@ -6,16 +6,17 @@ import sys
 from argparse import Namespace
 from pathlib import Path
 
-# Adjust path for local imports
-p = Path(__file__).resolve().parent.parent/'src/glinkfix'
-sys.path.append(str(p))
+# Adjust path for local imports and data file opening. modlocation represents
+# the location of the module we want to import.
+local = Path(__file__).resolve().parent
+TESTDATA = local/'testdata.dat'
+modlocation = local.parent/'src/glinkfix'
+sys.path.append(str(modlocation))
 
 try:
     from tools import fixlink  # type: ignore
 except ModuleNotFoundError as e:
     raise(e)
-
-TESTDATA = Path(__file__).resolve().parent/'testdata.dat'
 
 
 def pytest_generate_tests(metafunc):
