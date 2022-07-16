@@ -10,6 +10,8 @@ import os
 import subprocess as sp
 import textwrap
 
+PROJNAME = 'glinkfix'
+
 
 def clean(*args):
     """Clean the project build artifacts."""
@@ -66,8 +68,7 @@ def pushtest(*args):
     """Push a distribution build to test.pypi.org."""
     dist()
 
-    command = 'twine upload --repository-url https://test.pypi.org/legacy/ '
-    command += 'dist/*'
+    command = f'twine upload dist/* --repository {PROJNAME}-test'
     print(command)
     sp.run(command.split())
 
@@ -87,7 +88,7 @@ def release(*args):
     """Build a distribution and release it to pypi.org."""
     dist()
 
-    command = 'twine upload dist/* --repository glinkfix'
+    command = f'twine upload dist/* --repository {PROJNAME}-release'
     print(command)
     sp.run(command.split())
 
