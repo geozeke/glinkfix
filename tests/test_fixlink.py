@@ -9,6 +9,7 @@ import pytest
 from glinkfix.tools import InvalidLinkError
 from glinkfix.tools import fixlink
 
+
 # Adjust path for local imports and data file opening. moduleLocation
 # represents the location of the module we want to import for testing. Use
 # import_module so we can perform the import after adjusting the path.

@@ -147,28 +147,24 @@ def main():  # noqa
     msg = """clean-up build products."""
     parser.add_argument('-c', '--clean',
                         help=msg,
-                        action='store_true',
-                        dest='clean')
+                        action='store_true')
 
     msg = """create a distribution package ready for publication to
     pypi, but do not actually publish. Good for installing locally and
     checking the integrity of the build before release."""
     parser.add_argument('-d', '--dist',
                         help=msg,
-                        action='store_true',
-                        dest='dist')
+                        action='store_true')
 
     msg = """create and push a distribution package to test.pypi.org."""
     parser.add_argument('-p', '--pushtest',
                         help=msg,
-                        action='store_true',
-                        dest='pushtest')
+                        action='store_true')
 
     msg = """run pytest with the --tb=short option."""
     parser.add_argument('-t', '--test',
                         help=msg,
-                        action='store_true',
-                        dest='test')
+                        action='store_true')
 
     msg = """bump the version number of the project based on the
     provided choice: major, minor, patch."""
@@ -180,11 +176,9 @@ def main():  # noqa
     pypi.org."""
     parser.add_argument('-r', '--release',
                         help=msg,
-                        action='store_true',
-                        dest='release')
+                        action='store_true')
 
     args = parser.parse_args()
-
     performTask(args)
 
     return
