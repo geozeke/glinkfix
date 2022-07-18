@@ -6,8 +6,6 @@ import argparse
 
 from glinkfix import fixlink
 
-# --------------------------------------------------------------------
-
 
 def main():
     """Initiate link fixing.
@@ -38,15 +36,9 @@ def main():
                        help=msg)
 
     args = parser.parse_args()
-
-    # ----------------------------------------------------------
-
     fixlink(args)
-
     return
 
-
-# --------------------------------------------------------------------
 
 if __name__ == '__main__':
     main()
