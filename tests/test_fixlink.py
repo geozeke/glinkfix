@@ -40,9 +40,9 @@ def test_fixlink(capsys, monkeypatch, case):
         test is run.
     monkeypatch : class MonkeyPatch
         A pytest object. It allows us to mock the input() function.
-    testcase : [str, str, str]
-        A list of three strings that have been parameterized to be used
-        for testing. The three strings represent (in order):
+    case : [str, str, str, str]
+        A list of four strings that have been parameterized to be used
+        for testing. The four strings represent (in order):
         mode (view | download), status (raise | noraise) input link,
         output link.
     """
