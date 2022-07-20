@@ -56,10 +56,10 @@ def fixlink(args):
     print('Enter a Google Drive sharing URL to be repackaged:\n')
     oldlink = input()
     resourcekey = None
-
     template = "https://drive.google.com/uc?export=ACTION&id=IDNUM"
     required1 = "https://drive.google.com/file/d/"
     required2 = "view?usp=sharing"
+
     if required1 not in oldlink and required2 not in oldlink:
         raise(InvalidLinkError)
 
@@ -80,10 +80,11 @@ def fixlink(args):
 
     print(f'\nClean {linkType} URL is:\n')
     newlink = action.replace("IDNUM", id)
+
     if resourcekey:
         newlink = f'{newlink}&resourcekey={resourcekey}'
-    print(f'{newlink}\n')
 
+    print(f'{newlink}\n')
     return
 
 
