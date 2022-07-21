@@ -61,13 +61,13 @@ def fixlink(args):
     prefix = "https://drive.google.com/file/d/"
     suffix = "/view\\?usp=sharing"
 
-    parts = re.findall(rf'{prefix}([0-9A-Za-z-*]*){suffix}', oldlink)
+    parts = re.findall(rf'{prefix}([0-9A-Za-z-]*){suffix}', oldlink)
     if len(parts) != 1:
         raise(InvalidLinkError)
     else:
         idstring = parts[0]
 
-    parts = re.findall(r'resourcekey=([0-9A-Za-z-*]*)', oldlink)
+    parts = re.findall(r'resourcekey=([0-9A-Za-z-]*)', oldlink)
     if len(parts) == 1:
         resourcekey = parts[0]
 
