@@ -1,6 +1,7 @@
 """Tools to perform link fixing."""
 
 import os
+import re
 
 
 class InvalidLinkError(Exception):
@@ -26,7 +27,7 @@ class InvalidLinkError(Exception):
         str
             The message string.
         """
-        return self.message
+        return self.message  # pragma no cover
 
 
 def clear():
@@ -57,19 +58,18 @@ def fixlink(args):
     oldlink = input()
     resourcekey = None
     template = "https://drive.google.com/uc?export=ACTION&id=IDNUM"
-    required1 = "https://drive.google.com/file/d/"
-    required2 = "view?usp=sharing"
+    prefix = "https://drive.google.com/file/d/"
+    suffix = "/view\\?usp=sharing"
 
-    if required1 not in oldlink and required2 not in oldlink:
+    parts = re.findall(rf'{prefix}([0-9A-Za-z-*]*){suffix}', oldlink)
+    if len(parts) != 1:
         raise(InvalidLinkError)
+    else:
+        idstring = parts[0]
 
-    try:
-        parts = oldlink.split('/')
-        id = parts[-2]
-        if 'resourcekey' in oldlink:
-            resourcekey = oldlink.split('=')[-1]
-    except IndexError:
-        raise(InvalidLinkError)
+    parts = re.findall(r'resourcekey=([0-9A-Za-z-*]*)', oldlink)
+    if len(parts) == 1:
+        resourcekey = parts[0]
 
     if args.view:
         action = template.replace('ACTION', 'view')
@@ -79,14 +79,12 @@ def fixlink(args):
         linkType = 'downloading'
 
     print(f'\nClean {linkType} URL is:\n')
-    newlink = action.replace("IDNUM", id)
-
+    newlink = action.replace("IDNUM", idstring)
     if resourcekey:
         newlink = f'{newlink}&resourcekey={resourcekey}'
-
     print(f'{newlink}\n')
     return
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma no cover
     pass
