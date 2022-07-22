@@ -27,7 +27,7 @@ class InvalidLinkError(Exception):
         str
             The message string.
         """
-        return self.message  # pragma no cover
+        return self.message
 
 
 def clear():
