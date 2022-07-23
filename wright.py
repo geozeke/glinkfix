@@ -9,6 +9,8 @@ import argparse
 import os
 import subprocess as sp
 import textwrap
+import webbrowser
+from pathlib import Path
 
 PROJNAME = 'glinkfix'
 
@@ -76,6 +78,23 @@ def test(*args):
     command = 'pytest --tb=short'
     print(command)
     sp.run(command.split())
+
+    return
+
+
+def coverage(*args):
+    """Generate an HTML version of a test coverage report."""
+    commands = []
+    commands.append('coverage run -m pytest')
+    commands.append('coverage report -m')
+    commands.append('coverage html')
+
+    for command in commands:
+        print(command)
+        sp.run(command.split())
+
+    p = Path(__file__).resolve().parent/'htmlcov/index.html'
+    webbrowser.open(f'file://{p}', new=2)
 
     return
 
@@ -163,6 +182,12 @@ def main():  # noqa
 
     msg = """run pytest with the --tb=short option."""
     parser.add_argument('-t', '--test',
+                        help=msg,
+                        action='store_true')
+
+    msg = """generate an HTML version of a code coverage report and open it in
+    the default browser."""
+    parser.add_argument('--coverage',
                         help=msg,
                         action='store_true')
 

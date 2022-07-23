@@ -28,11 +28,11 @@ When you share files with Google Drive, the sharing link you get is only good fo
 
 It's not especially hard to repackage the link, but it's a pain. You have to copy the link to a text editor, carve it up manually, and reassemble it. If you've got a lot of links to deal with, it starts to get very tedious. This tool is designed to remove the tedium.
 
-*Note: The animated gifs below are actually hosted on Google Drive, and the corrected links are embedded into this README file.*
+*Note: The animated gifs below are actually hosted on Google Drive, and the "fixed" links are embedded into this README file.*
 
 ---
 
-Start by getting a link to a file on Google Drive. Make sure it's set up for public access (*Anyone with the link*):
+Start by getting a sharing link to a file on Google Drive. Make sure it's set up for public access (*Anyone with the link*):
 
 ![Retrieving Google Link](https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2)
 
@@ -69,6 +69,10 @@ optional arguments:
 
 ## Version History
 
+* 1.0.8 (2022-07-23)
+  * Implemented code coverage for testing infrastructure.
+  * Code refactoring and linting.
+  <br><br>
 * 1.0.7 (2022-07-15)
   * Fixed handling of URLs with resource keys.
   * Code cleanup and refactoring.
