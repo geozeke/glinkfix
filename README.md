@@ -70,7 +70,7 @@ optional arguments:
 ## Version History
 
 * 1.0.8 (2022-07-23)
-  * Implemented code coverage infrastructure.
+  * Implemented code coverage for testing infrastructure.
   * Code refactoring and linting.
   <br><br>
 * 1.0.7 (2022-07-15)
