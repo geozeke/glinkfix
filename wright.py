@@ -21,6 +21,7 @@ def clean(*args):
     directories = []
     directories.append('__pycache__')
     directories.append('.pytest_cache')
+    directories.append('.mypy_cache')
     directories.append('build')
     directories.append('dist')
     directories.append('.eggs')
