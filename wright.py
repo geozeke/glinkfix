@@ -163,46 +163,47 @@ def main():  # noqa
     epi = "Latest update: 07/29/22"
 
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
+    group = parser.add_mutually_exclusive_group(required=True)
 
     msg = """clean-up build products."""
-    parser.add_argument('-c', '--clean',
-                        help=msg,
-                        action='store_true')
+    group.add_argument('-c', '--clean',
+                       help=msg,
+                       action='store_true')
 
     msg = """generate an HTML version of a code coverage report and open it in
     the default browser."""
-    parser.add_argument('-C', '--coverage',
-                        help=msg,
-                        action='store_true')
+    group.add_argument('-C', '--coverage',
+                       help=msg,
+                       action='store_true')
 
     msg = """create a distribution package ready for publication to
     pypi, but do not actually publish. Good for installing locally and
     checking the integrity of the build before release."""
-    parser.add_argument('-d', '--dist',
-                        help=msg,
-                        action='store_true')
+    group.add_argument('-d', '--dist',
+                       help=msg,
+                       action='store_true')
 
     msg = """run pytest with the --tb=short option."""
-    parser.add_argument('-t', '--test',
-                        help=msg,
-                        action='store_true')
+    group.add_argument('-t', '--test',
+                       help=msg,
+                       action='store_true')
 
     msg = """create and push a distribution package to test.pypi.org."""
-    parser.add_argument('-p', '--pushtest',
-                        help=msg,
-                        action='store_true')
+    group.add_argument('-p', '--pushtest',
+                       help=msg,
+                       action='store_true')
 
     msg = """bump the version number of the project based on the
     provided choice: major, minor, patch."""
-    parser.add_argument('-b', '--bump',
-                        help=msg,
-                        choices=['major', 'minor', 'patch'])
+    group.add_argument('-b', '--bump',
+                       help=msg,
+                       choices=['major', 'minor', 'patch'])
 
     msg = """generate a distribution package and release it to
     pypi.org."""
-    parser.add_argument('-r', '--release',
-                        help=msg,
-                        action='store_true')
+    group.add_argument('-r', '--release',
+                       help=msg,
+                       action='store_true')
 
     args = parser.parse_args()
     performTask(args)
