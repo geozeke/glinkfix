@@ -4,14 +4,14 @@
 
 import argparse
 
-from glinkfix import fixlink
+from glinkfix.tools import fix_link
 
 
-def main():
+def main() -> None:
     """Initiate link fixing.
 
     1. Generate an argument parser to collect command line input.
-    2. Call `fixlink` to perform link correction.
+    2. Call `fix_link` to perform link correction.
     """
     msg = """This program takes a Google Drive sharing link for a
     file and repackages it into a link that can be downloaded directly
@@ -19,7 +19,7 @@ def main():
     image in a markdown document). Note: there is a size limit of 40MB
     for a single file when using Google Drive links in this manner."""
 
-    epi = "Version: 1.0.8"
+    epi = "Version: 1.0.9"
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
     group = parser.add_mutually_exclusive_group(required=True)
 
@@ -36,7 +36,7 @@ def main():
                        help=msg)
 
     args = parser.parse_args()
-    fixlink(args)
+    fix_link(args)
     return
 
 

@@ -1,3 +1,1 @@
-__version__ = '1.0.8'
-
-from .tools import fixlink
+__version__ = '1.0.9'

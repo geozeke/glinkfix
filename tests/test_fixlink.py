@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test fixlink."""
+"""Test fix_link."""
 
 import csv
 from argparse import Namespace
@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 from glinkfix.tools import InvalidLinkError
-from glinkfix.tools import fixlink
+from glinkfix.tools import fix_link
 
 
 # Adjust path for local imports and data file opening. moduleLocation
@@ -30,8 +30,8 @@ def pytest_generate_tests(metafunc):
     metafunc.parametrize('case', testcases)
 
 
-def test_fixlink(capsys, monkeypatch, case):
-    """Test the fixlink function.
+def test_fix_link(capsys, monkeypatch, case):
+    """Test the fix_link function.
 
     Parameters
     ----------
@@ -52,7 +52,7 @@ def test_fixlink(capsys, monkeypatch, case):
     args.download = True if mode == 'download' else None
     monkeypatch.setattr('builtins.input', lambda: linkin)
     if status == 'noraise':
-        fixlink(args)
+        fix_link(args)
         useroutput, codeerrors = capsys.readouterr()
         # If the assertion is successful, the print statement below will be
         # suppressed.
@@ -60,6 +60,6 @@ def test_fixlink(capsys, monkeypatch, case):
         assert linkout in useroutput
     else:
         with pytest.raises(InvalidLinkError):
-            fixlink(args)
+            fix_link(args)
 
     monkeypatch.delattr('builtins.input')

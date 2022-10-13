@@ -69,6 +69,13 @@ optional arguments:
 
 ## Version History
 
+* 1.0.9 (2022-10-13)
+  * Fixed a bug when IDs or resource keys contain underscore characters (`_`)
+  * Additional test case for bug fix.
+  * Moved task runner to make.
+  * Build local virtual environment for development.
+  * Code refactoring and linting.
+  <br><br>
 * 1.0.8 (2022-07-23)
   * Implemented code coverage for testing infrastructure.
   * Code refactoring and linting.
