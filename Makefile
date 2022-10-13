@@ -76,14 +76,10 @@ reset: clean ## reinitialize the project
 clean: ## Purge project build artifacts
 	@echo Cleaning project artifacts
 # @find . -type d -name .mypy_cache -exec rm -rf {} \; -prune
+	@rm -rf build/
+	@rm -rf dist/
 	@find . -type d -name __pycache__ -exec rm -rf {} \; -prune
 	@find . -type d -name .pytest_cache -exec rm -rf {} \; -prune
-# Cleaning build directories requires special handling, since the local virtual
-# enviornment contains the "build" module. If ./venv is not excluded during
-# cleaning, the find command will delete the module and break things.
-	@find . -path ./venv -prune -o \
-	-type d -name build -exec rm -rf {} \; -prune
-	@find . -type d -name dist -exec rm -rf {} \; -prune
 	@find . -type d -name .eggs -exec rm -rf {} \; -prune
 	@find . -type d -name htmlcov -exec rm -rf {} \; -prune
 	@find . -type d -name *.egg-info -exec rm -rf {} \; -prune
