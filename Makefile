@@ -123,7 +123,7 @@ uptest: dist ## Upload a build to test.pypi.org
 # --------------------------------------------
 
 .PHONY: bump
-bump: ## Bump version. VER=major|minor|patch, DRY=Y|N
+bump: ## Bump version. VER=major|minor|patch, DRY=y|n
 	${BUMPCMD}
 
 # --------------------------------------------
