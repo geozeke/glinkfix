@@ -1,5 +1,6 @@
 """Tools to perform link fixing."""
 
+import argparse
 import os
 import re
 
@@ -30,7 +31,7 @@ class InvalidLinkError(Exception):
         return self.message
 
 
-def clear():
+def clear() -> None:
     """Clear the screen.
 
     OS-agnostic version, which will work with both Windows and Linux.
@@ -38,7 +39,7 @@ def clear():
     os.system('clear' if os.name == 'posix' else 'cls')
 
 
-def fixlink(args):
+def fix_link(args: argparse.Namespace) -> None:
     """Fix malformed Google link.
 
     Prompt for a Google link to fix (usually entered by pasting into the
@@ -46,7 +47,7 @@ def fixlink(args):
 
     Parameters
     ----------
-    args : argparse
+    args : argparse.Namespace
         Command line arguments to determine how to prep the fixed link.
         If `-v` was selected (`args.view`) then prep the link for
         embedding into a file. If `-d` was selected (`args.download`)
@@ -55,34 +56,34 @@ def fixlink(args):
     clear()
 
     print('Enter a Google Drive sharing URL to be repackaged:\n')
-    oldlink = input()
+    old_link = input()
     resourcekey = None
     template = "https://drive.google.com/uc?export=ACTION&id=IDNUM"
     prefix = "https://drive.google.com/file/d/"
     suffix = "/view\\?usp=sharing"
 
-    parts = re.findall(rf'{prefix}([0-9A-Za-z-]*){suffix}', oldlink)
+    parts = re.findall(rf'{prefix}([0-9A-Za-z_-]*){suffix}', old_link)
     if len(parts) != 1:
-        raise(InvalidLinkError)
+        raise InvalidLinkError
     else:
         idstring = parts[0]
 
-    parts = re.findall(r'resourcekey=([0-9A-Za-z-]*)', oldlink)
+    parts = re.findall(r'resourcekey=([0-9A-Za-z_-]*)', old_link)
     if len(parts) == 1:
         resourcekey = parts[0]
 
     if args.view:
         action = template.replace('ACTION', 'view')
-        linkType = 'viewing'
+        link_type = 'viewing'
     else:
         action = template.replace('ACTION', 'download')
-        linkType = 'downloading'
+        link_type = 'downloading'
 
-    print(f'\nClean {linkType} URL is:\n')
-    newlink = action.replace("IDNUM", idstring)
+    print(f'\nClean {link_type} URL is:\n')
+    new_link = action.replace("IDNUM", idstring)
     if resourcekey:
-        newlink = f'{newlink}&resourcekey={resourcekey}'
-    print(f'{newlink}\n')
+        new_link = f'{new_link}&resourcekey={resourcekey}'
+    print(f'{new_link}\n')
     return
 
 
