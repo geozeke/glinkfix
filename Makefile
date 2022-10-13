@@ -74,7 +74,7 @@ reset: clean ## reinitialize the project
 
 .PHONY: clean
 clean: ## Purge project build artifacts
-	@echo Cleaning project artifacts
+	@echo Cleaning project build artifacts
 # @find . -type d -name .mypy_cache -exec rm -rf {} \; -prune
 	@rm -rf build/
 	@rm -rf dist/
