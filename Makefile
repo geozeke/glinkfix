@@ -68,14 +68,15 @@ update: .init/setup ## update pip packages in venv
 
 .PHONY: reset
 reset: clean ## reinitialize the project
-	rm -rf venv .init
+	@echo Resetting project state
+	@rm -rf .mypy_cache
+	@rm -rf venv .init
 
 # --------------------------------------------
 
 .PHONY: clean
 clean: ## Purge project build artifacts
 	@echo Cleaning project build artifacts
-# @find . -type d -name .mypy_cache -exec rm -rf {} \; -prune
 	@rm -rf build/
 	@rm -rf dist/
 	@find . -type d -name __pycache__ -exec rm -rf {} \; -prune
@@ -128,8 +129,8 @@ bump: ## Bump version. VER=major|minor|patch, DRY=y|n
 release: dist ## Upload release version to pypi
 	twine upload dist/* --repository ${PROJNAME}-release
 
-
 # --------------------------------------------
+
 .PHONY: help
 help: ## Show help
 	@echo Please specify a target. Choices are:
