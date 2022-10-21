@@ -53,11 +53,11 @@ poetry add glinkfix
 
 ## Purpose / Usage
 
-When you share files with Google Drive, the sharing link you get is only good for accessing the content through a web browser. If you want to use a Google Drive sharing link to embed an image in a document (e.g. in a markdown or html file), or you want to directly download a file pointed-to by a Google Drive sharing link using something like `curl` or `wget` in linux, the link needs to be adjusted ("fixed") for these purposes.
+When you share files with Google Drive the sharing link you get is only good for accessing the content through a web browser. If you want to use a Google Drive sharing link to embed an image in a document (e.g. in a markdown or html file), or you want to directly download a file pointed-to by a Google Drive sharing link using something like `curl` or `wget` in linux, the link needs to be adjusted ("fixed") for these purposes.
 
-It's not especially hard to repackage the link, but it's a pain. You have to copy the link to a text editor, carve it up manually, and reassemble it. If you've got a lot of links to deal with, it starts to get very tedious. This tool is designed to remove the tedium.
+It's not especially hard to repackage the link, but it's a pain. You have to copy the link to a text editor, carve it up manually, and reassemble it. If you've got a lot of links to deal with it starts to get very tedious. This tool is designed to remove the tedium.
 
-*Note: The animated gifs below are actually hosted on Google Drive, and the "fixed" links are embedded into this README file.*
+*Note: The animated gifs below are actually hosted on Google Drive and the "fixed" links are embedded into this README file.*
 
 ---
 
@@ -93,11 +93,14 @@ optional arguments:
 ## Usage Notes
 
 * There is a 40MB size limit for a single file when using Google Drive sharing links directly for viewing or downloading. Individual files larger than 40MB will not render/download properly. This limit is a function of how Google Drive works and is not related to `glinkfix`.
-* When creating a download link for use with `curl`, make sure to use `curl`'s `-L` option to allow for redirects.
+* When creating a download link for use with `curl` make sure to use `curl`'s `-L` option to allow for redirects.
 * `glinkfix` supports links that use Google's [resource key](https://support.google.com/a/answer/10685032) security feature.
 
 ## Version History
 
+* 1.0.10 (2022-10-21)
+  * Migrated dependency/build management to [poetry](https://python-poetry.org/).
+  <br><br>
 * 1.0.9 (2022-10-13)
   * Fixed a bug when IDs or resource keys contain underscore characters (`_`)
   * Additional test case for bug fix.
