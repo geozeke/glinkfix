@@ -9,9 +9,33 @@
 
 <br>
 
-<img src="https://drive.google.com/uc?export=view&id=1H04KVAA3ohH_dLXIrC0bXuJXDn3VutKc" width="120"/>
+<img src=./assets/logo.png width="120"/>
 
 # Google Drive Link Fixer
+
+## A note to developers
+
+If you're just using glinkfix, then carry on!
+
+If you're a developer looking to folk this repository and modify glinkfix,
+there are two important considerations:
+
+1. I used [poetry](https://python-poetry.org/) for dependency and publication management when
+   developing glinkfix. Poetry is well behaved and if you're a Python developer
+   you should check it out. It installs itself in a virtual environment,
+   uninstalls cleanly and easily, and doesn't require `sudo` for installation. To install poetry, run this command:
+
+   ```shell
+   curl -sSL https://install.python-poetry.org | python3 -
+   ```
+
+2. I've included a file called `global-gitignore.txt` which is a copy of the
+   `.gitignore` I placed in my home directory and configured globally for all
+   my development projects. The `global-gitignore.txt` file reflects my
+   development setup (for example using tools like vscode), but yours may be
+   different. Just cherry-pick any necessary elements from `global-gitignore.txt` for your own use.
+
+   *Details on gitignore files are available on [GitHub](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).*
 
 ## Installation
 
@@ -19,6 +43,12 @@ The Google Drive Link Fixer is lightweight, pure Python, with no third-party dep
 
 ```text
 pip3 install glinkfix  
+```
+
+or
+
+```text
+poetry add glinkfix
 ```
 
 ## Purpose / Usage
