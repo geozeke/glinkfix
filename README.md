@@ -5,7 +5,6 @@
 ![GitHub issues](https://img.shields.io/github/issues/geozeke/glinkfix)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/glinkfix)
 ![GitHub repo size](https://img.shields.io/github/repo-size/geozeke/glinkfix)
-![Lines of code](https://img.shields.io/tokei/lines/github/geozeke/glinkfix)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/glinkfix)
 
 <br>
