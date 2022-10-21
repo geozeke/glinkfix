@@ -9,7 +9,7 @@
 
 <br>
 
-<img src=assets/logo.png width="120"/>
+<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=true" width="120"/>
 
 # Google Drive Link Fixer
 
@@ -118,7 +118,7 @@ optional arguments:
 
 ## Version History
 
-* 1.0.10 (2022-10-21)
+* 1.0.11 (2022-10-21)
   * Migrated dependency/build management to [poetry](https://python-poetry.org/).
   <br><br>
 * 1.0.9 (2022-10-13)

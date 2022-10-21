@@ -1,13 +1,12 @@
 [tool.poetry]
 name = "glinkfix"
-version = "1.0.10"
+version = "1.0.11"
 description = "Google Drive Link Fixer"
 authors = ["Peter Nardi <pete@nardi.com>"]
 maintainers = ["Peter Nardi <pete@nardi.com>"]
 homepage = "https://github.com/geozeke/glinkfix"
 license = "MIT"
 readme = "README.md"
-include = ["assets"]
 keywords = [
 	"glinkfix",
 	"google",
