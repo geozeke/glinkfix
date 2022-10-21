@@ -9,7 +9,7 @@
 
 <br>
 
-<img src=./assets/logo.png width="120"/>
+<img src=assets/logo.png width="120"/>
 
 # Google Drive Link Fixer
 
@@ -17,7 +17,7 @@
 
 If you're just using glinkfix, then carry on!
 
-If you're a developer looking to folk this repository and modify glinkfix,
+If you're a developer looking to fork this repository and modify glinkfix,
 there are two important considerations:
 
 1. I used [poetry](https://python-poetry.org/) for dependency and publication management when
