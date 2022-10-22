@@ -1,13 +1,4 @@
 PROJNAME=glinkfix
-VENV=venv/${PROJNAME}
-VER=patch
-DRY=y
-
-ifeq (${DRY},n)
-	BUMPCMD?=bump2version ${VER}
-else
-	BUMPCMD?=bump2version ${VER} --dry-run --verbose
-endif
 
 ifeq (${MAKECMDGOALS},coverage)
 	WEBPATH=htmlcov/index.html
@@ -32,19 +23,13 @@ all: help
 # --------------------------------------------
 
 .PHONY: setup
-setup: ## initialize the project and create python venv
+setup: ## initialize the project and python venv
 ifeq (,$(wildcard .init/setup))
-	@(which pip3 > /dev/null 2>&1) || \
-	(echo "pip3 missing, run: sudo apt install pip3"; exit 1)
-	@(python3 -m venv -h > /dev/null 2>&1) || \
-	(echo "python3-venv missing, run: sudo apt install python3-venv"; exit 1)
-	mkdir venv
+	@(which poetry > /dev/null 2>&1) || \
+	(echo "pymids requires poetry. See README for instructions."; exit 1)
 	mkdir .init
 	touch .init/setup
-	python3 -m venv ${VENV}
-	. ${VENV}/bin/activate; \
-	pip3 install pip -U; \
-	pip3 install -r requirements.txt -U
+	poetry install
 else
 	@echo "Initial setup is already complete. If you are having issues, run:"
 	@echo
@@ -55,22 +40,11 @@ endif
 
 # --------------------------------------------
 
-# Manually activate the python virtual enviornment just to ensure that no pip
-# packages are unintentionally installed if the user hasn't already activated
-# the venv.
-.PHONY: update
-update: .init/setup ## update pip packages in venv
-	. ${VENV}/bin/activate; \
-	pip3 install pip -U; \
-	pip3 install -r requirements.txt -U
-
-# --------------------------------------------
-
 .PHONY: reset
 reset: clean ## reinitialize the project
 	@echo Resetting project state
 	@rm -rf .mypy_cache
-	@rm -rf venv .init
+	@rm -rf .venv .init
 
 # --------------------------------------------
 
@@ -100,34 +74,9 @@ coverage: ## Generate an html code coverage report
 
 # --------------------------------------------
 
-.PHONY: dist
-dist: clean ## Build (but don't upload) distribution products
-	python3 -m build
-	twine check dist/*
-
-# --------------------------------------------
-
 .PHONY: test
 test: ## Run pytest with --tb=short option
 	pytest --tb=short
-
-# --------------------------------------------
-
-.PHONY: uptest
-uptest: dist ## Upload a build to test.pypi.org
-	twine upload dist/* --repository ${PROJNAME}-test
-
-# --------------------------------------------
-
-.PHONY: bump
-bump: ## Bump version. VER=major|minor|patch, DRY=y|n
-	${BUMPCMD}
-
-# --------------------------------------------
-
-.PHONY: release
-release: dist ## Upload release version to pypi
-	twine upload dist/* --repository ${PROJNAME}-release
 
 # --------------------------------------------
 
