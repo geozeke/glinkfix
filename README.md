@@ -118,6 +118,9 @@ optional arguments:
 
 ## Version History
 
+* 1.0.12 (2022-10-22)
+  * Regression bug fixes.
+  <br><br>
 * 1.0.11 (2022-10-21)
   * Migrated dependency/build management to [poetry](https://python-poetry.org/).
   <br><br>
