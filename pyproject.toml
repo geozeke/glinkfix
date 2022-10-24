@@ -7,6 +7,7 @@ maintainers = ["Peter Nardi <pete@nardi.com>"]
 homepage = "https://github.com/geozeke/glinkfix"
 license = "MIT"
 readme = "README.md"
+packages = [{include = "glinkfix", from = "src"}]
 keywords = [
 	"glinkfix",
 	"google",
@@ -34,6 +35,9 @@ classifiers = [
 [tool.poetry.urls] 
 "Source Code" = "https://github.com/geozeke/glinkfix"
 "Bug Tracker" = "https://github.com/geozeke/glinkfix/issues"
+
+[tool.poetry.scripts]
+glinkfix = "glinkfix.__main__:main"
 
 [tool.poetry.dependencies]
 python = "^3.7"
