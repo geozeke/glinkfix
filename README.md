@@ -118,6 +118,11 @@ optional arguments:
 
 ## Version History
 
+* 1.0.13 (2022-11-03)
+  * Google made a breaking change to the format for sharing links (not that
+    they checked with me first 😊). This patch updates glinkfix to support the
+    change.
+  <br><br>
 * 1.0.12 (2022-10-22)
   * Regression bug fixes.
   <br><br>
