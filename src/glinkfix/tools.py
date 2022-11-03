@@ -60,9 +60,12 @@ def fix_link(args: argparse.Namespace) -> None:
     resourcekey = None
     template = "https://drive.google.com/uc?export=ACTION&id=IDNUM"
     prefix = "https://drive.google.com/file/d/"
-    suffix = "/view\\?usp=sharing"
-
+    if "share_link" in old_link:
+        suffix = "/view\\?usp=share_link"
+    else:
+        suffix = "/view\\?usp=sharing"
     parts = re.findall(rf'{prefix}([0-9A-Za-z_-]*){suffix}', old_link)
+
     if len(parts) != 1:
         raise InvalidLinkError
     else:
