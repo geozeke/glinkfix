@@ -54,6 +54,7 @@ clean: ## Purge project build artifacts
 	@rm -rf build/
 	@rm -rf dist/
 	@find . -type d -name __pycache__ -exec rm -rf {} \; -prune
+	@find . -type d -name .ipynb_checkpoints -exec rm -rf {} \; -prune
 	@find . -type d -name .pytest_cache -exec rm -rf {} \; -prune
 	@find . -type d -name .eggs -exec rm -rf {} \; -prune
 	@find . -type d -name htmlcov -exec rm -rf {} \; -prune
