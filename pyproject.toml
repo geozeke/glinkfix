@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "glinkfix"
-version = "1.0.13"
+version = "1.0.14"
 description = "Google Drive Link Fixer"
 authors = ["Peter Nardi <pete@nardi.com>"]
 maintainers = ["Peter Nardi <pete@nardi.com>"]
 homepage = "https://github.com/geozeke/glinkfix"
 license = "MIT"
 readme = "README.md"
-packages = [{include = "glinkfix", from = "src"}]
+packages = [{ include = "glinkfix", from = "src" }]
 keywords = [
 	"glinkfix",
 	"google",
@@ -17,9 +17,9 @@ keywords = [
 	"markdown",
 	"embed",
 	"image",
-	"download"
+	"download",
 ]
-classifiers = [ 
+classifiers = [
 	"Development Status :: 5 - Production/Stable",
 	"Intended Audience :: Developers",
 	"License :: OSI Approved :: MIT License",
@@ -29,10 +29,10 @@ classifiers = [
 	"Programming Language :: Python :: 3.7",
 	"Programming Language :: Python :: 3.8",
 	"Programming Language :: Python :: 3.9",
-	"Programming Language :: Python :: 3.10"
+	"Programming Language :: Python :: 3.10",
 ]
 
-[tool.poetry.urls] 
+[tool.poetry.urls]
 "Source Code" = "https://github.com/geozeke/glinkfix"
 "Bug Tracker" = "https://github.com/geozeke/glinkfix/issues"
 

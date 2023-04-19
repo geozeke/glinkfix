@@ -20,15 +20,16 @@ If you're just using glinkfix, then carry on!
 If you're a developer looking to fork this repository and modify glinkfix,
 there are two important considerations:
 
-1. I used [poetry](https://python-poetry.org/) for dependency and publication
-   management when developing glinkfix. Poetry is well behaved and if you're a
-   Python developer you should check it out. It installs itself in a virtual
-   environment, uninstalls cleanly and easily, and doesn't require `sudo` for
-   installation. To install poetry, run this command:
+1. glinkfix requires [poetry](https://python-poetry.org/) for dependency
+   management. Poetry is well behaved and if you're a Python developer you
+   should check it out. It installs itself in a virtual environment, uninstalls
+   cleanly and easily, and doesn't require `sudo` for installation. Visit the
+   [poetry site](https://python-poetry.org/) and install it using the
+   instructions for your operating system.
 
-   ```shell
-   curl -sSL https://install.python-poetry.org | python3 -
-   ```
+   _Note: When you install poetry, pay careful attention to the message printed
+   by the poetry installer. It provides details on how to modify `$PATH` to
+   access the poetry runtime._
 
 2. I've included a file called `global-gitignore.txt` which is a copy of the
    `.gitignore` I placed in my home directory and configured globally for all
@@ -37,8 +38,8 @@ there are two important considerations:
    different. Just cherry-pick any necessary elements from
    `global-gitignore.txt` for your own use.
 
-   *Details on gitignore files are available on
-   [GitHub](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).*
+   _Details on gitignore files are available on
+   [GitHub](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files)._
 
 ## Installation
 
@@ -69,13 +70,13 @@ copy the link to a text editor, carve it up manually, and reassemble it. If
 you've got a lot of links to deal with it starts to get very tedious. This tool
 is designed to remove the tedium.
 
-*Note: The animated gifs below are actually hosted on Google Drive and the
-"fixed" links are embedded into this README file.*
+_Note: The animated gifs below are actually hosted on Google Drive and the
+"fixed" links are embedded into this README file._
 
 ---
 
 Start by getting a sharing link to a file on Google Drive. Make sure it's set
-up for public access (*Anyone with the link*):
+up for public access (_Anyone with the link_):
 
 ![Retrieving Google Link](https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2)
 
@@ -118,6 +119,9 @@ optional arguments:
 
 ## Version History
 
+* 1.0.14 (2023-04-19)
+  * Documentation cleanup.
+  <br><br>
 * 1.0.13 (2022-11-03)
   * Google made a breaking change to the format for sharing links (not that
     they checked with me first 😊). This patch updates glinkfix to support the
