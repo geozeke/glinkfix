@@ -40,10 +40,10 @@ def clear() -> None:
 
 
 def fix_link(args: argparse.Namespace) -> None:
-    """Fix malformed Google link.
+    """Fix malformed Google Drive link.
 
-    Prompt for a Google link to fix (usually entered by pasting into the
-    terminal) and generate a corrected version.
+    Prompt for a Google Drive link to fix (usually entered by pasting
+    into the terminal) and generate a corrected version.
 
     Parameters
     ----------
