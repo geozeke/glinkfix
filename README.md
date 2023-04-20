@@ -58,7 +58,7 @@ poetry add glinkfix
 
 ## Purpose / Usage
 
-When you share files with Google Drive the sharing link you get is only good
+When you share files with Google Drive, the sharing link you get is only good
 for accessing the content through a web browser. If you want to use a Google
 Drive sharing link to embed an image in a document (e.g. in a markdown or html
 file), or you want to directly download a file pointed-to by a Google Drive
