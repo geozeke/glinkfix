@@ -1,3 +1,7 @@
 [virtualenvs]
 in-project = true
-prefer-active-python = true
+# This setting is useful if you're using pyenv to test with multiple versions
+# of python. If so, uncomment this to create a virtual environment based on the
+# currently active python version.
+
+# prefer-active-python = true
