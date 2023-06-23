@@ -36,7 +36,7 @@ def clear() -> None:
 
     OS-agnostic version, which will work with both Windows and Linux.
     """
-    os.system('clear' if os.name == 'posix' else 'cls')
+    os.system("clear" if os.name == "posix" else "cls")
 
 
 def fix_link(args: argparse.Namespace) -> None:
@@ -55,7 +55,7 @@ def fix_link(args: argparse.Namespace) -> None:
     """
     clear()
 
-    print('Enter a Google Drive sharing URL to be repackaged:\n')
+    print("Enter a Google Drive sharing URL to be repackaged:\n")
     old_link = input()
     resourcekey = None
     template = "https://drive.google.com/uc?export=ACTION&id=IDNUM"
@@ -64,31 +64,31 @@ def fix_link(args: argparse.Namespace) -> None:
         suffix = "/view\\?usp=share_link"
     else:
         suffix = "/view\\?usp=sharing"
-    parts = re.findall(rf'{prefix}([0-9A-Za-z_-]*){suffix}', old_link)
+    parts = re.findall(rf"{prefix}([0-9A-Za-z_-]*){suffix}", old_link)
 
     if len(parts) != 1:
         raise InvalidLinkError
     else:
         idstring = parts[0]
 
-    parts = re.findall(r'resourcekey=([0-9A-Za-z_-]*)', old_link)
+    parts = re.findall(r"resourcekey=([0-9A-Za-z_-]*)", old_link)
     if len(parts) == 1:
         resourcekey = parts[0]
 
     if args.view:
-        action = template.replace('ACTION', 'view')
-        link_type = 'viewing'
+        action = template.replace("ACTION", "view")
+        link_type = "viewing"
     else:
-        action = template.replace('ACTION', 'download')
-        link_type = 'downloading'
+        action = template.replace("ACTION", "download")
+        link_type = "downloading"
 
-    print(f'\nClean {link_type} URL is:\n')
+    print(f"\nClean {link_type} URL is:\n")
     new_link = action.replace("IDNUM", idstring)
     if resourcekey:
-        new_link = f'{new_link}&resourcekey={resourcekey}'
-    print(f'{new_link}\n')
+        new_link = f"{new_link}&resourcekey={resourcekey}"
+    print(f"{new_link}\n")
     return
 
 
-if __name__ == '__main__':  # pragma no cover
+if __name__ == "__main__":  # pragma no cover
     pass

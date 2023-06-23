@@ -20,6 +20,7 @@ def main() -> None:
     for a single file when using Google Drive links in this manner."""
 
     epi = "Version: 1.0.15"
+
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
     group = parser.add_mutually_exclusive_group(required=True)
 
