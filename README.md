@@ -27,9 +27,9 @@ there are two important considerations:
    [poetry site](https://python-poetry.org/) and install it using the
    instructions for your operating system.
 
-   _Note: When you install poetry, pay careful attention to the message printed
+   *Note: When you install poetry, pay careful attention to the message printed
    by the poetry installer. It provides details on how to modify `$PATH` to
-   access the poetry runtime._
+   access the poetry runtime.*
 
 2. I've included a file called `global-gitignore.txt` which is a copy of the
    `.gitignore` I placed in my home directory and configured globally for all
@@ -38,8 +38,8 @@ there are two important considerations:
    different. Just cherry-pick any necessary elements from
    `global-gitignore.txt` for your own use.
 
-   _Details on gitignore files are available on
-   [GitHub](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files)._
+   *Details on gitignore files are available on
+   [GitHub](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).*
 
 ## Installation
 
@@ -70,13 +70,13 @@ copy the link to a text editor, carve it up manually, and reassemble it. If
 you've got a lot of links to deal with it starts to get very tedious. This tool
 is designed to remove the tedium.
 
-_Note: The animated gifs below are actually hosted on Google Drive and the
-"fixed" links are embedded into this README file._
+*Note: The animated gifs below are actually hosted on Google Drive and the
+"fixed" links are embedded into this README file.*
 
 ---
 
 Start by getting a sharing link to a file on Google Drive. Make sure it's set
-up for public access (_Anyone with the link_):
+up for public access (*Anyone with the link*):
 
 ![Retrieving Google Link](https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2)
 
@@ -119,6 +119,9 @@ optional arguments:
 
 ## Version History
 
+* 1.0.15 (2023-06-23)
+  * Migrated code formatter to *black*.
+  <br><br>
 * 1.0.14 (2023-04-19)
   * Documentation cleanup.
   <br><br>

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "glinkfix"
-version = "1.0.14"
+version = "1.0.15"
 description = "Google Drive Link Fixer"
 authors = ["Peter Nardi <pete@nardi.com>"]
 maintainers = ["Peter Nardi <pete@nardi.com>"]
@@ -48,7 +48,7 @@ pytest = "^7.1.3"
 flake8 = "^5.0.4"
 flake8-docstrings = "^1.6.0"
 mypy = "^0.982"
-autopep8 = "2.0.0"
+black = "^23.3.0"
 
 [build-system]
 requires = ["poetry-core"]
