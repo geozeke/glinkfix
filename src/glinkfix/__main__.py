@@ -19,26 +19,23 @@ def main() -> None:
     image in a markdown document). Note: there is a size limit of 40MB
     for a single file when using Google Drive links in this manner."""
 
-    epi = "Version: 1.0.14"
+    epi = "Version: 1.0.15"
+
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
     group = parser.add_mutually_exclusive_group(required=True)
 
     msg = """repackage the link for viewing (e.g. as an embedded
     link in a markdown document)."""
-    group.add_argument('-v', '--view',
-                       action='store_true',
-                       help=msg)
+    group.add_argument("-v", "--view", action="store_true", help=msg)
 
     msg = """repackage the link for downloading (e.g. downloading
     using curl)."""
-    group.add_argument('-d', '--download',
-                       action='store_true',
-                       help=msg)
+    group.add_argument("-d", "--download", action="store_true", help=msg)
 
     args = parser.parse_args()
     fix_link(args)
     return
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
