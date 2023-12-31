@@ -9,7 +9,8 @@
 
 <br>
 
-<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=true" width="120"/>
+<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=true"
+alt="Dinobox logo" width="120"/>
 
 # Google Drive Link Fixer
 
@@ -119,6 +120,9 @@ optional arguments:
 
 ## Version History
 
+* 1.0.16 (2023-12-31)
+  * Cleaned up packaging for better [PEP
+  561](https://peps.python.org/pep-0561/) compliance <br><br>
 * 1.0.15 (2023-06-23)
   * Migrated code formatter to *black*.
   <br><br>

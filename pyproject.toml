@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "glinkfix"
-version = "1.0.15"
+version = "1.0.16"
 description = "Google Drive Link Fixer"
 authors = ["Peter Nardi <pete@nardi.com>"]
 maintainers = ["Peter Nardi <pete@nardi.com>"]
@@ -26,10 +26,11 @@ classifiers = [
 	"Natural Language :: English",
 	"Operating System :: OS Independent",
 	"Topic :: Utilities",
-	"Programming Language :: Python :: 3.7",
 	"Programming Language :: Python :: 3.8",
 	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
 ]
 
 [tool.poetry.urls]
@@ -40,7 +41,7 @@ classifiers = [
 glinkfix = "glinkfix.__main__:main"
 
 [tool.poetry.dependencies]
-python = ">=3.8, <3.10"
+python = "^3.8"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^6.5.0"
