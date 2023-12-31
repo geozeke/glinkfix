@@ -137,6 +137,7 @@ optional arguments:
 * 1.0.16 (2023-12-31)
   * Cleaned up packaging for better [PEP
   561](https://peps.python.org/pep-0561/) compliance.
+  * Dropped support for Python <=3.7
   <br><br>
 * 1.0.15 (2023-06-23)
   * Migrated code formatter to *black*.
