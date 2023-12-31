@@ -6,7 +6,9 @@ from argparse import Namespace
 from pathlib import Path
 
 import pytest
-from glinkfix.tools import InvalidLinkError, fix_link
+
+from glinkfix.tools import InvalidLinkError
+from glinkfix.tools import fix_link
 
 # Adjust path for local imports and data file opening. moduleLocation
 # represents the location of the module we want to import for testing. Use
