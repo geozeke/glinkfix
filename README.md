@@ -45,7 +45,7 @@ there are two important considerations:
 ## Installation
 
 The Google Drive Link Fixer is lightweight, pure Python, with no third-party
-dependencies.
+dependencies. You could install it within a virtual environment using pip3:
 
 ```text
 pip3 install glinkfix  
@@ -53,9 +53,20 @@ pip3 install glinkfix
 
 or
 
+You could install it using [pipx](https://pipx.pypa.io/stable/):
+
 ```text
-poetry add glinkfix
+pipx install glinkfix
 ```
+
+If you just need a quick one-time link fix, and don't want to commit to
+a full installation, use:
+
+```text
+pipx run glinkfix -h
+```
+
+and follow the directions to run it again with the option you want.
 
 ## Purpose / Usage
 
@@ -120,9 +131,13 @@ optional arguments:
 
 ## Version History
 
+* 1.0.17 (2024-XX-XX)
+  * Updated installation options to include [pipx](https://pipx.pypa.io/stable/).
+  <br><br>
 * 1.0.16 (2023-12-31)
   * Cleaned up packaging for better [PEP
-  561](https://peps.python.org/pep-0561/) compliance <br><br>
+  561](https://peps.python.org/pep-0561/) compliance.
+  <br><br>
 * 1.0.15 (2023-06-23)
   * Migrated code formatter to *black*.
   <br><br>
