@@ -131,9 +131,16 @@ optional arguments:
 
 ## Version History
 
-* 1.0.17 (2024-01-23)
+* 1.2.0 (2024-01-23)
   * Updated installation options to include [pipx](https://pipx.pypa.io/stable/).
-  <br><br>
+  * Dropped support for converting timestamps to local machine time.
+    Processing local timezones across multiple architectures and
+    operating systems is a bit of a hot mess in Python right now.
+    There's just too much variability with regard to OS Settings,
+    location, daylight savings time, etc. The performance of this
+    feature was spotty at best. There is still support for the
+    *original* timezone and converstion to
+    [*UTC*](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).<br><br>
 * 1.0.16 (2023-12-31)
   * Cleaned up packaging for better [PEP
   561](https://peps.python.org/pep-0561/) compliance.
