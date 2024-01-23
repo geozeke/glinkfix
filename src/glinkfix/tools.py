@@ -82,7 +82,7 @@ def fix_link(args: argparse.Namespace) -> None:
         action = template.replace("ACTION", "download")
         link_type = "downloading"
 
-    print(f"\nClean {link_type} URL is:\n")
+    print(f"\nClean {link_type} URL is:\n")  # noqa
     new_link = action.replace("IDNUM", idstring)
     if resourcekey:
         new_link = f"{new_link}&resourcekey={resourcekey}"

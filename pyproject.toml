@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "glinkfix"
-version = "1.0.16"
+version = "1.0.17"
 description = "Google Drive Link Fixer"
 authors = ["Peter Nardi <pete@nardi.com>"]
 maintainers = ["Peter Nardi <pete@nardi.com>"]
