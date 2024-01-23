@@ -131,7 +131,7 @@ optional arguments:
 
 ## Version History
 
-* 1.0.17 (2024-XX-XX)
+* 1.0.17 (2024-01-23)
   * Updated installation options to include [pipx](https://pipx.pypa.io/stable/).
   <br><br>
 * 1.0.16 (2023-12-31)
