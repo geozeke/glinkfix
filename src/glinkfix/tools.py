@@ -28,7 +28,7 @@ def fix_link(args: argparse.Namespace) -> None:
     regex = f"{p1}{p2}{p3}{p4}"
     view_template = "https://lh3.googleusercontent.com/d/IDNUM"
     download_prefix = "https://drive.google.com"
-    download_template = f"{download_prefix}/uc?export=download&id=IDNUM"
+    download_template = rf"{download_prefix}/uc?export=download\&id=IDNUM"
     new_link = ""
 
     if re.fullmatch(regex, oldlink):
@@ -52,9 +52,9 @@ def fix_link(args: argparse.Namespace) -> None:
             link_copy_succeeded = False
 
         if link_copy_succeeded:
-            msg = f"\nThis link ({url_type}) was copied to the clipboard:"
+            msg = f"\nFixed link ({url_type}) was copied to the clipboard:"
         else:
-            msg = f"\nManually copy/paste this link ({url_type}):"
+            msg = f"\nManually copy/paste this fixed link ({url_type}):"
 
         print(msg)
         print(f"{new_link}\n")
