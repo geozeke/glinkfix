@@ -44,9 +44,20 @@ def fix_link(args: argparse.Namespace) -> None:
         if "resourcekey" in oldlink:
             key = oldlink.split("resourcekey=")[-1]
             new_link = f"{new_link}&resourcekey={key}"
-        print(f"\nThis link ({url_type}) was also copied to the clipboard:")
+
+        try:
+            pc.copy(new_link)
+            link_copy_succeeded = True
+        except pc.PyperclipException:
+            link_copy_succeeded = False
+
+        if link_copy_succeeded:
+            msg = f"\nThis link ({url_type}) was copied to the clipboard:"
+        else:
+            msg = f"\nManually copy/paste this link ({url_type}):"
+
+        print(msg)
         print(new_link)
-        pc.copy(new_link)
 
     else:
         print("\nInput url is not a valid Google Drive Sharing Link.")

@@ -14,7 +14,16 @@ alt="Dinobox logo" width="120"/>
 
 # Google Drive Link Fixer
 
-## A note to developers
+*Note: glinkfix will automatically attempt to copy fixed URLs to the
+clipboard. Copying to the clipboard only works for GUI-based operating
+systems (not server installs). Even without copying, link fixing will
+still happen and the results will be displayed on the screen, regardless
+of where you run it. glinkfix uses the [pyperclip][def9] library, and
+automatic copying to the clipboard should work seamlessly on
+Windows/Mac. If you're running Linux and have an issue, [refer to this
+note][def8] from the pyperclip developer.*
+
+## To Developers
 
 If you're just using glinkfix, then carry on!
 
@@ -138,3 +147,5 @@ View releases on the [glinkfix git repository][def7]
 [def5]: https://lh3.googleusercontent.com/d/1wrrGh-cm_Hf7hH5WN_aCO-wwxIsrk6j5
 [def6]: https://support.google.com/a/answer/10685032
 [def7]: https://github.com/geozeke/glinkfix
+[def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
+[def9]: https://pypi.org/project/pyperclip/
