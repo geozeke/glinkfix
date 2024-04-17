@@ -20,7 +20,7 @@ def fix_link(args: argparse.Namespace) -> None:
         was selected (`args.download`) then prep the link for use with a
         download tool like `curl`.
     """
-    oldlink = input("Link to fix: ")
+    oldlink = input("\nLink to fix: ")
     p1 = r"https:\/\/drive\.google\.com\/file\/d\/"
     p2 = r"([a-zA-Z0-9_-]+)"
     p3 = r"(\/view)?(\?usp=(share_link|sharing))?"
