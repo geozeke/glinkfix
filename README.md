@@ -143,8 +143,8 @@ View releases on the [glinkfix git repository][def7]
 [def]: https://python-poetry.org/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
-[def4]: https://lh3.googleusercontent.com/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
-[def5]: https://lh3.googleusercontent.com/d/1wrrGh-cm_Hf7hH5WN_aCO-wwxIsrk6j5
+[def4]: https://lh3.googleusercontent.com/d/17tU5npCnCyQ0396JNg41xfQKEYHFu4O-
+[def5]: https://lh3.googleusercontent.com/d/1BJn379ns9p6GIAWorOo6OXDwmpGAf096
 [def6]: https://support.google.com/a/answer/10685032
 [def7]: https://github.com/geozeke/glinkfix
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
