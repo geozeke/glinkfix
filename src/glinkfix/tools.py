@@ -57,7 +57,7 @@ def fix_link(args: argparse.Namespace) -> None:
             msg = f"\nManually copy/paste this link ({url_type}):"
 
         print(msg)
-        print(new_link)
+        print(f"{new_link}\n")
 
     else:
         print("\nInput url is not a valid Google Drive Sharing Link.")
