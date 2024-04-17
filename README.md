@@ -9,10 +9,14 @@
 
 <br>
 
+# glinkfix
+
+<br>
+
 <img src="https://lh3.googleusercontent.com/d/1H04KVAA3ohH_dLXIrC0bXuJXDn3VutKc"
 alt="Dinobox logo" width="120"/>
 
-# Google Drive Link Fixer
+## Google Drive Link Fixer
 
 *Note: glinkfix will automatically attempt to copy fixed URLs to the
 clipboard. Copying to the clipboard only works for GUI-based operating
