@@ -9,7 +9,7 @@
 
 <br>
 
-<img src="https://github.com/geozeke/glinkfix/blob/main/assets/logo.png?raw=true"
+<img src="https://lh3.googleusercontent.com/d/1H04KVAA3ohH_dLXIrC0bXuJXDn3VutKc"
 alt="Dinobox logo" width="120"/>
 
 # Google Drive Link Fixer

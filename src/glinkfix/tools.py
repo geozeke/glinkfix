@@ -15,6 +15,7 @@ class InvalidLinkError(Exception):
     """
 
     def __init__(self):
+        """Link exception initializer."""
         self.message = "Input is not a valid Google sharing link."
         super().__init__()
 
