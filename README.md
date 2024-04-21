@@ -13,7 +13,7 @@
 
 <br>
 
-<img src="https://lh3.googleusercontent.com/d/1H04KVAA3ohH_dLXIrC0bXuJXDn3VutKc"
+<img src="https://zeke.dinobox.net/api/public/dl/wZ_RYWCl"
 alt="Dinobox logo" width="120"/>
 
 ## Google Drive Link Fixer
@@ -150,8 +150,8 @@ View releases on the [glinkfix git repository][def7]
 [def]: https://python-poetry.org/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
-[def4]: https://lh3.googleusercontent.com/d/17tU5npCnCyQ0396JNg41xfQKEYHFu4O-
-[def5]: https://lh3.googleusercontent.com/d/1BJn379ns9p6GIAWorOo6OXDwmpGAf096
+[def4]: https://zeke.dinobox.net/api/public/dl/yUHT5Qwc
+[def5]: https://zeke.dinobox.net/api/public/dl/gaWDK80L
 [def6]: https://support.google.com/a/answer/10685032
 [def7]: https://github.com/geozeke/glinkfix
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
