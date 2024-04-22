@@ -18,14 +18,28 @@ alt="Dinobox logo" width="120"/>
 
 ## Google Drive Link Fixer
 
-*Note: glinkfix will automatically attempt to copy fixed URLs to the
-clipboard. Copying to the clipboard only works for GUI-based operating
-systems (not server installs). Even without copying, link fixing will
-still happen and the results will be displayed on the screen, regardless
-of where you run it. glinkfix uses the [pyperclip][def9] library, and
-automatic copying to the clipboard should work seamlessly on
-Windows/Mac. If you're running Linux and have an issue, [refer to this
-note][def8] from the pyperclip developer.*
+## Notes (please read)
+
+1. It's turning into an arms race. Google keeps changing how links are
+handled on their servers, which often breaks tools like glinkfix. Direct
+downloading and embedding G-Drive links is definitely an "off the books"
+feature that is unsupported. As of Jan 2024, Google made a significant
+change, which definitely broke fixed links that are meant to be viewed
+or embedded (as opposed to downloaded). This update (Apr 2024) works,
+*for now*, but if Google changes again, things may break.
+
+2. Viewing links seem to work well, but animated gifs may just show up
+   as static images.
+
+3. glinkfix will now automatically attempt to copy fixed links to the
+clipboard. Copying to the clipboard only works for Desktop-based
+operating systems (not Server installs). Even without automatic copying,
+link fixing will still work and the results will be displayed on the
+screen, regardless of where you run it (Server or Desktop). glinkfix
+uses the [pyperclip][def9] library, and automatic copying to the
+clipboard should work seamlessly on Windows/Mac. If you're running Linux
+and links are not automatically copied to the clipboard, [refer to this
+note][def8] from the pyperclip developer.
 
 ## To Developers
 

@@ -28,8 +28,7 @@ def fix_link(args: argparse.Namespace) -> None:
     regex = f"{p1}{p2}{p3}{p4}"
     view_template = "https://lh3.googleusercontent.com/d/IDNUM"
     download_prefix = "https://drive.google.com"
-    download_template = rf"{download_prefix}/uc?export=download\&id=IDNUM"
-    new_link = ""
+    download_template = rf"{download_prefix}/uc?export=download&id=IDNUM"
 
     if re.fullmatch(regex, oldlink):
         start = oldlink.find("/d/") + 3
