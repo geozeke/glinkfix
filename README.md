@@ -13,7 +13,7 @@
 
 <br>
 
-<img src="https://zeke.dinobox.net/api/public/dl/wZ_RYWCl"
+<img src="https://lh3.googleusercontent.com/d/1H04KVAA3ohH_dLXIrC0bXuJXDn3VutKc"
 alt="Dinobox logo" width="120"/>
 
 ## Google Drive Link Fixer
@@ -21,25 +21,26 @@ alt="Dinobox logo" width="120"/>
 ## Notes (please read)
 
 1. It's turning into an arms race. Google keeps changing how links are
-handled on their servers, which often breaks tools like glinkfix. Direct
-downloading and embedding G-Drive links is definitely an "off the books"
-feature that is unsupported. As of Jan 2024, Google made a significant
-change, which definitely broke fixed links that are meant to be viewed
-or embedded (as opposed to downloaded). This update (Apr 2024) works,
-*for now*, but if Google changes again, things may break.
+   handled on their servers, which often breaks tools like glinkfix.
+   Direct downloading and embedding G-Drive links is definitely an
+   unsupported "off the books" feature as far as Google is concerned. As
+   of Jan 2024, Google made a significant change, which definitely broke
+   some links created with this tool. This update (Apr 2024) works, *for
+   now*, but if Google changes again, things may break.
 
-2. Viewing links seem to work well, but animated gifs may just show up
-   as static images.
+2. Viewing links that point to animated gifs may just show up as static
+   images.
 
-3. glinkfix will now automatically attempt to copy fixed links to the
-clipboard. Copying to the clipboard only works for Desktop-based
-operating systems (not Server installs). Even without automatic copying,
-link fixing will still work and the results will be displayed on the
-screen, regardless of where you run it (Server or Desktop). glinkfix
-uses the [pyperclip][def9] library, and automatic copying to the
-clipboard should work seamlessly on Windows/Mac. If you're running Linux
-and links are not automatically copied to the clipboard, [refer to this
-note][def8] from the pyperclip developer.
+3. In the v2 update, in addition to displaying the fixed link on the
+   screen, glinkfix will also attempt to copy the fixed link to the
+   clipboard. Copying to the clipboard only works for Desktop-based
+   operating systems (not Server installs). Even without automatic
+   copying, link fixing will still work and the results will be
+   displayed on the screen, regardless of where you run it (Server or
+   Desktop). glinkfix uses the [pyperclip][def9] library, and automatic
+   copying to the clipboard should work seamlessly on Windows/Mac. If
+   you're running Linux and links are not automatically copied to the
+   clipboard, [refer to this note][def8] from the pyperclip developer.
 
 ## To Developers
 
@@ -164,8 +165,8 @@ View releases on the [glinkfix git repository][def7]
 [def]: https://python-poetry.org/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
-[def4]: https://zeke.dinobox.net/api/public/dl/yUHT5Qwc
-[def5]: https://zeke.dinobox.net/api/public/dl/gaWDK80L
+[def4]: https://lh3.googleusercontent.com/d/17tU5npCnCyQ0396JNg41xfQKEYHFu4O-
+[def5]: https://lh3.googleusercontent.com/d/1BJn379ns9p6GIAWorOo6OXDwmpGAf096
 [def6]: https://support.google.com/a/answer/10685032
 [def7]: https://github.com/geozeke/glinkfix
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error

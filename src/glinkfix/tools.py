@@ -20,16 +20,20 @@ def fix_link(args: argparse.Namespace) -> None:
         was selected (`args.download`) then prep the link for use with a
         download tool like `curl`.
     """
-    oldlink = input("\nLink to fix: ")
-    p1 = r"https:\/\/drive\.google\.com\/file\/d\/"
-    p2 = r"([a-zA-Z0-9_-]+)"
-    p3 = r"(\/view)?(\?usp=(share_link|sharing))?"
-    p4 = r"(&resourcekey=[a-zA-Z0-9_-]+)?"
-    regex = f"{p1}{p2}{p3}{p4}"
-    view_template = "https://lh3.googleusercontent.com/d/IDNUM"
-    download_prefix = "https://drive.google.com"
-    download_template = rf"{download_prefix}/uc?export=download&id=IDNUM"
+    r1 = r"https:\/\/drive\.google\.com\/file\/d\/"
+    r2 = r"([a-zA-Z0-9_-]+)"
+    r3 = r"(\/view)?(\?usp=(share_link|sharing))?"
+    r4 = r"(&resourcekey=[a-zA-Z0-9_-]+)?"
+    regex = f"{r1}{r2}{r3}{r4}"
 
+    v1 = "https://lh3.googleusercontent.com/d/"
+    view_template = rf"{v1}IDNUM"
+
+    d1 = "https://drive.google.com/"
+    d2 = "uc?export=download&id="
+    download_template = rf"{d1}{d2}IDNUM"
+
+    oldlink = input("\nLink to fix: ")
     if re.fullmatch(regex, oldlink):
         start = oldlink.find("/d/") + 3
         end = oldlink.find("/view")
