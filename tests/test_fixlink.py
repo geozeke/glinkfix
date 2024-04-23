@@ -5,9 +5,6 @@ import csv
 from argparse import Namespace
 from pathlib import Path
 
-import pytest
-
-from glinkfix.tools import InvalidLinkError
 from glinkfix.tools import fix_link
 
 # Adjust path for local imports and data file opening. moduleLocation
@@ -48,18 +45,16 @@ def test_fix_link(capsys, monkeypatch, case):
     """
     mode, status, linkin, linkout = tuple(case)
     args = Namespace()
-    args.view = True if mode == "view" else None
     args.download = True if mode == "download" else None
-    monkeypatch.setattr("builtins.input", lambda: linkin)
-    if status == "noraise":
-        fix_link(args)
-        useroutput, codeerrors = capsys.readouterr()
-        # If the assertion is successful, the print statement below will be
-        # suppressed.
+    monkeypatch.setattr("builtins.input", lambda _: linkin)
+    fix_link(args)
+    useroutput, codeerrors = capsys.readouterr()
+    if status == "goodlink":
+        # If the assertion is successful, the print statement below will
+        # be suppressed.
         print(f"Simulated user input: {linkin}")
         assert linkout in useroutput
     else:
-        with pytest.raises(InvalidLinkError):
-            fix_link(args)
+        assert "not a valid Google Drive Sharing Link" in useroutput
 
     monkeypatch.delattr("builtins.input")

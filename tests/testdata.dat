@@ -1,41 +1,46 @@
-# Test cases are saved as csv items, one per line, in the following format:
-# encoding (view | download), input link, result. Cases are included for both
-# "share_link" and "sharing" suffixes
+# Test cases are saved as csv items, one per line, in the following
+# format: # encoding (view | download), input link, result. Cases are
+# included for both # "share_link" and "sharing" suffixes
 
 # Repackage a valid link for viewing
 
-view,noraise,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=share_link,https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
+view,goodlink,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=share_link,https://lh3.googleusercontent.com/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
 
-view,noraise,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,https://drive.google.com/uc?export=view&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
+view,goodlink,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,https://lh3.googleusercontent.com/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
 
 # Repackage a valid link for downloading
 
-download,noraise,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=share_link,https://drive.google.com/uc?export=download&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
+download,goodlink,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=share_link,https://drive.google.com/uc?export=download&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
 
-download,noraise,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,https://drive.google.com/uc?export=download&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
+download,goodlink,https://drive.google.com/file/d/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,https://drive.google.com/uc?export=download&id=1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2
 
 # Repackage a invalid link for viewing
 
-view,raise,https://ubuntu.com,Invalid
+view,badlink,https://ubuntu.com,Invalid
 
 # Repackage a invalid link for downloading
 
-download,raise,https://ubuntu.com,Invalid
+download,badlink,https://ubuntu.com,Invalid
+
+# Repackage a invalid link for downloading. This one's subtle, but
+# there's a invalid '/q/' section in the URL.
+
+download,badlink,https://drive.google.com/file/d/q/1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2/view?usp=sharing,Invalid
 
 # Repackage valid link with resource key for downloading
 
-download,noraise,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=share_link&resourcekey=sdfdf-PsdfUjdfhTereu,https://drive.google.com/uc?export=download&id=0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
+download,goodlink,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=share_link&resourcekey=sdfdf-PsdfUjdfhTereu,https://drive.google.com/uc?export=download&id=0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
 
-download,noraise,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=sharing&resourcekey=sdfdf-PsdfUjdfhTereu,https://drive.google.com/uc?export=download&id=0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
+download,goodlink,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=sharing&resourcekey=sdfdf-PsdfUjdfhTereu,https://drive.google.com/uc?export=download&id=0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
 
 # Repackage valid link with resource key for viewing
 
-view,noraise,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=share_link&resourcekey=sdfdf-PsdfUjdfhTereu,https://drive.google.com/uc?export=view&id=0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
+view,goodlink,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=share_link&resourcekey=sdfdf-PsdfUjdfhTereu,https://lh3.googleusercontent.com/d/0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
 
-view,noraise,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=sharing&resourcekey=sdfdf-PsdfUjdfhTereu,https://drive.google.com/uc?export=view&id=0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
+view,goodlink,https://drive.google.com/file/d/0B0vgUO-i57e9hrf9456jdfgfg/view?usp=sharing&resourcekey=sdfdf-PsdfUjdfhTereu,https://lh3.googleusercontent.com/d/0B0vgUO-i57e9hrf9456jdfgfg&resourcekey=sdfdf-PsdfUjdfhTereu
 
 # Repackage valid link with IDs and resource keys containing "_"
 
-view,noraise,https://drive.google.com/file/d/0B0vgUO_i57e9hrf9456jdfgfg/view?usp=share_link&resourcekey=sdfdf_PsdfUjdfhTereu,https://drive.google.com/uc?export=view&id=0B0vgUO_i57e9hrf9456jdfgfg&resourcekey=sdfdf_PsdfUjdfhTereu
+view,goodlink,https://drive.google.com/file/d/0B0vgUO_i57e9hrf9456jdfgfg/view?usp=share_link&resourcekey=sdfdf_PsdfUjdfhTereu,https://lh3.googleusercontent.com/d/0B0vgUO_i57e9hrf9456jdfgfg&resourcekey=sdfdf_PsdfUjdfhTereu
 
-view,noraise,https://drive.google.com/file/d/0B0vgUO_i57e9hrf9456jdfgfg/view?usp=sharing&resourcekey=sdfdf_PsdfUjdfhTereu,https://drive.google.com/uc?export=view&id=0B0vgUO_i57e9hrf9456jdfgfg&resourcekey=sdfdf_PsdfUjdfhTereu
+view,goodlink,https://drive.google.com/file/d/0B0vgUO_i57e9hrf9456jdfgfg/view?usp=sharing&resourcekey=sdfdf_PsdfUjdfhTereu,https://lh3.googleusercontent.com/d/0B0vgUO_i57e9hrf9456jdfgfg&resourcekey=sdfdf_PsdfUjdfhTereu

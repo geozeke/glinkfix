@@ -156,3 +156,4 @@ cython_debug/
 
 # Custom ignores
 .init/
+scratch/

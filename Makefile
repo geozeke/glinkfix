@@ -28,6 +28,9 @@ ifeq (,$(wildcard .init/setup))
 	@(which poetry > /dev/null 2>&1) || \
 	(echo "pymids requires poetry. See README for instructions."; exit 1)
 	mkdir .init
+	@if [ ! -d "./scratch" ]; then \
+		mkdir -p scratch; \
+	fi
 	touch .init/setup
 	poetry install
 else
@@ -36,6 +39,17 @@ else
 	@echo "make reset"
 	@echo "make setup"
 	@echo
+endif
+
+# --------------------------------------------
+
+.PHONY: dev
+dev: ## add development dependencies (run make setup first)
+ifneq (,$(wildcard .init/setup))
+	poetry install
+	@touch .init/dev
+else
+	@echo "Please run \"make setup\" first"
 endif
 
 # --------------------------------------------

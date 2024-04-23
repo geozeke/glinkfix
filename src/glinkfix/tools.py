@@ -1,42 +1,9 @@
 """Tools to perform link fixing."""
 
 import argparse
-import os
 import re
 
-
-class InvalidLinkError(Exception):
-    """Custom exception for handling invalid sharing links.
-
-    Parameters
-    ----------
-    Exception : Exception
-        InvalidLinkError is a sub-class of Python's Exception class.
-    """
-
-    def __init__(self):
-        self.message = "Input is not a valid Google sharing link."
-        super().__init__()
-
-    def __str__(self):
-        """Override __str__ method.
-
-        Return a string version of InvalidLinkError.
-
-        Returns
-        -------
-        str
-            The message string.
-        """
-        return self.message
-
-
-def clear() -> None:
-    """Clear the screen.
-
-    OS-agnostic version, which will work with both Windows and Linux.
-    """
-    os.system("clear" if os.name == "posix" else "cls")
+import pyperclip as pc  # type: ignore
 
 
 def fix_link(args: argparse.Namespace) -> None:
@@ -49,44 +16,55 @@ def fix_link(args: argparse.Namespace) -> None:
     ----------
     args : argparse.Namespace
         Command line arguments to determine how to prep the fixed link.
-        If `-v` was selected (`args.view`) then prep the link for
-        embedding into a file. If `-d` was selected (`args.download`)
-        then prep the link for use with a download tool like `curl`.
+        By default, prep the link for embedding into a webpage. If `-d`
+        was selected (`args.download`) then prep the link for use with a
+        download tool like `curl`.
     """
-    clear()
+    r1 = r"https:\/\/drive\.google\.com\/file\/d\/"
+    r2 = r"([a-zA-Z0-9_-]+)"
+    r3 = r"(\/view)?(\?usp=(share_link|sharing))?"
+    r4 = r"(&resourcekey=[a-zA-Z0-9_-]+)?"
+    regex = f"{r1}{r2}{r3}{r4}"
 
-    print("Enter a Google Drive sharing URL to be repackaged:\n")
-    old_link = input()
-    resourcekey = None
-    template = "https://drive.google.com/uc?export=ACTION&id=IDNUM"
-    prefix = "https://drive.google.com/file/d/"
-    if "share_link" in old_link:
-        suffix = "/view\\?usp=share_link"
+    v1 = "https://lh3.googleusercontent.com/d/"
+    view_template = rf"{v1}IDNUM"
+
+    d1 = "https://drive.google.com/"
+    d2 = "uc?export=download&id="
+    download_template = rf"{d1}{d2}IDNUM"
+
+    oldlink = input("\nLink to fix: ")
+    if re.fullmatch(regex, oldlink):
+        start = oldlink.find("/d/") + 3
+        end = oldlink.find("/view")
+        id_num = oldlink[start:end]
+        if args.download:
+            new_link = download_template.replace("IDNUM", id_num)
+            url_type = "for downloading"
+        else:
+            new_link = view_template.replace("IDNUM", id_num)
+            url_type = "for embedding"
+        if "resourcekey" in oldlink:
+            key = oldlink.split("resourcekey=")[-1]
+            new_link = f"{new_link}&resourcekey={key}"
+
+        try:
+            pc.copy(new_link)
+            link_copy_succeeded = True
+        except pc.PyperclipException:
+            link_copy_succeeded = False
+
+        if link_copy_succeeded:
+            msg = f"\nFixed link ({url_type}) was copied to the clipboard:"
+        else:
+            msg = f"\nManually copy/paste this fixed link ({url_type}):"
+
+        print(msg)
+        print(f"{new_link}\n")
+
     else:
-        suffix = "/view\\?usp=sharing"
-    parts = re.findall(rf"{prefix}([0-9A-Za-z_-]*){suffix}", old_link)
+        print("\nInput url is not a valid Google Drive Sharing Link.")
 
-    if len(parts) != 1:
-        raise InvalidLinkError
-    else:
-        idstring = parts[0]
-
-    parts = re.findall(r"resourcekey=([0-9A-Za-z_-]*)", old_link)
-    if len(parts) == 1:
-        resourcekey = parts[0]
-
-    if args.view:
-        action = template.replace("ACTION", "view")
-        link_type = "viewing"
-    else:
-        action = template.replace("ACTION", "download")
-        link_type = "downloading"
-
-    print(f"\nClean {link_type} URL is:\n")  # noqa
-    new_link = action.replace("IDNUM", idstring)
-    if resourcekey:
-        new_link = f"{new_link}&resourcekey={resourcekey}"
-    print(f"{new_link}\n")
     return
 
 
