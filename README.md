@@ -119,6 +119,9 @@ it's set up for public access (*Anyone with the link*):
 <img src="https://lh3.googleusercontent.com/d/1aHqCi_R6S9T9OI8kYLj-bH-Rd1eEgiWd"
 alt="Getting Link" width="500"/>
 
+---
+<br>
+
 <img src="https://lh3.googleusercontent.com/d/1DM7C91o8K32B95YkVPUv9rVga6lJdYzA"
 alt="Getting Link" width="500"/>
 
