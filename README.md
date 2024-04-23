@@ -108,22 +108,22 @@ have to copy the link to a text editor, carve it up manually, and
 reassemble it. If you've got a lot of links to deal with it starts to
 get very tedious. This tool is designed to remove the tedium.
 
-*Note: The animated gifs below are actually hosted on Google Drive and
-the "fixed" links are embedded into this README file.*
+*Note: The images below are actually hosted on Google Drive and the
+"fixed" links are embedded into this README file.*
 
 ---
 
 Start by getting a sharing link to a file on Google Drive. Make sure
 it's set up for public access (*Anyone with the link*):
 
-![Retrieving Google Link][def4]
+<img src="https://lh3.googleusercontent.com/d/1aHqCi_R6S9T9OI8kYLj-bH-Rd1eEgiWd"
+alt="Getting Link" width="500"/>
 
----
+<img src="https://lh3.googleusercontent.com/d/1DM7C91o8K32B95YkVPUv9rVga6lJdYzA"
+alt="Getting Link" width="500"/>
 
 Now run `glinkfix` and paste the link into the terminal. Copy the
-"fixed" version and use is as required.
-
-![Using Google Link][def5]
+"fixed" version and use it as required.
 
 ---
 
@@ -165,8 +165,6 @@ View releases on the [glinkfix git repository][def7]
 [def]: https://python-poetry.org/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
-[def4]: https://lh3.googleusercontent.com/d/17tU5npCnCyQ0396JNg41xfQKEYHFu4O-
-[def5]: https://lh3.googleusercontent.com/d/1BJn379ns9p6GIAWorOo6OXDwmpGAf096
 [def6]: https://support.google.com/a/answer/10685032
 [def7]: https://github.com/geozeke/glinkfix
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
