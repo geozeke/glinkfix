@@ -4,6 +4,8 @@
 
 import argparse
 
+from glinkfix.constants import APP_NAME
+from glinkfix.constants import VERSION
 from glinkfix.tools import fix_link
 
 
@@ -19,7 +21,7 @@ def main() -> None:
     image in a markdown document). Note: there is a size limit of 40MB
     for a single file when using Google Drive links in this manner."""
 
-    epi = "Version: 2.0.2"
+    epi = f"Version: {VERSION}"
 
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
 
@@ -32,6 +34,12 @@ def main() -> None:
         "--download",
         action="store_true",
         help=msg,
+    )
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version=f"{APP_NAME} {VERSION}",
     )
 
     args = parser.parse_args()
