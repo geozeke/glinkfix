@@ -26,9 +26,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
 
     msg = """ The default behavior for glinkfix is to repackage a Google
-    Drive link to make it suitable for embedding in a website. Use this
-    option if you want to repackage Google Drive link for direct
-    downloading (e.g. downloading using curl)."""
+    Drive link to make it suitable for embedding in a website. Use the
+    -d option if you want to repackage Google Drive link for direct
+    downloading instead (e.g. downloading using curl)."""
     parser.add_argument(
         "-d",
         "--download",
