@@ -167,6 +167,7 @@ View releases on the [glinkfix git repository][def7]
 ### License
 
 This project is licensed under the MIT License. See the [LICENSE][def5]
+file for details.
 
 ### Acknowledgements
 
