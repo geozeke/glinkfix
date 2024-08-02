@@ -50,13 +50,8 @@ def fix_link(args: argparse.Namespace) -> None:
 
         try:
             pc.copy(new_link)
-            link_copy_succeeded = True
-        except pc.PyperclipException:
-            link_copy_succeeded = False
-
-        if link_copy_succeeded:
             msg = f"\nFixed link ({url_type}) was copied to the clipboard:"
-        else:
+        except pc.PyperclipException:
             msg = f"\nManually copy/paste this fixed link ({url_type}):"
 
         print(msg)
