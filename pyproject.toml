@@ -8,6 +8,7 @@ homepage = "https://github.com/geozeke/glinkfix"
 license = "MIT"
 readme = "README.md"
 packages = [{ include = "glinkfix", from = "src" }]
+include = ["LICENSE", "LICENSE-BSD-3-CLAUSE"]
 keywords = [
 	"glinkfix",
 	"google",

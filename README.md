@@ -164,10 +164,23 @@ optional arguments:
 
 View releases on the [glinkfix git repository][def7]
 
+### License
+
+This project is licensed under the MIT License. See the [LICENSE][def5]
+
+### Acknowledgements
+
+This project uses the [pyperclip library][def4] which is licensed under
+the BSD 3 Clause License. The full license text can be found in the
+[LICENSE-BSD-3-CLAUSE][def10] file.
+
 [def]: https://python-poetry.org/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
+[def4]: https://github.com/asweigart/pyperclip
+[def5]: ./LICENSE
 [def6]: https://support.google.com/a/answer/10685032
 [def7]: https://github.com/geozeke/glinkfix
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
 [def9]: https://pypi.org/project/pyperclip/
+[def10]: ./LICENSE-BSD-3-CLAUSE
