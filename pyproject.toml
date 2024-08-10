@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "glinkfix"
-version = "2.0.1"
+version = "2.0.2"
 description = "Google Drive Link Fixer"
 authors = ["Peter Nardi <pete@nardi.com>"]
 maintainers = ["Peter Nardi <pete@nardi.com>"]
@@ -8,6 +8,7 @@ homepage = "https://github.com/geozeke/glinkfix"
 license = "MIT"
 readme = "README.md"
 packages = [{ include = "glinkfix", from = "src" }]
+include = ["LICENSE", "LICENSE-BSD-3-CLAUSE"]
 keywords = [
 	"glinkfix",
 	"google",
