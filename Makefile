@@ -25,14 +25,14 @@ all: help
 .PHONY: setup
 setup: ## initialize the project and python venv
 ifeq (,$(wildcard .init/setup))
-	@(which poetry > /dev/null 2>&1) || \
-	(echo "pymids requires poetry. See README for instructions."; exit 1)
+	@(which uv > /dev/null 2>&1) || \
+	(echo "glinkfix requires uv. See README for instructions."; exit 1)
 	mkdir .init
 	@if [ ! -d "./scratch" ]; then \
 		mkdir -p scratch; \
 	fi
 	touch .init/setup
-	poetry install
+	uv sync --no-dev
 else
 	@echo "Initial setup is already complete. If you are having issues, run:"
 	@echo
@@ -46,7 +46,7 @@ endif
 .PHONY: dev
 dev: ## add development dependencies (run make setup first)
 ifneq (,$(wildcard .init/setup))
-	poetry install
+	uv sync
 	@touch .init/dev
 else
 	@echo "Please run \"make setup\" first"
@@ -57,7 +57,7 @@ endif
 .PHONY: reset
 reset: clean ## reinitialize the project
 	@echo Resetting project state
-	@rm -rf .mypy_cache .venv .init .ruff_cache
+	rm -rf .init .mypy_cache .ruff_cache .venv
 
 # --------------------------------------------
 
