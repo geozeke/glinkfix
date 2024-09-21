@@ -81,7 +81,7 @@ clean: ## Purge project build artifacts
 
 .PHONY: coverage
 coverage: ## Generate an html code coverage report
-	coverage run -m pytest
+	coverage run -m pytest 
 	coverage report -m
 	coverage html
 	${BROWSER}

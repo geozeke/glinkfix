@@ -89,6 +89,11 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/a5/2b/0354ed096bca64dc8e32a7cbcae28b34cb5ad0b1fe2125d6d99583313ac0/coverage-7.6.1-pp38.pp39.pp310-none-any.whl", hash = "sha256:e9a6e0eb86070e8ccaedfbd9d38fec54864f3125ab95419970575b42af7541df", size = 198926 },
 ]
 
+[package.optional-dependencies]
+toml = [
+    { name = "tomli", marker = "python_full_version <= '3.11'" },
+]
+
 [[package]]
 name = "exceptiongroup"
 version = "1.2.2"
@@ -108,7 +113,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "coverage" },
+    { name = "coverage", extra = ["toml"] },
     { name = "mypy" },
     { name = "pytest" },
     { name = "ruff" },
@@ -119,7 +124,7 @@ requires-dist = [{ name = "pyperclip", specifier = ">=1.9.0" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "coverage", specifier = ">=7.6.1" },
+    { name = "coverage", extras = ["toml"], specifier = ">=7.6.1" },
     { name = "mypy", specifier = ">=1.11.2" },
     { name = "pytest", specifier = ">=8.3.3" },
     { name = "ruff", specifier = ">=0.6.6" },
