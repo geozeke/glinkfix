@@ -57,8 +57,7 @@ endif
 .PHONY: reset
 reset: clean ## reinitialize the project
 	@echo Resetting project state
-	@rm -rf .mypy_cache
-	@rm -rf .venv .init
+	@rm -rf .mypy_cache .venv .init .ruff_cache
 
 # --------------------------------------------
 
