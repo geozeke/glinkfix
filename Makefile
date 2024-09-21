@@ -94,6 +94,17 @@ test: ## Run pytest with --tb=short option
 
 # --------------------------------------------
 
+.PHONY: upgrade
+upgrade: ## upgrade glinkfix dependencies
+	@echo Upgrading dependencies
+ifeq (,$(wildcard .init/dev))
+	uv sync --no-dev --upgrade
+else
+	uv sync --upgrade
+endif
+
+# --------------------------------------------
+
 .PHONY: help
 help: ## Show help
 	@echo Please specify a target. Choices are:

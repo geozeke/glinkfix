@@ -1,6 +1,6 @@
 [project]
 name = "glinkfix"
-version = "2.0.2"
+version = "2.0.3"
 description = "Google Drive Link Fixer"
 authors = [
     {name = "Peter Nardi", email = "pete@nardi.com"},
@@ -53,6 +53,9 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build]
 exclude = [
+	"global-gitignore.txt",
+	"Makefile",
+	"tests/**",
     ".gitignore",
     "uv.lock",
 ]
