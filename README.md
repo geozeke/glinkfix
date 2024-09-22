@@ -49,16 +49,10 @@ If you're just using glinkfix, then carry on!
 If you're a developer looking to fork this repository and modify
 glinkfix, there are two important considerations:
 
-1. glinkfix requires [poetry][def] for dependency management. Poetry is
-   well behaved and if you're a Python developer you should check it
-   out. It installs itself in a virtual environment, uninstalls cleanly
-   and easily, and doesn't require `sudo` for installation. Visit the
-   [poetry site][def] and install it using the instructions for your
-   operating system.
-
-   *Note: When you install poetry, pay careful attention to the message
-   printed by the poetry installer. It provides details on how to modify
-   `$PATH` to access the poetry runtime.*
+1. glinkfix requires [uv][def11] for dependency management. uv is well
+   behaved and extremely fast. If you're a Python developer you should
+   check it out. Visit the [uv site][def11] and install it using your
+   preferred method, with the instructions for your operating system.
 
 2. I've included a file called `global-gitignore.txt` which is a copy of
    the `.gitignore` I placed in my home directory and configured
@@ -175,7 +169,6 @@ This project uses the [pyperclip library][def4] which is licensed under
 the BSD 3 Clause License. The full license text can be found in the
 [LICENSE-BSD-3-CLAUSE][def10] file.
 
-[def]: https://python-poetry.org/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
 [def4]: https://github.com/asweigart/pyperclip
@@ -185,3 +178,4 @@ the BSD 3 Clause License. The full license text can be found in the
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
 [def9]: https://pypi.org/project/pyperclip/
 [def10]: ./LICENSE-BSD-3-CLAUSE
+[def11]: https://docs.astral.sh/uv/
