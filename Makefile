@@ -96,7 +96,11 @@ test: ## Run pytest with --tb=short option
 
 .PHONY: upgrade
 upgrade: ## upgrade glinkfix dependencies
-	uv lock --upgrade
+ifeq (,$(wildcard .init/dev))
+	uv sync --no-dev --upgrade
+else
+	uv sync --upgrade
+endif
 
 # --------------------------------------------
 
