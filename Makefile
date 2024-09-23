@@ -32,7 +32,7 @@ ifeq (,$(wildcard .init/setup))
 		mkdir -p scratch; \
 	fi
 	touch .init/setup
-	uv sync --no-dev
+	uv sync --no-dev --frozen
 else
 	@echo "Initial setup is already complete. If you are having issues, run:"
 	@echo
@@ -46,7 +46,7 @@ endif
 .PHONY: dev
 dev: ## add development dependencies (run make setup first)
 ifneq (,$(wildcard .init/setup))
-	uv sync
+	uv sync --frozen
 	@touch .init/dev
 else
 	@echo "Please run \"make setup\" first"
@@ -96,12 +96,7 @@ test: ## Run pytest with --tb=short option
 
 .PHONY: upgrade
 upgrade: ## upgrade glinkfix dependencies
-	@echo Upgrading dependencies
-ifeq (,$(wildcard .init/dev))
-	uv sync --no-dev --upgrade
-else
-	uv sync --upgrade
-endif
+	uv lock --upgrade
 
 # --------------------------------------------
 
