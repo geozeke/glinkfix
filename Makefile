@@ -95,7 +95,7 @@ test: ## Run pytest with --tb=short option
 # --------------------------------------------
 
 .PHONY: upgrade
-upgrade: ## upgrade glinkfix dependencies
+upgrade: ## upgrade project dependencies
 ifeq (,$(wildcard .init/dev))
 	uv sync --no-dev --upgrade
 else
