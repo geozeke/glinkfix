@@ -21,7 +21,7 @@ alt="Dinobox logo" width="120"/>
 ## Notes (please read)
 
 1. It's turning into an arms race. Google keeps changing how links are
-   handled on their servers, which often breaks tools like glinkfix.
+   handled on their servers, which often breaks tools like *glinkfix*.
    Direct downloading and embedding G-Drive links is definitely an
    unsupported "off the books" feature as far as Google is concerned. As
    of Jan 2024, Google made a significant change, which definitely broke
@@ -32,27 +32,28 @@ alt="Dinobox logo" width="120"/>
    images.
 
 3. In the v2 update, in addition to displaying the fixed link on the
-   screen, glinkfix will also attempt to copy the fixed link to the
+   screen, *glinkfix* will also attempt to copy the fixed link to the
    clipboard. Copying to the clipboard only works for Desktop-based
    operating systems (not Server installs). Even without automatic
    copying, link fixing will still work and the results will be
    displayed on the screen, regardless of where you run it (Server or
-   Desktop). glinkfix uses the [pyperclip][def9] library, and automatic
-   copying to the clipboard should work seamlessly on Windows/Mac. If
-   you're running Linux and links are not automatically copied to the
-   clipboard, [refer to this note][def8] from the pyperclip developer.
+   Desktop). *glinkfix* uses the [pyperclip][def9] library, and
+   automatic copying to the clipboard should work seamlessly on
+   Windows/Mac. If you're running Linux and links are not automatically
+   copied to the clipboard, [refer to this note][def8] from the
+   pyperclip developer.
 
 ## To Developers
 
-If you're just using glinkfix, then carry on!
+If you're just using *glinkfix*, then carry on!
 
 If you're a developer looking to fork this repository and modify
-glinkfix, there are two important considerations:
+*glinkfix*, there are two important considerations:
 
-1. glinkfix requires [uv][def11] for dependency management. uv is well
+1. *glinkfix* requires [uv][def11] for dependency management. It is well
    behaved and extremely fast. If you're a Python developer you should
-   check it out. Visit the [uv site][def11] and install it using your
-   preferred method, with the instructions for your operating system.
+   check it out. Visit the [uv site][def11] and install it using using
+   the instructions for your operating system.
 
 2. I've included a file called `global-gitignore.txt` which is a copy of
    the `.gitignore` I placed in my home directory and configured
@@ -65,7 +66,7 @@ glinkfix, there are two important considerations:
 
 ## Installation
 
-The preferred way to install glinkfix is with [pipx][def3]:
+The preferred way to install *glinkfix* is with [pipx][def3]:
 
 ```shell
 pipx install glinkfix
@@ -118,7 +119,7 @@ alt="Getting Link" width="450"/>
 <img src="https://lh3.googleusercontent.com/d/1DM7C91o8K32B95YkVPUv9rVga6lJdYzA"
 alt="Getting Link" width="450"/>
 
-Now run `glinkfix` and paste the link into the terminal. Copy the
+Now run *glinkfix* and paste the link into the terminal. Copy the
 "fixed" version and use it as required.
 
 ---
@@ -148,15 +149,15 @@ optional arguments:
 * There is a 40MB size limit for a single file when using Google Drive
   sharing links directly for viewing or downloading. Individual files
   larger than 40MB will not render/download properly. This limit is a
-  function of how Google Drive works and is not related to `glinkfix`.
+  function of how Google Drive works and is not related to *glinkfix*.
 * When creating a download link for use with `curl` make sure to use
   `curl`'s `-L` option to allow for redirects.
-* `glinkfix` supports links that use Google's [resource key][def6]
+* *glinkfix* supports links that use Google's [resource key][def6]
  security feature.
 
 ## Version History
 
-View releases on the [glinkfix git repository][def7]
+View releases on the [*glinkfix* git repository][def7]
 
 ### License
 
