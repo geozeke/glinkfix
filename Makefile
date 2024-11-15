@@ -105,14 +105,16 @@ endif
 # --------------------------------------------
 
 .PHONY: publish-production
-publish-production: build ## publish package to pypi.org for production
+publish-production: clean ## publish package to pypi.org for production
+	uv build
 	uv publish  --publish-url https://upload.pypi.org/legacy/ \
 		--token ${PYPITOKEN}
 		
 # --------------------------------------------
 
 .PHONY: publish-test
-publish-test: build ## publish package to test.pypi.org for testing
+publish-test: clean ## publish package to test.pypi.org for testing
+	uv build
 	uv publish  --publish-url https://test.pypi.org/legacy/ \
 		--token ${TESTPYPITOKEN}
 
