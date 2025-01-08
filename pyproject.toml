@@ -1,6 +1,6 @@
 [project]
 name = "glinkfix"
-version = "2.0.4"
+version = "2.0.5"
 description = "Google Drive Link Fixer"
 authors = [
     {name = "Peter Nardi", email = "pete@nardi.com"},
@@ -8,7 +8,6 @@ authors = [
 maintainers = [
     {name = "Peter Nardi", email = "pete@nardi.com"},
 ]
-homepage = "https://github.com/geozeke/glinkfix"
 license = {file = "LICENSE"}
 readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.8"
@@ -38,6 +37,7 @@ classifiers = [
 ]
 dependencies = [
     "pyperclip>=1.9.0",
+    "tomli>=1.1.0 ; python_full_version < '3.11'",
 ]
 
 [project.urls]
@@ -59,6 +59,8 @@ exclude = [
     ".gitignore",
     "uv.lock",
 ]
+[tool.hatch.build.targets.wheel.force-include]
+"./pyproject.toml" = "glinkfix/pyproject.toml"
 
 [tool.ruff.lint.isort]
 force-single-line = true

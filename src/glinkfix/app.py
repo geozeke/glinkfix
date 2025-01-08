@@ -4,9 +4,8 @@
 
 import argparse
 
-from glinkfix.constants import APP_NAME
-from glinkfix.constants import VERSION
 from glinkfix.tools import fix_link
+from glinkfix.version import get_version
 
 
 def main() -> None:
@@ -23,14 +22,14 @@ def main() -> None:
     single file when using Google Drive links in this manner.
     """
 
-    epi = f"Version: {VERSION}"
+    epi = f"Version: {get_version()}"
 
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
 
     msg = """
     The default behavior for glinkfix is to repackage a Google Drive
     link to make it suitable for embedding in a website. Use the -d
-    option if you want to repackage Google Drive link for direct
+    option if you want to repackage a Google Drive link for direct
     downloading instead (e.g. downloading using curl).
     """
     parser.add_argument(
@@ -43,7 +42,7 @@ def main() -> None:
         "-v",
         "--version",
         action="version",
-        version=f"{APP_NAME} {VERSION}",
+        version=f"glinkfix {get_version()}",
     )
 
     args = parser.parse_args()

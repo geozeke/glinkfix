@@ -1,11 +1,11 @@
-![GitHub](https://img.shields.io/github/license/geozeke/glinkfix)
-![PyPI](https://img.shields.io/pypi/v/glinkfix)
-![PyPI - Status](https://img.shields.io/pypi/status/glinkfix)
-![GitHub last commit](https://img.shields.io/github/last-commit/geozeke/glinkfix)
-![GitHub issues](https://img.shields.io/github/issues/geozeke/glinkfix)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/glinkfix)
-![GitHub repo size](https://img.shields.io/github/repo-size/geozeke/glinkfix)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/glinkfix)
+![GitHub][github]
+![PyPI][pypi]
+![PyPI - Status][pypi-stats]
+![GitHub last commit][github-commit]
+![GitHub issues][github-issues]
+![PyPI - Downloads][pypi-downloads]
+![GitHub repo size][github-size]
+![PyPI - Python Version][pypi-version]
 
 <br>
 
@@ -28,7 +28,7 @@ alt="Dinobox logo" width="120"/>
    some links created with this tool. This update (Apr 2024) works, *for
    now*, but if Google changes again, things may break.
 
-2. Viewing links that point to animated gifs may just show up as static
+2. Viewing links that point to animated GIFs may just show up as static
    images.
 
 3. In the v2 update, in addition to displaying the fixed link on the
@@ -51,15 +51,15 @@ If you're a developer looking to fork this repository and modify
 *glinkfix*, there are two important considerations:
 
 1. *glinkfix* requires [uv][def11] for dependency management. It is well
-   behaved and extremely fast. If you're a Python developer you should
-   check it out. Visit the [uv site][def11] and install it using using
+   behaved and extremely fast. If you're a Python developer, you should
+   check it out. Visit the [uv site][def11] and install it using
    the instructions for your operating system.
 
 2. I've included a file called `global-gitignore.txt` which is a copy of
    the `.gitignore` I placed in my home directory and configured
    globally for all my development projects. The `global-gitignore.txt`
-   file reflects my development setup (for example using tools like
-   vscode), but yours may be different. Just cherry-pick any necessary
+   file reflects my development setup (for example, using tools like
+   VSCode), but yours may be different. Just cherry-pick any necessary
    elements from `global-gitignore.txt` for your own use.
 
    *Details on gitignore files are available on [GitHub][def2].*
@@ -93,17 +93,17 @@ and follow the directions to run it again with the option you want.
 When you share files with Google Drive, the sharing link you get is only
 good for accessing the content through a web browser. If you want to use
 a Google Drive sharing link to embed an image in a document (e.g. in a
-markdown or html file), or you want to directly download a file
-pointed-to by a Google Drive sharing link using something like `curl` or
-`wget` in linux, the link needs to be adjusted ("fixed") for these
+Markdown or HTML file), or you want to directly download a file
+pointed to by a Google Drive sharing link using something like `curl` or
+`wget` in Linux, the link needs to be adjusted ("fixed") for these
 purposes.
 
 It's not especially hard to repackage the link, but it's a pain. You
 have to copy the link to a text editor, carve it up manually, and
-reassemble it. If you've got a lot of links to deal with it starts to
+reassemble it. If you've got a lot of links to deal with, it starts to
 get very tedious. This tool is designed to remove the tedium.
 
-*Note: The images below are actually hosted on Google Drive and the
+*Note: The images below are actually hosted on Google Drive, and the
 "fixed" links are embedded into this README file.*
 
 ---
@@ -131,7 +131,7 @@ usage: glinkfix [-h] [-d]
 
 This program takes a Google Drive sharing link for a file and repackages
 it into a link that can be downloaded directly (e.g. using curl) or
-embedded in a document to be viewed (e.g. an image in a markdown
+embedded in a document to be viewed (e.g. an image in a Markdown
 document). Note: there is a size limit of 40MB for a single file when
 using Google Drive links in this manner.
 
@@ -139,7 +139,7 @@ optional arguments:
   -h, --help      show this help message and exit
   -d, --download  The default behavior for glinkfix is to repackage a
                   Google Drive link to make it suitable for embedding in
-                  a website. Use this option if you want to repackage
+                  a website. Use this option if you want to repackage a
                   Google Drive link for direct downloading (e.g.
                   downloading using curl).
 ```
@@ -150,14 +150,10 @@ optional arguments:
   sharing links directly for viewing or downloading. Individual files
   larger than 40MB will not render/download properly. This limit is a
   function of how Google Drive works and is not related to *glinkfix*.
-* When creating a download link for use with `curl` make sure to use
+* When creating a download link for use with `curl`, make sure to use
   `curl`'s `-L` option to allow for redirects.
 * *glinkfix* supports links that use Google's [resource key][def6]
  security feature.
-
-## Version History
-
-View releases on the [*glinkfix* git repository][def7]
 
 ### License
 
@@ -175,8 +171,15 @@ the BSD 3 Clause License. The full license text can be found in the
 [def4]: https://github.com/asweigart/pyperclip
 [def5]: ./LICENSE
 [def6]: https://support.google.com/a/answer/10685032
-[def7]: https://github.com/geozeke/glinkfix
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
 [def9]: https://pypi.org/project/pyperclip/
 [def10]: ./LICENSE-BSD-3-CLAUSE
 [def11]: https://docs.astral.sh/uv/
+[github]: https://img.shields.io/github/license/geozeke/glinkfix
+[pypi]: https://img.shields.io/pypi/v/glinkfix
+[pypi-stats]: https://img.shields.io/pypi/status/glinkfix
+[github-commit]: https://img.shields.io/github/last-commit/geozeke/glinkfix
+[github-issues]: https://img.shields.io/github/issues/geozeke/glinkfix
+[pypi-downloads]: https://img.shields.io/pypi/dm/glinkfix
+[github-size]: https://img.shields.io/github/repo-size/geozeke/glinkfix
+[pypi-version]: https://img.shields.io/pypi/pyversions/glinkfix
