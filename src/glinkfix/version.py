@@ -12,7 +12,7 @@ def get_version() -> str:
 
     Starting at the current directory, search for pyproject.toml,
     working your way up the parents in the directory tree. This allows
-    the version number to be maintained on one place.
+    the version number to be maintained in one place.
 
     IMPORTANT: For this to work properly when you distribute your
     package, you must include the following in your `pyproject.toml`
