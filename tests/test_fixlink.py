@@ -56,5 +56,3 @@ def test_fix_link(capsys, monkeypatch, case):
         assert linkout in useroutput
     else:
         assert "not a valid Google Drive Sharing Link" in useroutput
-
-    monkeypatch.delattr("builtins.input")
