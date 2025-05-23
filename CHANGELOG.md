@@ -2,6 +2,14 @@
 
 <!--------------------------------------------------------------------->
 
+## [2.0.7][2.0.7] - 2025-05-23
+
+### Changed
+
+* Maintenance release to synchronize repository tags.
+
+<!--------------------------------------------------------------------->
+
 ## [2.0.6][2.0.6] - 2025-03-06
 
 ### Removed
@@ -127,6 +135,7 @@
 [2.0.4]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.4
 [2.0.5]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.5
 [2.0.6]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.6
+[2.0.7]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.7
 [astral]: https://astral.sh
 [issue36]: https://github.com/geozeke/glinkfix/issues/36
 [pep561]: https://peps.python.org/pep-0561/
