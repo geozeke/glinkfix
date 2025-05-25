@@ -30,7 +30,7 @@ ifeq (,$(wildcard .init/setup))
 	mkdir -p scratch .init run
 	touch .init/setup
 	cp ./scripts/* ./run
-	find ./run -name '*.sh' -exec chmod 755 {} \;
+	find ./run -name '*.sh' -exec chmod 754 {} \;
 	uv sync --frozen --no-dev
 else
 	@echo "Initial setup is already complete. If you are having issues, run:"
