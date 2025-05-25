@@ -27,8 +27,10 @@ setup: ## initialize the project and python venv
 ifeq (,$(wildcard .init/setup))
 	@(which uv > /dev/null 2>&1) || \
 	(echo "glinkfix requires uv. See README for instructions."; exit 1)
-	mkdir -p scratch .init
+	mkdir -p scratch .init run
 	touch .init/setup
+	cp ./scripts/* ./run
+	find ./run -name '*.sh' -exec chmod 755 {} \;
 	uv sync --frozen --no-dev
 else
 	@echo "Initial setup is already complete. If you are having issues, run:"
@@ -54,7 +56,7 @@ endif
 .PHONY: reset
 reset: clean ## reinitialize the project
 	@echo Resetting project state
-	rm -rf .init .mypy_cache .ruff_cache .venv
+	rm -rf .init .mypy_cache .ruff_cache .venv run
 
 # --------------------------------------------
 
@@ -140,6 +142,12 @@ publish-test: build ## publish package to test.pypi.org for testing
 	fi
 	uv publish  --publish-url https://test.pypi.org/legacy/ \
 		--token ${TESTPYPITOKEN}
+
+# --------------------------------------------
+
+.PHONY: tags
+tags: ## Update project tags
+	./run/release_tags.sh
 
 # --------------------------------------------
 
