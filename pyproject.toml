@@ -1,6 +1,6 @@
 [project]
 name = "glinkfix"
-version = "2.0.7"
+version = "2.0.8"
 description = "Google Drive Link Fixer"
 authors = [{ name = "Peter Nardi", email = "pete@nardi.com" }]
 maintainers = [{ name = "Peter Nardi", email = "pete@nardi.com" }]

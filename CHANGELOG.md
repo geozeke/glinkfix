@@ -2,6 +2,14 @@
 
 <!--------------------------------------------------------------------->
 
+## [2.0.8][2.0.8] - 2025-09-19
+
+### Changed
+
+* Bump [pyperclip][pyperclip] library to v1.10.0
+
+<!--------------------------------------------------------------------->
+
 ## [2.0.7][2.0.7] - 2025-05-23
 
 ### Changed
@@ -136,6 +144,7 @@
 [2.0.5]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.5
 [2.0.6]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.6
 [2.0.7]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.7
+[2.0.8]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.8
 [astral]: https://astral.sh
 [issue36]: https://github.com/geozeke/glinkfix/issues/36
 [pep561]: https://peps.python.org/pep-0561/
