@@ -57,9 +57,6 @@ exclude = [
 	"uv.lock",
 ]
 
-[tool.hatch.build.targets.wheel.force-include]
-"./pyproject.toml" = "glinkfix/pyproject.toml"
-
 [tool.ruff.lint.isort]
 force-single-line = true
 
