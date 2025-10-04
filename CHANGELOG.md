@@ -2,6 +2,15 @@
 
 <!--------------------------------------------------------------------->
 
+## [2.0.9][2.0.9] - 2025-10-04
+
+### Changed
+
+* Upgrade build backend from hatchling to uv_build.
+* Refactor version numbering.
+
+<!--------------------------------------------------------------------->
+
 ## [2.0.8][2.0.8] - 2025-09-19
 
 ### Changed
@@ -22,7 +31,7 @@
 
 ### Removed
 
-* Drop support for Python 3.8 ([#36][issue36])
+* Drop support for Python <= 3.8 ([#36][issue36])
 
 <!--------------------------------------------------------------------->
 
@@ -145,6 +154,7 @@
 [2.0.6]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.6
 [2.0.7]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.7
 [2.0.8]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.8
+[2.0.9]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.9
 [astral]: https://astral.sh
 [issue36]: https://github.com/geozeke/glinkfix/issues/36
 [pep561]: https://peps.python.org/pep-0561/

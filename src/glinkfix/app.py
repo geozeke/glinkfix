@@ -3,9 +3,11 @@
 """Main module."""
 
 import argparse
+from importlib.metadata import version
 
 from glinkfix.tools import fix_link
-from glinkfix.version import get_version
+
+__version__ = version("glinkfix")
 
 
 def main() -> None:
@@ -22,7 +24,7 @@ def main() -> None:
     single file when using Google Drive links in this manner.
     """
 
-    epi = f"Version: {get_version()}"
+    epi = f"Version: {__version__}"
 
     parser = argparse.ArgumentParser(description=msg, epilog=epi)
 
@@ -42,7 +44,7 @@ def main() -> None:
         "-v",
         "--version",
         action="version",
-        version=f"glinkfix {get_version()}",
+        version=f"glinkfix {__version__}",
     )
 
     args = parser.parse_args()
