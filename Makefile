@@ -112,6 +112,12 @@ tags: ## Update project tags
 
 # --------------------------------------------
 
+.PHONY: rebase
+rebase: ## re-baseline with the main branch
+	./run/rebaseline.sh
+
+# --------------------------------------------
+
 .PHONY: coverage
 coverage: ## Generate an html code coverage report
 	coverage run -m pytest 
