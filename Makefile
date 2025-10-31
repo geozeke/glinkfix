@@ -74,9 +74,9 @@ ifeq (,$(wildcard .init/setup))
 endif
 
 ifneq (,$(wildcard .init/dev))
-	uv sync --all-groups --frozen
+	uv sync --all-groups
 else
-	uv sync --no-dev --frozen
+	uv sync --no-dev
 endif
 
 # --------------------------------------------
