@@ -4,9 +4,19 @@
 
 ## Next update
 
+### Development Dependency Updates
+
+* Bump ruff from 0.14.2 to 0.14.3 [#46][pull46]
+
+### Runtime Dependency Updates
+
 ### Changed
 
-* Bump ruff from 0.14.2 to 0.14.3
+### Added
+
+### Removed
+
+### Fixed
 
 <!--------------------------------------------------------------------->
 
@@ -166,5 +176,6 @@
 [astral]: https://astral.sh
 [issue36]: https://github.com/geozeke/glinkfix/issues/36
 [pep561]: https://peps.python.org/pep-0561/
+[pull46]: https://github.com/geozeke/banip/pull/46
 [pyperclip]: https://github.com/asweigart/pyperclip
 [tomli]: https://pypi.org/project/tomli/
