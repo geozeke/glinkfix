@@ -2,28 +2,7 @@
 
 <!--------------------------------------------------------------------->
 
-## Next update
-
-### Development Dependency Updates
-
-* Bump ruff from 0.14.3 to 0.14.4 ([#40][pull40])
-* Bump ruff from 0.14.2 to 0.14.3 ([#46][pull46])
-
-### Runtime Dependency Updates
-
-### Changed
-
-### Added
-
-* Force uv sync to prefer managed python versions.
-
-### Removed
-
-### Fixed
-
-<!--------------------------------------------------------------------->
-
-## [2.0.9][2.0.9] - 2025-10-04
+## [2.0.9][2.0.9] - 2025-10-04 (latest)
 
 ### Changed
 
@@ -179,7 +158,5 @@
 [astral]: https://astral.sh
 [issue36]: https://github.com/geozeke/glinkfix/issues/36
 [pep561]: https://peps.python.org/pep-0561/
-[pull40]: https://github.com/geozeke/banip/pull/40
-[pull46]: https://github.com/geozeke/banip/pull/46
 [pyperclip]: https://github.com/asweigart/pyperclip
 [tomli]: https://pypi.org/project/tomli/

@@ -166,6 +166,10 @@ This project uses the [pyperclip library][def4] which is licensed under
 the BSD 3 Clause License. The full license text can be found in the
 [LICENSE-BSD-3-CLAUSE][def10] file.
 
+<!--------------------------------------------------------------------->
+
+[def10]: ./LICENSE-BSD-3-CLAUSE
+[def11]: https://docs.astral.sh/uv/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
 [def4]: https://github.com/asweigart/pyperclip
@@ -173,13 +177,11 @@ the BSD 3 Clause License. The full license text can be found in the
 [def6]: https://support.google.com/a/answer/10685032
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
 [def9]: https://pypi.org/project/pyperclip/
-[def10]: ./LICENSE-BSD-3-CLAUSE
-[def11]: https://docs.astral.sh/uv/
-[github]: https://img.shields.io/github/license/geozeke/glinkfix
-[pypi]: https://img.shields.io/pypi/v/glinkfix
-[pypi-stats]: https://img.shields.io/pypi/status/glinkfix
 [github-commit]: https://img.shields.io/github/last-commit/geozeke/glinkfix
 [github-issues]: https://img.shields.io/github/issues/geozeke/glinkfix
-[pypi-downloads]: https://img.shields.io/pypi/dm/glinkfix
 [github-size]: https://img.shields.io/github/repo-size/geozeke/glinkfix
+[github]: https://img.shields.io/github/license/geozeke/glinkfix
+[pypi-downloads]: https://img.shields.io/pypi/dm/glinkfix
+[pypi-stats]: https://img.shields.io/pypi/status/glinkfix
 [pypi-version]: https://img.shields.io/pypi/pyversions/glinkfix
+[pypi]: https://img.shields.io/pypi/v/glinkfix
