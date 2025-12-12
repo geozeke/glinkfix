@@ -1,5 +1,6 @@
 ### Development Dependency Updates
 
+* Bump ruff from 0.14.8 to 0.14.9 ([#44][pull44])
 * Bump ruff from 0.14.6 to 0.14.8 ([#43][pull43])
 * Bump mypy from 1.18.2 to 1.19.0 ([#44][pull44])
 * Bump ruff from 0.14.5 to 0.14.6 ([#42][pull42])
