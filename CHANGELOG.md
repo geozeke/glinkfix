@@ -2,7 +2,32 @@
 
 <!--------------------------------------------------------------------->
 
-## [2.0.9][2.0.9] - 2025-10-04 (latest)
+## [2.0.10][2.0.10] - 2026-01-09 (latest)
+
+## What's Changed
+
+* Update copyright years on LICENSE.
+* Force uv sync to prefer managed python versions.
+* Bump ruff from 0.14.2 to 0.14.3 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/39>
+* Bump ruff from 0.14.3 to 0.14.4 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/40>
+* Bump ruff from 0.14.4 to 0.14.5 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/41>
+* Bump ruff from 0.14.5 to 0.14.6 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/42>
+* Bump mypy from 1.18.2 to 1.19.0 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/44>
+* Bump ruff from 0.14.6 to 0.14.8 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/43>
+* Bump ruff from 0.14.8 to 0.14.9 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/45>
+* Bump mypy from 1.19.0 to 1.19.1 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/47>
+* Bump ruff from 0.14.9 to 0.14.10 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/46>
+* Bump ruff from 0.14.10 to 0.14.11 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/48>
+
+## New Contributors
+
+* @dependabot[bot] made their first contribution in <https://github.com/geozeke/glinkfix/pull/39>
+
+**Full Changelog**: <https://github.com/geozeke/glinkfix/compare/v2.0.9...v2.0.10>
+
+<!--------------------------------------------------------------------->
+
+## [2.0.9][2.0.9] - 2025-10-04
 
 ### Changed
 
@@ -155,6 +180,7 @@
 [2.0.7]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.7
 [2.0.8]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.8
 [2.0.9]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.9
+[2.0.10]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.9
 [astral]: https://astral.sh
 [issue36]: https://github.com/geozeke/glinkfix/issues/36
 [pep561]: https://peps.python.org/pep-0561/
