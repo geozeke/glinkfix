@@ -2,7 +2,15 @@
 
 <!--------------------------------------------------------------------->
 
-## [2.0.10][2.0.10] - 2026-01-09 (latest)
+## 2.0.11 (2026-01-11) - latest
+
+### 🚀 New Features
+
+* Add release.yml for formatted release messages by @geozeke in <https://github.com/geozeke/glinkfix/pull/49>
+
+<!--------------------------------------------------------------------->
+
+## [2.0.10][2.0.10] - 2026-01-09
 
 ## What's Changed
 
