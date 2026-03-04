@@ -112,7 +112,7 @@ reset: clean
 # --------------------------------------------
 
 # Generate an html code coverage report
-coverage: # Generate an html code coverage report
+coverage:
     coverage run -m pytest 
     coverage report -m
     coverage html
