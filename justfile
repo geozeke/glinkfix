@@ -126,14 +126,14 @@ test:
 
 # --------------------------------------------
 
-# build package for publishing
+# Build package for publishing
 build: 
 	rm -rf dist
 	uv build
 
 # --------------------------------------------
 
-# publish package to pypi.org for production
+# Publish package to pypi.org for production
 publish-production: build
     #!/usr/bin/env bash
     set -a
@@ -142,7 +142,7 @@ publish-production: build
 
 # --------------------------------------------
 
-# publish package to test.pypi.org for testing
+# Publish package to test.pypi.org for testing
 publish-test: build
     #!/usr/bin/env bash
     set -a
