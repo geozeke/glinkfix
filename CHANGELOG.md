@@ -2,7 +2,40 @@
 
 <!--------------------------------------------------------------------->
 
-## 2.0.11 (2026-01-11) - latest
+## 2.1.0 (2026-03-06) - latest
+
+## BREAKING
+
+* This version drops support for python 3.9
+
+## What's Changed
+
+### 🚀 New Features
+
+* Add docs label to release.yml by @geozeke in <https://github.com/geozeke/glinkfix/pull/50>
+
+### 🐛 Bug Fixes
+
+* Pin upper bound to uv-build by @geozeke in <https://github.com/geozeke/glinkfix/pull/58>
+
+### 👋 Deprecated
+
+* Set min python version to 3.10 by @geozeke in <https://github.com/geozeke/glinkfix/pull/57>
+
+### 📦 Dependency Updates
+
+* Bump ruff from 0.14.11 to 0.14.13 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/51>
+* Bump ruff from 0.14.13 to 0.14.14 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/52>
+* Bump ruff from 0.14.14 to 0.15.0 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/53>
+* Bump ruff from 0.15.0 to 0.15.1 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/54>
+* Bump ruff from 0.15.1 to 0.15.2 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/55>
+* Bump ruff from 0.15.2 to 0.15.4 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/56>
+* Bump pytest from 8.4.2 to 9.0.2 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/60>
+* Bump ruff from 0.15.4 to 0.15.5 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/59>
+
+<!--------------------------------------------------------------------->
+
+## 2.0.11 (2026-01-11)
 
 ### 🚀 New Features
 
