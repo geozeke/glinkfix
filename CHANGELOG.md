@@ -6,32 +6,32 @@
 
 ## BREAKING
 
-* This version drops support for python 3.9
+- This version drops support for python 3.9
 
 ## What's Changed
 
 ### 🚀 New Features
 
-* Add docs label to release.yml by @geozeke in <https://github.com/geozeke/glinkfix/pull/50>
+- Add docs label to release.yml by @geozeke in <https://github.com/geozeke/glinkfix/pull/50>
 
 ### 🐛 Bug Fixes
 
-* Pin upper bound to uv-build by @geozeke in <https://github.com/geozeke/glinkfix/pull/58>
+- Pin upper bound to uv-build by @geozeke in <https://github.com/geozeke/glinkfix/pull/58>
 
 ### 👋 Deprecated
 
-* Set min python version to 3.10 by @geozeke in <https://github.com/geozeke/glinkfix/pull/57>
+- Set min python version to 3.10 by @geozeke in <https://github.com/geozeke/glinkfix/pull/57>
 
 ### 📦 Dependency Updates
 
-* Bump ruff from 0.14.11 to 0.14.13 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/51>
-* Bump ruff from 0.14.13 to 0.14.14 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/52>
-* Bump ruff from 0.14.14 to 0.15.0 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/53>
-* Bump ruff from 0.15.0 to 0.15.1 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/54>
-* Bump ruff from 0.15.1 to 0.15.2 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/55>
-* Bump ruff from 0.15.2 to 0.15.4 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/56>
-* Bump pytest from 8.4.2 to 9.0.2 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/60>
-* Bump ruff from 0.15.4 to 0.15.5 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/59>
+- Bump ruff from 0.14.11 to 0.14.13 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/51>
+- Bump ruff from 0.14.13 to 0.14.14 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/52>
+- Bump ruff from 0.14.14 to 0.15.0 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/53>
+- Bump ruff from 0.15.0 to 0.15.1 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/54>
+- Bump ruff from 0.15.1 to 0.15.2 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/55>
+- Bump ruff from 0.15.2 to 0.15.4 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/56>
+- Bump pytest from 8.4.2 to 9.0.2 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/60>
+- Bump ruff from 0.15.4 to 0.15.5 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/59>
 
 <!--------------------------------------------------------------------->
 
@@ -39,7 +39,7 @@
 
 ### 🚀 New Features
 
-* Add release.yml for formatted release messages by @geozeke in <https://github.com/geozeke/glinkfix/pull/49>
+- Add release.yml for formatted release messages by @geozeke in <https://github.com/geozeke/glinkfix/pull/49>
 
 <!--------------------------------------------------------------------->
 
@@ -47,22 +47,22 @@
 
 ## What's Changed
 
-* Update copyright years on LICENSE.
-* Force uv sync to prefer managed python versions.
-* Bump ruff from 0.14.2 to 0.14.3 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/39>
-* Bump ruff from 0.14.3 to 0.14.4 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/40>
-* Bump ruff from 0.14.4 to 0.14.5 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/41>
-* Bump ruff from 0.14.5 to 0.14.6 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/42>
-* Bump mypy from 1.18.2 to 1.19.0 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/44>
-* Bump ruff from 0.14.6 to 0.14.8 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/43>
-* Bump ruff from 0.14.8 to 0.14.9 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/45>
-* Bump mypy from 1.19.0 to 1.19.1 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/47>
-* Bump ruff from 0.14.9 to 0.14.10 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/46>
-* Bump ruff from 0.14.10 to 0.14.11 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/48>
+- Update copyright years on LICENSE.
+- Force uv sync to prefer managed python versions.
+- Bump ruff from 0.14.2 to 0.14.3 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/39>
+- Bump ruff from 0.14.3 to 0.14.4 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/40>
+- Bump ruff from 0.14.4 to 0.14.5 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/41>
+- Bump ruff from 0.14.5 to 0.14.6 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/42>
+- Bump mypy from 1.18.2 to 1.19.0 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/44>
+- Bump ruff from 0.14.6 to 0.14.8 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/43>
+- Bump ruff from 0.14.8 to 0.14.9 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/45>
+- Bump mypy from 1.19.0 to 1.19.1 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/47>
+- Bump ruff from 0.14.9 to 0.14.10 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/46>
+- Bump ruff from 0.14.10 to 0.14.11 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/48>
 
 ## New Contributors
 
-* @dependabot[bot] made their first contribution in <https://github.com/geozeke/glinkfix/pull/39>
+- @dependabot[bot] made their first contribution in <https://github.com/geozeke/glinkfix/pull/39>
 
 **Full Changelog**: <https://github.com/geozeke/glinkfix/compare/v2.0.9...v2.0.10>
 
@@ -72,8 +72,8 @@
 
 ### Changed
 
-* Upgrade build backend from hatchling to uv_build.
-* Refactor version numbering.
+- Upgrade build backend from hatchling to uv_build.
+- Refactor version numbering.
 
 <!--------------------------------------------------------------------->
 
@@ -81,7 +81,7 @@
 
 ### Changed
 
-* Bump [pyperclip][pyperclip] library to v1.10.0
+- Bump [pyperclip][pyperclip] library to v1.10.0
 
 <!--------------------------------------------------------------------->
 
@@ -89,7 +89,7 @@
 
 ### Changed
 
-* Maintenance release to synchronize repository tags.
+- Maintenance release to synchronize repository tags.
 
 <!--------------------------------------------------------------------->
 
@@ -97,7 +97,7 @@
 
 ### Removed
 
-* Drop support for Python <= 3.8 ([#36][issue36])
+- Drop support for Python <= 3.8 ([#36][issue36])
 
 <!--------------------------------------------------------------------->
 
@@ -105,16 +105,16 @@
 
 ### Changed
 
-* Implement [tomli compatability layer][tomli].
-* Optimize version numbering.
+- Implement [tomli compatability layer][tomli].
+- Optimize version numbering.
 
 ### Added
 
-* Establish and maintain a proper changelog.
+- Establish and maintain a proper changelog.
 
 ### Fixed
 
-* Lint code prompts and documentation.
+- Lint code prompts and documentation.
 
 <!--------------------------------------------------------------------->
 
@@ -122,7 +122,7 @@
 
 ### Changed
 
-* Dependency updates.
+- Dependency updates.
 
 <!--------------------------------------------------------------------->
 
@@ -130,12 +130,12 @@
 
 ### Changed
 
-* Migrate packaging and build system to [uv][astral].
-* Migrate code linting to [ruff][astral].
+- Migrate packaging and build system to [uv][astral].
+- Migrate code linting to [ruff][astral].
 
 ### Fixed
 
-* Lint code.
+- Lint code.
 
 <!--------------------------------------------------------------------->
 
@@ -143,13 +143,13 @@
 
 ### Added
 
-* Add proper citation for the [pyperclip][pyperclip] library.
-* Include BSD 3 Clause license that comes with [pyperclip][pyperclip].
-* Improve help tips on the command line.
+- Add proper citation for the [pyperclip][pyperclip] library.
+- Include BSD 3 Clause license that comes with [pyperclip][pyperclip].
+- Improve help tips on the command line.
 
 ### Fixed
 
-* Lint code.
+- Lint code.
 
 <!--------------------------------------------------------------------->
 
@@ -157,7 +157,7 @@
 
 ### Changed
 
-* Bump [pyperclip][pyperclip] library: 1.8.2 -> 1.9.0
+- Bump [pyperclip][pyperclip] library: 1.8.2 -> 1.9.0
 
 <!--------------------------------------------------------------------->
 
@@ -165,23 +165,23 @@
 
 ### Changed
 
-* Streamline program operation.
-* Default conversion is embedded link.
-* Copy results to the clipboard automatically.
+- Streamline program operation.
+- Default conversion is embedded link.
+- Copy results to the clipboard automatically.
 
 ### Added
 
-* Add additional test cases.
+- Add additional test cases.
 
 ### Removed
 
-* Remove separate version history from README.
+- Remove separate version history from README.
 
 ### Fixed
 
-* Lint documentation.
-* Update code to track evolving Google API changes.
-* Tune `Makefile` to handle development dependencies.
+- Lint documentation.
+- Update code to track evolving Google API changes.
+- Tune `Makefile` to handle development dependencies.
 
 <!--------------------------------------------------------------------->
 
@@ -189,11 +189,11 @@
 
 ### Changed
 
-* Re-baseline version.
+- Re-baseline version.
 
 ### Fixed
 
-* Lint documentation.
+- Lint documentation.
 
 <!--------------------------------------------------------------------->
 
@@ -201,11 +201,11 @@
 
 ### Changed
 
-* Improve packaging compliance with [PEP 561][pep561].
+- Improve packaging compliance with [PEP 561][pep561].
 
 ### Removed
 
-* Drop support for Python <= 3.7
+- Drop support for Python <= 3.7
 
 <!--------------------------------------------------------------------->
 
