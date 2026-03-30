@@ -7,6 +7,20 @@ default: help
 
 # --------------------------------------------
 
+# Private handler for commits
+_commit latest:
+    #!/usr/bin/env bash
+    git add .
+    git commit -m "Bump version"
+    git push origin main
+    if [[ "{{latest}}" == "true" ]]; then
+        ./run/release_tags.sh --latest
+    else
+        ./run/release_tags.sh
+    fi
+
+# --------------------------------------------
+
 _display_coverage:
     #!/usr/bin/env python3
     import webbrowser
@@ -158,12 +172,15 @@ bump version:
 
 # --------------------------------------------
 
-# Commit, push changes, update tags
+# Commit, push, update symantic version, EXCLUDE the "latest" tag
 commit:
-    git add .
-    git commit -m "Bump version"
-    git push origin main
-    just tags
+    just _commit latest=false    
+
+# --------------------------------------------
+
+# Commit, push, update symantic version, INCLUDE the "latest" tag
+commit-latest:
+    just _commit "true"
 
 # --------------------------------------------
 
