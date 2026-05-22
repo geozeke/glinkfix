@@ -1,41 +1,27 @@
-# Changelog
+## 2.2.0 (2026-05-22)
 
-## 2.1.0 (2026-03-06)
+### 🛠️ Changes
 
-### Breaking
+- Migrate release generation to cliff (2f62157)
+- Disable dependabot (4c6821a)
+- Update cliff.toml (7b36a8f)
 
-- This version drops support for Python 3.9.
+### 📚 Documentation
 
-### Bug Fixes
+- Lint CHANGELOG for markdown errors (623cc9b)
+- Lint config.toml (052981b)
+- Standardize changelog header format (b4311dc)
+- Update logo (c521443)
 
-- Pin upper bound to uv-build by @geozeke in
-  <https://github.com/geozeke/glinkfix/pull/58>.
+### 🚀 Features
 
-### Deprecated
+- Allow for selective tagging (786a721)
+- Handle more link types (#78) (36b4345)
+- Add more command line options (#79) (31f85ab)
 
-- Set min Python version to 3.10 by @geozeke in
-  <https://github.com/geozeke/glinkfix/pull/57>.
+### ⚙️ Miscellaneous Tasks
 
-### Dependency Upgrades
-
-- Bump ruff from 0.14.11 to 0.14.13 by @dependabot[bot] in
-  <https://github.com/geozeke/glinkfix/pull/51>.
-- Bump ruff from 0.14.13 to 0.14.14 by @dependabot[bot] in
-  <https://github.com/geozeke/glinkfix/pull/52>.
-- Bump ruff from 0.14.14 to 0.15.0 by @dependabot[bot] in
-  <https://github.com/geozeke/glinkfix/pull/53>.
-- Bump ruff from 0.15.0 to 0.15.1 by @dependabot[bot] in
-  <https://github.com/geozeke/glinkfix/pull/54>.
-- Bump ruff from 0.15.1 to 0.15.2 by @dependabot[bot] in
-  <https://github.com/geozeke/glinkfix/pull/55>.
-- Bump ruff from 0.15.2 to 0.15.4 by @dependabot[bot] in
-  <https://github.com/geozeke/glinkfix/pull/56>.
-- Bump pytest from 8.4.2 to 9.0.2 by @dependabot[bot] in
-  <https://github.com/geozeke/glinkfix/pull/60>.
-- Bump ruff from 0.15.4 to 0.15.5 by @dependabot[bot] in
-  <https://github.com/geozeke/glinkfix/pull/59>.
-
-### Features
-
-- Add docs label to release.yml by @geozeke in
-  <https://github.com/geozeke/glinkfix/pull/50>.
+- Lint justfile (bfb98a1)
+- Lint justfile (19e7f39)
+- Move to codex tooling (#77) (c772720)
+- Add Windows CI tooling (#80) (d6c0652)
