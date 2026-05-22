@@ -5,7 +5,7 @@
 import argparse
 from importlib.metadata import version
 
-from glinkfix.tools import fix_link
+from glinkfix.links import fix_link
 
 __version__ = version("glinkfix")
 

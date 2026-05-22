@@ -7,7 +7,7 @@ links into links suitable for embedding or direct download.
 
 - `src/glinkfix/app.py`: CLI entry point and argument parsing for the
   `glinkfix` console script.
-- `src/glinkfix/tools.py`: core Google Drive link rewriting logic.
+- `src/glinkfix/links.py`: core Google Drive link rewriting logic.
 - `tests/`: pytest coverage and test data for link rewriting behavior.
 - `pyproject.toml`: package metadata, build backend, dependencies, and
   Ruff/Coverage settings.
