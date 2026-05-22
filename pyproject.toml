@@ -4,8 +4,8 @@ version = "2.1.0"
 description = "Google Drive Link Fixer"
 authors = [{ name = "Peter Nardi", email = "geozeke@gmail.com" }]
 maintainers = [{ name = "Peter Nardi", email = "geozeke@gmail.com" }]
-license = "MIT AND BSD-3-Clause"
-license-files = ["LICEN[CS]E*"]
+license = "MIT"
+license-files = ["LICENSE"]
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
 keywords = [
@@ -26,11 +26,11 @@ classifiers = [
 	"Operating System :: OS Independent",
 	"Topic :: Utilities",
 	"Programming Language :: Python :: 3",
-	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
 	"Programming Language :: Python :: 3.11",
 	"Programming Language :: Python :: 3.12",
 	"Programming Language :: Python :: 3.13",
+	"Programming Language :: Python :: 3.14",
 ]
 dependencies = [
 	"pyperclip>=1.9.0",
@@ -49,10 +49,17 @@ requires = ["uv-build>=0.10,<0.12"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-exclude = [
-	"global-gitignore.txt",
-	"Makefile",
+source-include = [
+	"assets/**",
+	"CHANGELOG.md",
+	"changelogs/**",
+	"justfile",
+	"scripts/**",
 	"tests/**",
+]
+source-exclude = [
+	"global-gitignore.txt",
+	".mypy_cache",
 	".gitignore",
 	"uv.lock",
 ]

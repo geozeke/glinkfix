@@ -13,47 +13,43 @@
 
 <br>
 
-<img src="https://lh3.googleusercontent.com/d/1wy0cTkF7O8BUOH_OVZYDo_PQEh7LJ_HE"
+<img src="https://raw.githubusercontent.com/geozeke/glinkfix/main/assets/glinkfix-logo.png"
 alt="Dinobox logo" width="120"/>
 
 ## Google Drive Link Fixer
 
 ## Notes (please read)
 
-1. It's turning into an arms race. Google keeps changing how links are
-   handled on their servers, which often breaks tools like _glinkfix_.
-   Direct downloading and embedding G-Drive links is definitely an
-   unsupported "off the books" feature as far as Google is concerned. As
-   of Jan 2024, Google made a significant change, which definitely broke
-   some links created with this tool. This update (Apr 2024) works, _for
-   now_, but if Google changes again, things may break.
+1. Google periodically changes how Drive links are handled, which can
+   affect tools like _glinkfix_. Direct downloading and embedding Google
+   Drive links is unsupported behavior as far as Google is concerned. As
+   of January 2024, Google made a significant change that broke some
+   links created with this tool. This update (April 2024) works, _for
+   now_, but future Google changes may break link handling again.
 
-2. Viewing links that point to animated GIFs may just show up as static
+2. Viewing links that point to animated GIFs may appear as static
    images.
 
 3. In the v2 update, in addition to displaying the fixed link on the
    screen, _glinkfix_ will also attempt to copy the fixed link to the
-   clipboard. Copying to the clipboard only works for Desktop-based
-   operating systems (not Server installs). Even without automatic
+   clipboard. Copying to the clipboard only works for desktop operating
+   systems, not server environments. Even without automatic
    copying, link fixing will still work and the results will be
-   displayed on the screen, regardless of where you run it (Server or
-   Desktop). _glinkfix_ uses the [pyperclip][def9] library, and
-   automatic copying to the clipboard should work seamlessly on
-   Windows/Mac. If you're running Linux and links are not automatically
-   copied to the clipboard, [refer to this note][def8] from the
+   displayed on the screen, regardless of where you run it. _glinkfix_
+   uses the [pyperclip][def9] library, and automatic copying to the
+   clipboard should work seamlessly on Windows and macOS. If you're
+   running Linux and links are not automatically copied to the clipboard,
+   [refer to this note][def8] from the
    pyperclip developer.
 
 ## To Developers
 
-If you're just using _glinkfix_, then carry on!
-
 If you're a developer looking to fork this repository and modify
 _glinkfix_, there are two important considerations:
 
-1. _glinkfix_ requires [uv][def11] for dependency management. It is well
-   behaved and extremely fast. If you're a Python developer, you should
-   check it out. Visit the [uv site][def11] and install it using
-   the instructions for your operating system.
+1. _glinkfix_ requires [uv][def11] for dependency management. Visit the
+   [uv site][def11] and install it using the instructions for your
+   operating system.
 
 2. I've included a file called `global-gitignore.txt` which is a copy of
    the `.gitignore` I placed in my home directory and configured
@@ -64,12 +60,37 @@ _glinkfix_, there are two important considerations:
 
    _Details on gitignore files are available on [GitHub][def2]._
 
+Common maintainer commands are available through `just`:
+
+```text
+just setup
+just dev
+just lint
+just test
+just typecheck
+just build
+```
+
+Use `just bump <version>` to generate changelog entries and update
+project metadata. Changelog files use the same release-section format as
+`dsap`, with older releases archived by minor version under
+`changelogs/`. Use `just tag-release` or `just tag-release-latest` to
+create guarded release tags after the release commit has landed on
+`main`. Use `just outdated` and `just upgrade` for targeted first-order
+dependency upgrades.
+
 ## Installation
 
 The preferred way to install _glinkfix_ is with [pipx][def3]:
 
 ```text
 pipx install glinkfix
+```
+
+You can also install _glinkfix_ as a tool with [uv][def11]:
+
+```text
+uv tool install glinkfix
 ```
 
 Alternatively, you can create a separate virtual environment and install
@@ -79,7 +100,7 @@ it the traditional way:
 pip3 install glinkfix
 ```
 
-If you just need a quick one-time link fix, and don't want to commit to
+If you just need a quick one-time link fix and don't want to commit to
 a full installation, use:
 
 ```text
@@ -88,20 +109,20 @@ pipx run glinkfix -h
 
 and follow the directions to run it again with the option you want.
 
-## Purpose / Usage
+## Purpose and Usage
 
-When you share files with Google Drive, the sharing link you get is only
-good for accessing the content through a web browser. If you want to use
-a Google Drive sharing link to embed an image in a document (e.g. in a
-Markdown or HTML file), or you want to directly download a file
-pointed to by a Google Drive sharing link using something like `curl` or
-`wget` in Linux, the link needs to be adjusted ("fixed") for these
-purposes.
+When you share files with Google Drive, the sharing link you get is
+intended primarily for accessing the content through a web browser. If
+you want to use a Google Drive sharing link to embed an image in a
+document (e.g. in a Markdown or HTML file), or you want to directly
+download a file pointed to by a Google Drive sharing link using
+something like `curl` or `wget` in Linux, the link needs to be adjusted
+("fixed") for these purposes.
 
-It's not especially hard to repackage the link, but it's a pain. You
-have to copy the link to a text editor, carve it up manually, and
-reassemble it. If you've got a lot of links to deal with, it starts to
-get very tedious. This tool is designed to remove the tedium.
+It's not especially hard to repackage the link, but it can be tedious.
+You have to copy the link to a text editor, carve it up manually, and
+reassemble it. If you've got a lot of links to deal with, the process
+gets repetitive. This tool is designed to remove that tedium.
 
 _Note: The images below are actually hosted on Google Drive, and the
 "fixed" links are embedded into this README file._
@@ -127,33 +148,30 @@ Now run _glinkfix_ and paste the link into the terminal. Copy the
 To display the help menu, run: `glinkfix -h`
 
 ```text
-usage: glinkfix [-h] [-d]
+usage: glinkfix [-h] [-d] [-v]
 
-This program takes a Google Drive sharing link for a file and repackages
-it into a link that can be downloaded directly (e.g. using curl) or
-embedded in a document to be viewed (e.g. an image in a Markdown
-document). Note: there is a size limit of 40MB for a single file when
-using Google Drive links in this manner.
+Convert a Google Drive sharing link into a link suitable for direct
+download, such as with curl, or for embedding in a document, such as an
+image in Markdown or HTML. Google Drive links used this way have a
+single-file size limit of 40 MB.
 
-optional arguments:
+options:
   -h, --help      show this help message and exit
-  -d, --download  The default behavior for glinkfix is to repackage a
-                  Google Drive link to make it suitable for embedding in
-                  a website. Use this option if you want to repackage a
-                  Google Drive link for direct downloading (e.g.
-                  downloading using curl).
+  -d, --download  Create a direct-download link instead of an embeddable
+                  link.
+  -v, --version   show program's version number and exit
 ```
 
 ## Usage Notes
 
 * There is a 40MB size limit for a single file when using Google Drive
   sharing links directly for viewing or downloading. Individual files
-  larger than 40MB will not render/download properly. This limit is a
+  larger than 40MB will not render or download properly. This limit is a
   function of how Google Drive works and is not related to _glinkfix_.
 * When creating a download link for use with `curl`, make sure to use
   `curl`'s `-L` option to allow for redirects.
 * _glinkfix_ supports links that use Google's [resource key][def6]
- security feature.
+  security feature.
 
 ### License
 
@@ -162,13 +180,12 @@ file for details.
 
 ### Acknowledgements
 
-This project uses the [pyperclip library][def4] which is licensed under
-the BSD 3 Clause License. The full license text can be found in the
-[LICENSE-BSD-3-CLAUSE][def10] file.
+This project uses the [pyperclip library][def4], an external dependency
+licensed under the BSD 3-Clause License. See the [pyperclip project][def4]
+for license details.
 
 <!--------------------------------------------------------------------->
 
-[def10]: ./LICENSE-BSD-3-CLAUSE
 [def11]: https://docs.astral.sh/uv/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
