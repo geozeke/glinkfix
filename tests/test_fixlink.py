@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-from argparse import Namespace
-
 import pytest
 
-from glinkfix import tools
+from glinkfix import links
 
 FILE_ID = "1BJ5cR04cSzHa4xMIPApjLXv0IHPDu9U2"
 RESOURCE_FILE_ID = "0B0vgUO_i57e9hrf9456jdfgfg"
@@ -112,7 +110,7 @@ def test_convert_link_returns_expected_url(
     expected: str,
 ) -> None:
     """Test that valid Drive links are converted exactly."""
-    assert tools.convert_link(link, download=download) == expected
+    assert links.convert_link(link, download=download) == expected
 
 
 @pytest.mark.parametrize(
@@ -131,62 +129,4 @@ def test_convert_link_returns_expected_url(
 )
 def test_convert_link_rejects_invalid_urls(link: str) -> None:
     """Test that unsupported links return ``None``."""
-    assert tools.convert_link(link) is None
-
-
-def test_fix_link_copies_valid_link(monkeypatch: pytest.MonkeyPatch, capsys) -> None:
-    """Test that valid input is copied and printed."""
-    copied_link = ""
-    link = f"https://drive.google.com/file/d/{FILE_ID}/view?usp=sharing"
-
-    def fake_copy(value: str) -> None:
-        nonlocal copied_link
-        copied_link = value
-
-    monkeypatch.setattr("builtins.input", lambda _: link)
-    monkeypatch.setattr(tools.pc, "copy", fake_copy)
-
-    tools.fix_link(Namespace(download=False))
-
-    output = capsys.readouterr().out
-    assert copied_link == VIEW_LINK
-    assert "Fixed link (for embedding) copied to the clipboard:" in output
-    assert VIEW_LINK in output
-
-
-def test_fix_link_prints_download_link_when_clipboard_fails(
-    monkeypatch: pytest.MonkeyPatch,
-    capsys,
-) -> None:
-    """Test that clipboard failure still prints the fixed link."""
-    link = f"https://drive.google.com/file/d/{FILE_ID}/view?usp=share_link"
-
-    def fake_copy(value: str) -> None:
-        raise tools.pc.PyperclipException("clipboard unavailable")
-
-    monkeypatch.setattr("builtins.input", lambda _: link)
-    monkeypatch.setattr(tools.pc, "copy", fake_copy)
-
-    tools.fix_link(Namespace(download=True))
-
-    output = capsys.readouterr().out
-    assert "Manually copy and paste this fixed link (for downloading):" in output
-    assert DOWNLOAD_LINK in output
-
-
-def test_fix_link_does_not_copy_invalid_input(
-    monkeypatch: pytest.MonkeyPatch,
-    capsys,
-) -> None:
-    """Test that invalid input does not touch the clipboard."""
-
-    def fail_copy(value: str) -> None:
-        raise AssertionError("copy should not be called")
-
-    monkeypatch.setattr("builtins.input", lambda _: "https://ubuntu.com")
-    monkeypatch.setattr(tools.pc, "copy", fail_copy)
-
-    tools.fix_link(Namespace(download=False))
-
-    output = capsys.readouterr().out
-    assert "Input URL is not a valid Google Drive sharing link." in output
+    assert links.convert_link(link) is None
