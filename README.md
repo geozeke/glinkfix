@@ -104,15 +104,41 @@ alt="Getting Link" width="450"/>
 <img src="assets/google-drive-copy-link.png"
 alt="Copying Link" width="450"/>
 
-Now run _glinkfix_ and paste the link into the terminal. Copy the
-"fixed" version and use it as required.
+Now run _glinkfix_ with the sharing link:
+
+```text
+glinkfix "https://drive.google.com/file/d/<file-id>/view?usp=drive_link"
+```
+
+By default, _glinkfix_ creates an embeddable link, prints the result, and
+attempts to copy the fixed link to the clipboard. To create a
+direct-download link instead, use:
+
+```text
+glinkfix --download "https://drive.google.com/file/d/<file-id>/view?usp=drive_link"
+```
+
+For shell scripts, use `--quiet` to print only the converted URL:
+
+```text
+glinkfix --quiet "https://drive.google.com/file/d/<file-id>/view?usp=drive_link"
+```
+
+To print the normal output without copying to the clipboard, use:
+
+```text
+glinkfix --no-copy "https://drive.google.com/file/d/<file-id>/view?usp=drive_link"
+```
+
+If you run `glinkfix` without a URL, it prompts for one interactively.
+Press `Ctrl-C` at the prompt to exit cleanly.
 
 ---
 
 To display the help menu, run: `glinkfix -h`
 
 ```text
-usage: glinkfix [-h] [-d] [-v]
+usage: glinkfix [-h] [-d] [--no-copy] [--quiet] [-v] [url]
 
 Convert a Google Drive file sharing link into a link suitable for
 embedding in a document, such as an image in Markdown or HTML, or for
@@ -121,10 +147,16 @@ link formats such as usp=drive_link and uses Python's standard-library
 URL parser for lightweight, dependency-minimal processing. Google Drive
 links used this way have a single-file size limit of 40 MB.
 
+positional arguments:
+  url             Google Drive file sharing link to convert. If omitted,
+                  prompt for one.
+
 options:
   -h, --help      show this help message and exit
   -d, --download  Create a direct-download link instead of the default
                   embeddable link.
+  --no-copy       Do not copy the converted link to the clipboard.
+  --quiet         Print only the converted link and skip clipboard copying.
   -v, --version   show program's version number and exit
 ```
 
