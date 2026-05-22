@@ -26,7 +26,6 @@ classifiers = [
 	"Operating System :: OS Independent",
 	"Topic :: Utilities",
 	"Programming Language :: Python :: 3",
-	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
 	"Programming Language :: Python :: 3.11",
 	"Programming Language :: Python :: 3.12",
@@ -49,9 +48,9 @@ requires = ["uv-build>=0.10,<0.12"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-exclude = [
+source-exclude = [
 	"global-gitignore.txt",
-	"Makefile",
+	".mypy_cache",
 	"tests/**",
 	".gitignore",
 	"uv.lock",
