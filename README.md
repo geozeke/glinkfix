@@ -13,7 +13,7 @@
 
 <br>
 
-<img src="https://lh3.googleusercontent.com/d/1wy0cTkF7O8BUOH_OVZYDo_PQEh7LJ_HE"
+<img src="https://raw.githubusercontent.com/geozeke/glinkfix/main/assets/glinkfix-logo.png"
 alt="Dinobox logo" width="120"/>
 
 ## Google Drive Link Fixer
