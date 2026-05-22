@@ -60,6 +60,25 @@ _glinkfix_, there are two important considerations:
 
    _Details on gitignore files are available on [GitHub][def2]._
 
+Common maintainer commands are available through `just`:
+
+```text
+just setup
+just dev
+just lint
+just test
+just typecheck
+just build
+```
+
+Use `just bump <version>` to generate changelog entries and update
+project metadata. Changelog files use the same release-section format as
+`dsap`, with older releases archived by minor version under
+`changelogs/`. Use `just tag-release` or `just tag-release-latest` to
+create guarded release tags after the release commit has landed on
+`main`. Use `just outdated` and `just upgrade` for targeted first-order
+dependency upgrades.
+
 ## Installation
 
 The preferred way to install _glinkfix_ is with [pipx][def3]:

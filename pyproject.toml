@@ -30,6 +30,7 @@ classifiers = [
 	"Programming Language :: Python :: 3.11",
 	"Programming Language :: Python :: 3.12",
 	"Programming Language :: Python :: 3.13",
+	"Programming Language :: Python :: 3.14",
 ]
 dependencies = [
 	"pyperclip>=1.9.0",
@@ -48,10 +49,17 @@ requires = ["uv-build>=0.10,<0.12"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
+source-include = [
+	"assets/**",
+	"CHANGELOG.md",
+	"changelogs/**",
+	"justfile",
+	"scripts/**",
+	"tests/**",
+]
 source-exclude = [
 	"global-gitignore.txt",
 	".mypy_cache",
-	"tests/**",
 	".gitignore",
 	"uv.lock",
 ]

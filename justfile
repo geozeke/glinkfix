@@ -1,5 +1,4 @@
 set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
-web_path := "htmlcov/index.html"
 project_name := "glinkfix"
 
 # Show help
@@ -7,26 +6,180 @@ default: help
 
 # --------------------------------------------
 
-# Private handler for commits
-_commit latest:
+# Open a generated HTML report in the default browser
+_display_webpage web_path:
+    #!/usr/bin/env python3
+    import webbrowser
+    from pathlib import Path
+    p = Path(".").resolve() / "{{web_path}}"
+    if not p.exists():
+        raise SystemExit(f"File not found: {p}")
+    url = f"file://{p}"
+    print(f"Coverage report: {url}")
+    webbrowser.open(url, new=2)
+
+# --------------------------------------------
+
+# Require initial setup to be complete
+_require_setup:
     #!/usr/bin/env bash
-    git add .
-    git commit -m "Bump version"
-    git push origin main
-    if [[ "{{latest}}" == "true" ]]; then
-        ./run/release_tags.sh --latest
-    else
-        ./run/release_tags.sh
+    if [ ! -f .init/setup ]; then
+        echo 'Please run "just setup" first'
+        exit 1
     fi
 
 # --------------------------------------------
 
-_display_coverage:
-    #!/usr/bin/env python3
-    import webbrowser
-    from pathlib import Path
-    p = Path(".").resolve()/"{{web_path}}"
-    webbrowser.open(f"file://{p}", new=2)
+# Build package for publishing
+build:
+    #!/usr/bin/env bash
+    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
+    rm -rf dist
+    uv build
+
+# --------------------------------------------
+
+# Bump the project version and generate changelog
+bump version:
+    #!/usr/bin/env bash
+    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
+    new_version="{{version}}"
+    new_version="${new_version#v}"
+    git cliff --unreleased --tag "$new_version" --prepend CHANGELOG.md
+    uv run python scripts/archive_changelog.py "$new_version"
+    tmp_changelog="$(mktemp)"
+    awk '
+        NR == 1 { print; prev = $0; next }
+        /^## / && prev !~ /^[[:space:]]*$/ { print "" }
+        { print; prev = $0 }
+    ' CHANGELOG.md > "$tmp_changelog"
+    mv "$tmp_changelog" CHANGELOG.md
+    tmp_file="$(mktemp)"
+    awk -v version="$new_version" '
+        BEGIN { replaced = 0 }
+        /^version = "/ && !replaced {
+            print "version = \"" version "\""
+            replaced = 1
+            next
+        }
+        { print }
+    ' pyproject.toml > "$tmp_file"
+    mv "$tmp_file" pyproject.toml
+    just sync
+
+# --------------------------------------------
+
+# Clean python runtime and build artifacts
+clean:
+    echo "Cleaning python runtime and build artifacts"
+    rm -rf build dist .*cache htmlcov
+    rm -rf site cover coverage.xml .coverage .coverage.*
+    rm -rf .tox .nox .hypothesis .pybuilder .pytype .pyre
+    rm -rf .release-notes.md
+    rm -rf develop-eggs downloads eggs parts sdist var wheels
+    rm -rf share/python-wheels target
+    find . -type d -name __pycache__ -exec rm -rf {} \; -prune
+    find . -type d -name .ipynb_checkpoints -exec rm -rf {} \; -prune
+    find . -type d -name .pytest_cache -exec rm -rf {} \; -prune
+    find . -type d -name .eggs -exec rm -rf {} \; -prune
+    find . -type d -name '*.egg-info' -exec rm -rf {} \; -prune
+    find . -type f -name .DS_Store -delete
+    find . -type f -name '._*' -delete
+    find . -type f -name '*.egg' -delete
+    find . -type f -name '*.pyc' -delete
+    find . -type f -name '*.pyo' -delete
+    find . -type f -name '*.coverage' -delete
+
+# --------------------------------------------
+
+# Run tests with coverage reporting
+coverage:
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run coverage run -m pytest --tb=short
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run coverage report -m
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run coverage html
+
+# --------------------------------------------
+
+# Run coverage and open HTML report in browser
+coverage-open: coverage
+    just _display_webpage "htmlcov/index.html"
+
+# --------------------------------------------
+
+# Provision development dependencies
+dev: _require_setup
+    #!/usr/bin/env bash
+    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
+    export UV_PYTHON_PREFERENCE=only-managed
+    uv sync --all-groups --frozen
+    touch .init/dev
+
+# --------------------------------------------
+
+# Format Python files and apply fixable Ruff lint rules
+format:
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run ruff check --fix .
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run ruff format .
+
+# --------------------------------------------
+
+# Show available recipes
+help:
+    @just --list
+
+# --------------------------------------------
+
+# Run lint checks
+lint:
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run ruff check .
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run ruff format --check .
+
+# --------------------------------------------
+
+# Show outdated top-level dependencies
+outdated:
+    #!/usr/bin/env bash
+    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
+    uv tree --outdated --depth=1 | awk '
+        /latest/ {
+            found = 1
+            print
+        }
+        END {
+            if (!found) {
+                print "No outdated top-level dependencies found."
+            }
+        }
+    '
+
+# --------------------------------------------
+
+# Publish package to pypi.org for production
+publish-production: build
+    #!/usr/bin/env bash
+    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
+    set -a
+    eval $(grep '^PYPI_' "$HOME/.secrets")
+    uv publish --publish-url https://upload.pypi.org/legacy/ -t "$PYPI_PROD"
+
+# --------------------------------------------
+
+# Publish package to test.pypi.org for testing
+publish-test: build
+    #!/usr/bin/env bash
+    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
+    set -a
+    eval $(grep '^PYPI_' "$HOME/.secrets")
+    uv publish --publish-url https://test.pypi.org/legacy/ -t "$PYPI_TEST"
+
+# --------------------------------------------
+
+# Reset the project state
+reset: clean
+    echo "Resetting project state"
+    rm -rf .init .venv
+
+# --------------------------------------------
 
 # Initialize the project environment
 setup:
@@ -36,10 +189,17 @@ setup:
             echo "{{project_name}} requires uv. See README for instructions."
             exit 1
         fi
-        mkdir -p scratch .init run
+        if ! command -v git >/dev/null 2>&1; then
+            echo "{{project_name}} requires git. See README for instructions."
+            exit 1
+        fi
+        if ! command -v git-cliff >/dev/null 2>&1; then
+            echo "{{project_name}} requires git-cliff. See README for instructions."
+            exit 1
+        fi
+        mkdir -p scratch .init
         touch .init/setup
-        cp ./scripts/* ./run
-        find ./run -name '*.sh' -exec chmod 744 {} \;
+        export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
         export UV_PYTHON_PREFERENCE=only-managed
         uv sync --frozen --no-dev
     else
@@ -52,46 +212,10 @@ setup:
 
 # --------------------------------------------
 
-# Provision development dependencies
-dev:
+# Sync dependencies with the lockfile
+sync: _require_setup
     #!/usr/bin/env bash
-    if [ ! -f .init/setup ]; then
-        echo 'Please run "just setup" first'
-        exit 1
-    fi
-    export UV_PYTHON_PREFERENCE=only-managed
-    uv sync --all-groups --frozen
-    touch .init/dev
-
-# --------------------------------------------
-
-# Upgrade dependencies
-upgrade:
-    #!/usr/bin/env bash
-    if [ ! -f .init/setup ]; then
-        echo 'Please run "just setup" first'
-        exit 1
-    fi
-
-    cp -f ./scripts/* ./run
-    find ./run -name '*.sh' -exec chmod 744 {} \;
-
-    if [ -f .init/dev ]; then
-        uv sync --upgrade --all-groups
-    else
-        uv sync --upgrade --no-dev
-    fi
-
-# --------------------------------------------
-
-# Sync dependencies with the lockfile (frozen)
-sync:
-    #!/usr/bin/env bash
-    if [ ! -f .init/setup ]; then
-        echo 'Please run "just setup" first'
-        exit 1
-    fi
-
+    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
     if [ -f .init/dev ]; then
         uv sync --all-groups
     else
@@ -100,102 +224,30 @@ sync:
 
 # --------------------------------------------
 
-# Clean python runtime and build artifacts
-clean:
-    echo "Cleaning python runtime and build artifacts"
-    rm -rf build/
-    rm -rf dist/
-    find . -type d -name __pycache__ -exec rm -rf {} \; -prune
-    find . -type d -name .ipynb_checkpoints -exec rm -rf {} \; -prune
-    find . -type d -name .pytest_cache -exec rm -rf {} \; -prune
-    find . -type d -name .eggs -exec rm -rf {} \; -prune
-    find . -type d -name htmlcov -exec rm -rf {} \; -prune
-    find . -type d -name *.egg-info -exec rm -rf {} \; -prune
-    find . -type f -name *.egg -delete
-    find . -type f -name *.pyc -delete
-    find . -type f -name *.pyo -delete
-    find . -type f -name *.coverage -delete
+# Generate release tag
+tag-release:
+    bash ./scripts/release_tags.sh
 
 # --------------------------------------------
 
-# Reset the project state
-reset: clean
-    echo "Resetting project state"
-    rm -rf .init .mypy_cache .ruff_cache .venv run htmlcov
-
-# --------------------------------------------
-
-# Generate an html code coverage report
-coverage:
-    coverage run -m pytest 
-    coverage report -m
-    coverage html
-    just _display_coverage
+# Generate release tag and update latest
+tag-release-latest:
+    bash ./scripts/release_tags.sh --latest
 
 # --------------------------------------------
 
 # Run pytest with --tb=short option
 test:
-    pytest --tb=short
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run pytest --tb=short
 
 # --------------------------------------------
 
-# Build package for publishing
-build: 
-	rm -rf dist
-	uv build
+# Run static type checks
+typecheck:
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run mypy src
 
 # --------------------------------------------
 
-# Publish package to pypi.org for production
-publish-production: build
-    #!/usr/bin/env bash
-    set -a
-    eval $(grep '^PYPI_' "$HOME/.secrets")
-    uv publish --publish-url https://upload.pypi.org/legacy/ -t "$PYPI_PROD"
-
-# --------------------------------------------
-
-# Publish package to test.pypi.org for testing
-publish-test: build
-    #!/usr/bin/env bash
-    set -a
-    eval $(grep '^PYPI_' "$HOME/.secrets")
-    uv publish --publish-url https://test.pypi.org/legacy/ -t "$PYPI_TEST"
-
-# --------------------------------------------
-
-# Bump the project version and generate changelog
-bump version:
-    uv run run/bump.py {{version}}
-    just sync
-
-# --------------------------------------------
-
-# Commit, push, update symantic version, EXCLUDE the "latest" tag
-commit:
-    just _commit false
-
-# --------------------------------------------
-
-# Commit, push, update symantic version, INCLUDE the "latest" tag
-commit-latest:
-    just _commit true
-
-# --------------------------------------------
-
-# Generate release tags
-tags:
-    ./run/release_tags.sh
-
-# --------------------------------------------
-
-# Rebase to the main branch
-rebase:
-    ./run/rebaseline.sh
-
-# --------------------------------------------
-
-# Show available recipes
-help:
-    @just --list
+# Upgrade dependencies
+upgrade: _require_setup
+    bash ./scripts/upgrade_dependencies.sh

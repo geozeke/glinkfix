@@ -50,6 +50,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+.release-notes.md
 
 # Translations
 *.mo
@@ -108,6 +109,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.uv-cache/
 env/
 venv/
 ENV/
@@ -153,4 +155,3 @@ cython_debug/
 # Custom ignores
 .init/
 scratch/
-run/

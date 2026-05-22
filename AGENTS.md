@@ -12,6 +12,8 @@ links into links suitable for embedding or direct download.
 - `pyproject.toml`: package metadata, build backend, dependencies, and
   Ruff/Coverage settings.
 - `justfile`: common setup, test, build, release, and maintenance tasks.
+- `.github/workflows/ci.yml`: GitHub Actions checks matching the local
+  lint, typecheck, test, and build workflow.
 
 ## Working Constraints
 
@@ -20,6 +22,12 @@ links into links suitable for embedding or direct download.
   `.pytest_cache/`, `.mypy_cache/`, `.ruff_cache/`, `__pycache__/`, or
   `.cache/` unless the task explicitly requires it.
 - Use `rg` for searches and `just` or `uv` for common project tasks.
+- Keep maintenance automation in `scripts/`; do not reintroduce a
+  generated `run/` wrapper layer.
+- Keep changelog files in the `dsap` heading format and archive older
+  releases by minor version under `changelogs/`.
+- Use project-local `UV_CACHE_DIR=.uv-cache` for `uv` workflows when
+  practical.
 - Prefer `pathlib.Path` objects over raw path strings where practical.
 - Prefer truthiness checks like `if value:` and `if not value:` over
   explicit empty or `None` comparisons when they are equivalent.
@@ -38,6 +46,9 @@ links into links suitable for embedding or direct download.
 
 ## Verification
 
-- `uv run pytest`
-- `uv run ruff check .`
-- `uv run mypy src`
+- `just lint`
+- `just test`
+- `just typecheck`
+- `just build`
+- `UV_CACHE_DIR=.uv-cache uv run python -m glinkfix -h`
+- `UV_CACHE_DIR=.uv-cache uv run glinkfix -h`

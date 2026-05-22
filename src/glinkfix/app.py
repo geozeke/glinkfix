@@ -10,7 +10,7 @@ from glinkfix.tools import fix_link
 __version__ = version("glinkfix")
 
 
-def main() -> None:
+def main() -> int:
     """Run the glinkfix command-line interface."""
     msg = """
     Convert a Google Drive sharing link into a link suitable for direct
@@ -21,7 +21,7 @@ def main() -> None:
 
     epi = f"Version: {__version__}"
 
-    parser = argparse.ArgumentParser(description=msg, epilog=epi)
+    parser = argparse.ArgumentParser(prog="glinkfix", description=msg, epilog=epi)
 
     parser.add_argument(
         "-d",
@@ -38,8 +38,8 @@ def main() -> None:
 
     args = parser.parse_args()
     fix_link(args)
-    return
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

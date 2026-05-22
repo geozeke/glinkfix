@@ -1,229 +1,41 @@
 # Changelog
 
-<!--------------------------------------------------------------------->
+## 2.1.0 (2026-03-06)
 
-## 2.1.0 (2026-03-06) - latest
+### Breaking
 
-## BREAKING
+- This version drops support for Python 3.9.
 
-- This version drops support for python 3.9
+### Bug Fixes
 
-## What's Changed
+- Pin upper bound to uv-build by @geozeke in
+  <https://github.com/geozeke/glinkfix/pull/58>.
 
-### 🚀 New Features
+### Deprecated
 
-- Add docs label to release.yml by @geozeke in <https://github.com/geozeke/glinkfix/pull/50>
+- Set min Python version to 3.10 by @geozeke in
+  <https://github.com/geozeke/glinkfix/pull/57>.
 
-### 🐛 Bug Fixes
+### Dependency Upgrades
 
-- Pin upper bound to uv-build by @geozeke in <https://github.com/geozeke/glinkfix/pull/58>
+- Bump ruff from 0.14.11 to 0.14.13 by @dependabot[bot] in
+  <https://github.com/geozeke/glinkfix/pull/51>.
+- Bump ruff from 0.14.13 to 0.14.14 by @dependabot[bot] in
+  <https://github.com/geozeke/glinkfix/pull/52>.
+- Bump ruff from 0.14.14 to 0.15.0 by @dependabot[bot] in
+  <https://github.com/geozeke/glinkfix/pull/53>.
+- Bump ruff from 0.15.0 to 0.15.1 by @dependabot[bot] in
+  <https://github.com/geozeke/glinkfix/pull/54>.
+- Bump ruff from 0.15.1 to 0.15.2 by @dependabot[bot] in
+  <https://github.com/geozeke/glinkfix/pull/55>.
+- Bump ruff from 0.15.2 to 0.15.4 by @dependabot[bot] in
+  <https://github.com/geozeke/glinkfix/pull/56>.
+- Bump pytest from 8.4.2 to 9.0.2 by @dependabot[bot] in
+  <https://github.com/geozeke/glinkfix/pull/60>.
+- Bump ruff from 0.15.4 to 0.15.5 by @dependabot[bot] in
+  <https://github.com/geozeke/glinkfix/pull/59>.
 
-### 👋 Deprecated
+### Features
 
-- Set min python version to 3.10 by @geozeke in <https://github.com/geozeke/glinkfix/pull/57>
-
-### 📦 Dependency Updates
-
-- Bump ruff from 0.14.11 to 0.14.13 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/51>
-- Bump ruff from 0.14.13 to 0.14.14 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/52>
-- Bump ruff from 0.14.14 to 0.15.0 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/53>
-- Bump ruff from 0.15.0 to 0.15.1 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/54>
-- Bump ruff from 0.15.1 to 0.15.2 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/55>
-- Bump ruff from 0.15.2 to 0.15.4 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/56>
-- Bump pytest from 8.4.2 to 9.0.2 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/60>
-- Bump ruff from 0.15.4 to 0.15.5 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/59>
-
-<!--------------------------------------------------------------------->
-
-## 2.0.11 (2026-01-11)
-
-### 🚀 New Features
-
-- Add release.yml for formatted release messages by @geozeke in <https://github.com/geozeke/glinkfix/pull/49>
-
-<!--------------------------------------------------------------------->
-
-## [2.0.10][2.0.10] - 2026-01-09
-
-## What's Changed
-
-- Update copyright years on LICENSE.
-- Force uv sync to prefer managed python versions.
-- Bump ruff from 0.14.2 to 0.14.3 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/39>
-- Bump ruff from 0.14.3 to 0.14.4 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/40>
-- Bump ruff from 0.14.4 to 0.14.5 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/41>
-- Bump ruff from 0.14.5 to 0.14.6 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/42>
-- Bump mypy from 1.18.2 to 1.19.0 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/44>
-- Bump ruff from 0.14.6 to 0.14.8 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/43>
-- Bump ruff from 0.14.8 to 0.14.9 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/45>
-- Bump mypy from 1.19.0 to 1.19.1 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/47>
-- Bump ruff from 0.14.9 to 0.14.10 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/46>
-- Bump ruff from 0.14.10 to 0.14.11 by @dependabot[bot] in <https://github.com/geozeke/glinkfix/pull/48>
-
-## New Contributors
-
-- @dependabot[bot] made their first contribution in <https://github.com/geozeke/glinkfix/pull/39>
-
-**Full Changelog**: <https://github.com/geozeke/glinkfix/compare/v2.0.9...v2.0.10>
-
-<!--------------------------------------------------------------------->
-
-## [2.0.9][2.0.9] - 2025-10-04
-
-### Changed
-
-- Upgrade build backend from hatchling to uv_build.
-- Refactor version numbering.
-
-<!--------------------------------------------------------------------->
-
-## [2.0.8][2.0.8] - 2025-09-19
-
-### Changed
-
-- Bump [pyperclip][pyperclip] library to v1.10.0
-
-<!--------------------------------------------------------------------->
-
-## [2.0.7][2.0.7] - 2025-05-23
-
-### Changed
-
-- Maintenance release to synchronize repository tags.
-
-<!--------------------------------------------------------------------->
-
-## [2.0.6][2.0.6] - 2025-03-06
-
-### Removed
-
-- Drop support for Python <= 3.8 ([#36][issue36])
-
-<!--------------------------------------------------------------------->
-
-## [2.0.5][2.0.5] - 2025-01-08
-
-### Changed
-
-- Implement [tomli compatability layer][tomli].
-- Optimize version numbering.
-
-### Added
-
-- Establish and maintain a proper changelog.
-
-### Fixed
-
-- Lint code prompts and documentation.
-
-<!--------------------------------------------------------------------->
-
-## [2.0.4][2.0.4] - 2024-11-15
-
-### Changed
-
-- Dependency updates.
-
-<!--------------------------------------------------------------------->
-
-## [2.0.3][2.0.3] - 2024-09-22
-
-### Changed
-
-- Migrate packaging and build system to [uv][astral].
-- Migrate code linting to [ruff][astral].
-
-### Fixed
-
-- Lint code.
-
-<!--------------------------------------------------------------------->
-
-## [2.0.2][2.0.2] - 2024-08-10
-
-### Added
-
-- Add proper citation for the [pyperclip][pyperclip] library.
-- Include BSD 3 Clause license that comes with [pyperclip][pyperclip].
-- Improve help tips on the command line.
-
-### Fixed
-
-- Lint code.
-
-<!--------------------------------------------------------------------->
-
-## [2.0.1][2.0.1] - 2024-07-05
-
-### Changed
-
-- Bump [pyperclip][pyperclip] library: 1.8.2 -> 1.9.0
-
-<!--------------------------------------------------------------------->
-
-## [2.0.0][2.0.0] - 2024-04-23
-
-### Changed
-
-- Streamline program operation.
-- Default conversion is embedded link.
-- Copy results to the clipboard automatically.
-
-### Added
-
-- Add additional test cases.
-
-### Removed
-
-- Remove separate version history from README.
-
-### Fixed
-
-- Lint documentation.
-- Update code to track evolving Google API changes.
-- Tune `Makefile` to handle development dependencies.
-
-<!--------------------------------------------------------------------->
-
-## [1.2.1][1.2.1] - 2024-01-24
-
-### Changed
-
-- Re-baseline version.
-
-### Fixed
-
-- Lint documentation.
-
-<!--------------------------------------------------------------------->
-
-## [1.0.16][1.0.16] - 2023-12-31
-
-### Changed
-
-- Improve packaging compliance with [PEP 561][pep561].
-
-### Removed
-
-- Drop support for Python <= 3.7
-
-<!--------------------------------------------------------------------->
-
-[1.0.16]: https://github.com/geozeke/glinkfix/releases/tag/v1.0.16
-[1.2.1]: https://github.com/geozeke/glinkfix/releases/tag/v1.2.1
-[2.0.0]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.0
-[2.0.1]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.1
-[2.0.2]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.2
-[2.0.3]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.3
-[2.0.4]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.4
-[2.0.5]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.5
-[2.0.6]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.6
-[2.0.7]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.7
-[2.0.8]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.8
-[2.0.9]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.9
-[2.0.10]: https://github.com/geozeke/glinkfix/releases/tag/v2.0.9
-[astral]: https://astral.sh
-[issue36]: https://github.com/geozeke/glinkfix/issues/36
-[pep561]: https://peps.python.org/pep-0561/
-[pyperclip]: https://github.com/asweigart/pyperclip
-[tomli]: https://pypi.org/project/tomli/
+- Add docs label to release.yml by @geozeke in
+  <https://github.com/geozeke/glinkfix/pull/50>.
