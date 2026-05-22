@@ -24,8 +24,9 @@ alt="Dinobox logo" width="120"/>
    affect tools like _glinkfix_. Direct downloading and embedding Google
    Drive links is unsupported behavior as far as Google is concerned. As
    of January 2024, Google made a significant change that broke some
-   links created with this tool. This update (April 2024) works, _for
-   now_, but future Google changes may break link handling again.
+   links created with this tool. _glinkfix_ now accepts current Drive
+   file link formats such as `usp=drive_link`, but future Google changes
+   may break link handling again.
 
 2. Viewing links that point to animated GIFs may appear as static
    images.
@@ -79,6 +80,12 @@ create guarded release tags after the release commit has landed on
 `main`. Use `just outdated` and `just upgrade` for targeted first-order
 dependency upgrades.
 
+The link parser uses Python's standard-library URL parsing tools. New
+dependencies are acceptable when they provide a clear correctness,
+performance, or maintainability benefit, but this project avoids adding
+dependency surface for parsing work that the standard library already
+handles efficiently.
+
 ## Installation
 
 The preferred way to install _glinkfix_ is with [pipx][def3]:
@@ -112,12 +119,14 @@ and follow the directions to run it again with the option you want.
 ## Purpose and Usage
 
 When you share files with Google Drive, the sharing link you get is
-intended primarily for accessing the content through a web browser. If
-you want to use a Google Drive sharing link to embed an image in a
-document (e.g. in a Markdown or HTML file), or you want to directly
-download a file pointed to by a Google Drive sharing link using
-something like `curl` or `wget` in Linux, the link needs to be adjusted
-("fixed") for these purposes.
+intended primarily for accessing the content through a web browser.
+_glinkfix_ supports Google Drive file links such as
+`https://drive.google.com/file/d/<file-id>/view?usp=drive_link`,
+`.../preview`, and bare `/file/d/<file-id>` links. If you want to use a
+Google Drive file sharing link to embed an image in a document (e.g. in
+a Markdown or HTML file), or you want to directly download a file pointed
+to by a Google Drive sharing link using something like `curl` or `wget`
+in Linux, the link needs to be adjusted ("fixed") for these purposes.
 
 It's not especially hard to repackage the link, but it can be tedious.
 You have to copy the link to a text editor, carve it up manually, and
@@ -150,15 +159,17 @@ To display the help menu, run: `glinkfix -h`
 ```text
 usage: glinkfix [-h] [-d] [-v]
 
-Convert a Google Drive sharing link into a link suitable for direct
-download, such as with curl, or for embedding in a document, such as an
-image in Markdown or HTML. Google Drive links used this way have a
-single-file size limit of 40 MB.
+Convert a Google Drive file sharing link into a link suitable for
+embedding in a document, such as an image in Markdown or HTML, or for
+direct download, such as with curl. glinkfix accepts current Drive file
+link formats such as usp=drive_link and uses Python's standard-library
+URL parser for lightweight, dependency-minimal processing. Google Drive
+links used this way have a single-file size limit of 40 MB.
 
 options:
   -h, --help      show this help message and exit
-  -d, --download  Create a direct-download link instead of an embeddable
-                  link.
+  -d, --download  Create a direct-download link instead of the default
+                  embeddable link.
   -v, --version   show program's version number and exit
 ```
 
@@ -170,8 +181,14 @@ options:
   function of how Google Drive works and is not related to _glinkfix_.
 * When creating a download link for use with `curl`, make sure to use
   `curl`'s `-L` option to allow for redirects.
+* _glinkfix_ supports current Google Drive file sharing links, including
+  `usp=drive_link`, `usp=drivesdk`, `usp=sharing`, and
+  `usp=share_link`.
 * _glinkfix_ supports links that use Google's [resource key][def6]
-  security feature.
+  security feature and preserves the resource key in fixed links.
+* _glinkfix_ supports Drive file links only. It does not convert Google
+  Drive folder links or native Google Docs, Sheets, or Slides editor
+  links.
 
 ### License
 

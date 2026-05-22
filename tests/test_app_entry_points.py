@@ -34,7 +34,10 @@ def test_help_uses_console_command_name(monkeypatch, capsys) -> None:
         app.main()
 
     assert exc_info.value.code == 0
-    assert "usage: glinkfix" in capsys.readouterr().out
+    output = capsys.readouterr().out
+    assert "usage: glinkfix" in output
+    assert "usp=drive_link" in output
+    assert "standard-library URL parser" in output
 
 
 def test_module_entry_point_delegates_to_app_main(monkeypatch) -> None:

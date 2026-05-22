@@ -13,10 +13,13 @@ __version__ = version("glinkfix")
 def main() -> int:
     """Run the glinkfix command-line interface."""
     msg = """
-    Convert a Google Drive sharing link into a link suitable for direct
-    download, such as with curl, or for embedding in a document, such as
-    an image in Markdown or HTML. Google Drive links used this way have
-    a single-file size limit of 40 MB.
+    Convert a Google Drive file sharing link into a link suitable for
+    embedding in a document, such as an image in Markdown or HTML, or
+    for direct download, such as with curl. glinkfix accepts current
+    Drive file link formats such as usp=drive_link and uses Python's
+    standard-library URL parser for lightweight, dependency-minimal
+    processing. Google Drive links used this way have a single-file size
+    limit of 40 MB.
     """
 
     epi = f"Version: {__version__}"
@@ -27,7 +30,7 @@ def main() -> int:
         "-d",
         "--download",
         action="store_true",
-        help="Create a direct-download link instead of an embeddable link.",
+        help="Create a direct-download link instead of the default embeddable link.",
     )
     parser.add_argument(
         "-v",
