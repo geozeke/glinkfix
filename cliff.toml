@@ -50,6 +50,7 @@ split_commits = false
 # An array of regex based parsers to modify commit messages prior to
 # further processing.
 commit_preprocessors = [
+    { pattern = '^bug:', replace = "fix:" },
     # Replace issue numbers with link templates to be updated in `changelog.postprocessors`.
     #{ pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](<REPO>/issues/${2}))"},
     # Check spelling of the commit message using https://github.com/crate-ci/typos.
@@ -63,10 +64,16 @@ protect_breaking_commits = false
 # message. Assigns commits to groups. Optionally sets the commit's scope
 # and can decide to exclude commits from further processing.
 commit_parsers = [
-    { message = "^fix", group = "<!-- 0 -->🐛 Bug Fixes" },
+    # Skip rules must come before broad grouping rules such as
+    # "^chore|^ci" so matching commits do not get grouped first.
+    { message = "^chore\\(release\\): prepare for", skip = true },
+    { message = "^chore\\(deps.*\\)", skip = true },
+    { message = "^chore\\(pr\\)", skip = true },
+    { message = "^chore\\(pull\\)", skip = true },
+    { message = "^fix|^bug", group = "<!-- 0 -->🐛 Bug Fixes" },
     { message = "^change", group = "<!-- 1 -->🛠️ Changes" },
-    { message = "^dep|^deprecate", group = "<!-- 2 -->👋 Deprecated" },
-    { message = "^dev", group = "<!-- 3 -->🛠️ 📦 Development Dependencies" },
+    { message = "^deprecate|^deprecated", group = "<!-- 2 -->👋 Deprecated" },
+    { message = "^deps", group = "<!-- 3 -->📦 Dependency Upgrades" },
     { message = "^doc", group = "<!-- 4 -->📚 Documentation" },
     { message = "^feat|^feature", group = "<!-- 5 -->🚀 Features" },
     { message = "^chore|^ci", group = "<!-- 6 -->⚙️ Miscellaneous Tasks" },
@@ -74,17 +81,11 @@ commit_parsers = [
     { message = "^refactor", group = "<!-- 9 -->🚜 Refactor" },
     { message = "^revert", group = "<!-- 10 -->◀️ Revert" },
     { message = "^remove", group = "<!-- 11 -->🗑️ Removed" },
-    { message = "^run|^runtime", group = "<!-- 12 -->📦 Runtime Dependencies" },
     # Checks both the message AND the body for "security"
     { message = "^sec|^security", group = "<!-- 13 -->🔐 Security Fixes" },
     { body = ".*security", group = "<!-- 13 -->🔐 Security Fixes" },
     { message = "^style", group = "<!-- 14 -->🎨 Styling" },
     { message = "^test", group = "<!-- 15 -->🧪 Testing" },
-    # Skip rules
-    { message = "^chore\\(release\\): prepare for", skip = true },
-    { message = "^chore\\(deps.*\\)", skip = true },
-    { message = "^chore\\(pr\\)", skip = true },
-    { message = "^chore\\(pull\\)", skip = true },
 ]
 # Exclude commits that are not matched by any commit parser.
 filter_commits = false
@@ -95,6 +96,8 @@ fail_on_unmatched_commit = false
 link_parsers = []
 # Include only the tags that belong to the current branch.
 use_branch_tags = false
+# Ignore non-version tags used for convenience.
+ignore_tags = "latest"
 # Order releases topologically instead of chronologically.
 topo_order = false
 # Order commits topologically instead of chronologically.
