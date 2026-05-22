@@ -39,6 +39,21 @@ DOWNLOAD_LINK = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
             DOWNLOAD_LINK,
         ),
         (
+            f"https://drive.google.com/file/d/{FILE_ID}/view?usp=drive_link",
+            False,
+            VIEW_LINK,
+        ),
+        (
+            f"https://drive.google.com/file/d/{FILE_ID}/view?usp=drivesdk",
+            True,
+            DOWNLOAD_LINK,
+        ),
+        (
+            f"https://drive.google.com/file/d/{FILE_ID}/preview?usp=drive_link",
+            False,
+            VIEW_LINK,
+        ),
+        (
             f"https://drive.google.com/file/d/{FILE_ID}",
             False,
             VIEW_LINK,
@@ -49,11 +64,31 @@ DOWNLOAD_LINK = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
             DOWNLOAD_LINK,
         ),
         (
+            f"https://drive.google.com/file/d/{FILE_ID}/view?foo=bar&usp=drive_link",
+            False,
+            VIEW_LINK,
+        ),
+        (
+            f"https://drive.google.com/file/d/{FILE_ID}/view?usp=private",
+            False,
+            VIEW_LINK,
+        ),
+        (
+            f"https://www.drive.google.com/file/d/{FILE_ID}/view?usp=sharing",
+            False,
+            VIEW_LINK,
+        ),
+        (
+            f"https://DRIVE.GOOGLE.COM/file/d/{FILE_ID}/view?usp=sharing",
+            False,
+            VIEW_LINK,
+        ),
+        (
             "https://drive.google.com/file/d/"
             f"{RESOURCE_FILE_ID}/view?usp=sharing&resourcekey={RESOURCE_KEY}",
             False,
             f"https://lh3.googleusercontent.com/d/{RESOURCE_FILE_ID}"
-            f"&resourcekey={RESOURCE_KEY}",
+            f"?resourcekey={RESOURCE_KEY}",
         ),
         (
             "https://drive.google.com/file/d/"
@@ -61,6 +96,13 @@ DOWNLOAD_LINK = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
             True,
             "https://drive.google.com/uc?export=download"
             f"&id={RESOURCE_FILE_ID}&resourcekey={RESOURCE_KEY}",
+        ),
+        (
+            "https://drive.google.com/file/d/"
+            f"{RESOURCE_FILE_ID}/view?resourcekey={RESOURCE_KEY}&usp=drive_link",
+            False,
+            f"https://lh3.googleusercontent.com/d/{RESOURCE_FILE_ID}"
+            f"?resourcekey={RESOURCE_KEY}",
         ),
     ],
 )
@@ -80,8 +122,11 @@ def test_convert_link_returns_expected_url(
         f"https://drive.google.com/file/d/q/{FILE_ID}/view?usp=sharing",
         "https://drive.google.com/file/d//view?usp=sharing",
         f"https://drive.google.com/file/d/{FILE_ID}/edit?usp=sharing",
-        f"https://drive.google.com/file/d/{FILE_ID}/view?usp=private",
+        f"https://drive.google.com/file/d/{FILE_ID}/view/details?usp=sharing",
+        f"https://drive.google.com/drive/folders/{FILE_ID}?usp=sharing",
+        f"https://docs.google.com/document/d/{FILE_ID}/edit?usp=sharing",
         f"https://docs.google.com/file/d/{FILE_ID}/view?usp=sharing",
+        f"http://drive.google.com/file/d/{FILE_ID}/view?usp=sharing",
     ],
 )
 def test_convert_link_rejects_invalid_urls(link: str) -> None:

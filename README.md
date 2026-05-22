@@ -13,8 +13,7 @@
 
 <br>
 
-<img src="https://raw.githubusercontent.com/geozeke/glinkfix/main/assets/glinkfix-logo.png"
-alt="Dinobox logo" width="120"/>
+<img src="assets/glinkfix-logo.png" alt="glinkfix logo" width="120"/>
 
 ## Google Drive Link Fixer
 
@@ -24,8 +23,9 @@ alt="Dinobox logo" width="120"/>
    affect tools like _glinkfix_. Direct downloading and embedding Google
    Drive links is unsupported behavior as far as Google is concerned. As
    of January 2024, Google made a significant change that broke some
-   links created with this tool. This update (April 2024) works, _for
-   now_, but future Google changes may break link handling again.
+   links created with this tool. _glinkfix_ now accepts current Drive
+   file link formats such as `usp=drive_link`, but future Google changes
+   may break link handling again.
 
 2. Viewing links that point to animated GIFs may appear as static
    images.
@@ -39,45 +39,7 @@ alt="Dinobox logo" width="120"/>
    uses the [pyperclip][def9] library, and automatic copying to the
    clipboard should work seamlessly on Windows and macOS. If you're
    running Linux and links are not automatically copied to the clipboard,
-   [refer to this note][def8] from the
-   pyperclip developer.
-
-## To Developers
-
-If you're a developer looking to fork this repository and modify
-_glinkfix_, there are two important considerations:
-
-1. _glinkfix_ requires [uv][def11] for dependency management. Visit the
-   [uv site][def11] and install it using the instructions for your
-   operating system.
-
-2. I've included a file called `global-gitignore.txt` which is a copy of
-   the `.gitignore` I placed in my home directory and configured
-   globally for all my development projects. The `global-gitignore.txt`
-   file reflects my development setup (for example, using tools like
-   VSCode), but yours may be different. Just cherry-pick any necessary
-   elements from `global-gitignore.txt` for your own use.
-
-   _Details on gitignore files are available on [GitHub][def2]._
-
-Common maintainer commands are available through `just`:
-
-```text
-just setup
-just dev
-just lint
-just test
-just typecheck
-just build
-```
-
-Use `just bump <version>` to generate changelog entries and update
-project metadata. Changelog files use the same release-section format as
-`dsap`, with older releases archived by minor version under
-`changelogs/`. Use `just tag-release` or `just tag-release-latest` to
-create guarded release tags after the release commit has landed on
-`main`. Use `just outdated` and `just upgrade` for targeted first-order
-dependency upgrades.
+   [refer to this note][def8] from the pyperclip documentation.
 
 ## Installation
 
@@ -112,33 +74,35 @@ and follow the directions to run it again with the option you want.
 ## Purpose and Usage
 
 When you share files with Google Drive, the sharing link you get is
-intended primarily for accessing the content through a web browser. If
-you want to use a Google Drive sharing link to embed an image in a
-document (e.g. in a Markdown or HTML file), or you want to directly
-download a file pointed to by a Google Drive sharing link using
-something like `curl` or `wget` in Linux, the link needs to be adjusted
-("fixed") for these purposes.
+intended primarily for accessing the content through a web browser.
+_glinkfix_ supports Google Drive file links such as
+`https://drive.google.com/file/d/<file-id>/view?usp=drive_link`,
+`.../preview`, and bare `/file/d/<file-id>` links. If you want to use a
+Google Drive file sharing link to embed an image in a document (e.g. in
+a Markdown or HTML file), or you want to directly download a file pointed
+to by a Google Drive sharing link using something like `curl` or `wget`
+in Linux, the link needs to be adjusted ("fixed") for these purposes.
 
 It's not especially hard to repackage the link, but it can be tedious.
 You have to copy the link to a text editor, carve it up manually, and
 reassemble it. If you've got a lot of links to deal with, the process
 gets repetitive. This tool is designed to remove that tedium.
 
-_Note: The images below are actually hosted on Google Drive, and the
-"fixed" links are embedded into this README file._
+_Note: The images below demonstrate Google Drive sharing links and their
+"fixed" equivalents._
 
 ---
 
 Start by getting a sharing link to a file on Google Drive. Make sure
 it's set up for public access (_Anyone with the link_):
 
-<img src="https://lh3.googleusercontent.com/d/1aHqCi_R6S9T9OI8kYLj-bH-Rd1eEgiWd"
+<img src="assets/google-drive-get-link.png"
 alt="Getting Link" width="450"/>
 
 ---
 
-<img src="https://lh3.googleusercontent.com/d/1DM7C91o8K32B95YkVPUv9rVga6lJdYzA"
-alt="Getting Link" width="450"/>
+<img src="assets/google-drive-copy-link.png"
+alt="Copying Link" width="450"/>
 
 Now run _glinkfix_ and paste the link into the terminal. Copy the
 "fixed" version and use it as required.
@@ -150,28 +114,40 @@ To display the help menu, run: `glinkfix -h`
 ```text
 usage: glinkfix [-h] [-d] [-v]
 
-Convert a Google Drive sharing link into a link suitable for direct
-download, such as with curl, or for embedding in a document, such as an
-image in Markdown or HTML. Google Drive links used this way have a
-single-file size limit of 40 MB.
+Convert a Google Drive file sharing link into a link suitable for
+embedding in a document, such as an image in Markdown or HTML, or for
+direct download, such as with curl. glinkfix accepts current Drive file
+link formats such as usp=drive_link and uses Python's standard-library
+URL parser for lightweight, dependency-minimal processing. Google Drive
+links used this way have a single-file size limit of 40 MB.
 
 options:
   -h, --help      show this help message and exit
-  -d, --download  Create a direct-download link instead of an embeddable
-                  link.
+  -d, --download  Create a direct-download link instead of the default
+                  embeddable link.
   -v, --version   show program's version number and exit
 ```
 
 ## Usage Notes
 
-* There is a 40MB size limit for a single file when using Google Drive
+* There is a 40 MB size limit for a single file when using Google Drive
   sharing links directly for viewing or downloading. Individual files
-  larger than 40MB will not render or download properly. This limit is a
+  larger than 40 MB will not render or download properly. This limit is a
   function of how Google Drive works and is not related to _glinkfix_.
 * When creating a download link for use with `curl`, make sure to use
   `curl`'s `-L` option to allow for redirects.
+* _glinkfix_ supports current Google Drive file sharing links, including
+  `usp=drive_link`, `usp=drivesdk`, `usp=sharing`, and
+  `usp=share_link`.
 * _glinkfix_ supports links that use Google's [resource key][def6]
-  security feature.
+  security feature and preserves the resource key in fixed links.
+* _glinkfix_ supports Drive file links only. It does not convert Google
+  Drive folder links or native Google Docs, Sheets, or Slides editor
+  links.
+* The link parser uses Python's standard-library URL parsing tools for
+  lightweight, dependency-minimal processing. New dependencies are
+  acceptable when they provide a clear correctness, performance, or
+  maintainability benefit.
 
 ### License
 
@@ -186,14 +162,13 @@ for license details.
 
 <!--------------------------------------------------------------------->
 
-[def11]: https://docs.astral.sh/uv/
-[def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
 [def4]: https://github.com/asweigart/pyperclip
 [def5]: ./LICENSE
 [def6]: https://support.google.com/a/answer/10685032
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
 [def9]: https://pypi.org/project/pyperclip/
+[def11]: https://docs.astral.sh/uv/
 [github-commit]: https://img.shields.io/github/last-commit/geozeke/glinkfix
 [github-issues]: https://img.shields.io/github/issues/geozeke/glinkfix
 [github-size]: https://img.shields.io/github/repo-size/geozeke/glinkfix
