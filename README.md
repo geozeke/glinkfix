@@ -161,13 +161,12 @@ file for details.
 
 ### Acknowledgements
 
-This project uses the [pyperclip library][def4], which is licensed under
-the BSD 3 Clause License. The full license text can be found in the
-[LICENSE-BSD-3-CLAUSE][def10] file.
+This project uses the [pyperclip library][def4], an external dependency
+licensed under the BSD 3-Clause License. See the [pyperclip project][def4]
+for license details.
 
 <!--------------------------------------------------------------------->
 
-[def10]: ./LICENSE-BSD-3-CLAUSE
 [def11]: https://docs.astral.sh/uv/
 [def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
