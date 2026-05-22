@@ -129,21 +129,18 @@ Now run _glinkfix_ and paste the link into the terminal. Copy the
 To display the help menu, run: `glinkfix -h`
 
 ```text
-usage: glinkfix [-h] [-d]
+usage: glinkfix [-h] [-d] [-v]
 
-This program takes a Google Drive sharing link for a file and repackages
-it into a link that can be downloaded directly (e.g. using curl) or
-embedded in a document to be viewed (e.g. an image in a Markdown
-document). Note: there is a size limit of 40MB for a single file when
-using Google Drive links in this manner.
+Convert a Google Drive sharing link into a link suitable for direct
+download, such as with curl, or for embedding in a document, such as an
+image in Markdown or HTML. Google Drive links used this way have a
+single-file size limit of 40 MB.
 
-optional arguments:
+options:
   -h, --help      show this help message and exit
-  -d, --download  The default behavior for glinkfix is to repackage a
-                  Google Drive link to make it suitable for embedding in
-                  a website. Use this option if you want to repackage a
-                  Google Drive link for direct downloading (e.g.
-                  downloading using curl).
+  -d, --download  Create a direct-download link instead of an embeddable
+                  link.
+  -v, --version   show program's version number and exit
 ```
 
 ## Usage Notes

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test fix_link."""
+"""Tests for link conversion."""
 
 import csv
 from argparse import Namespace
@@ -18,8 +18,8 @@ def pytest_generate_tests(metafunc):
 
     Parameters
     ----------
-    metafunc : obj
-        The python object that facilitates parametrization.
+    metafunc : pytest.Metafunc
+        Pytest object that facilitates parametrization.
     """
     with open(TESTDATA, "r") as f:
         reader = csv.reader(filter(lambda row: row.strip(), f))
@@ -32,16 +32,13 @@ def test_fix_link(capsys, monkeypatch, case):
 
     Parameters
     ----------
-    capsys : class CaptureFixture
-        A pytest object. It captures stdout and stderr each time the
-        test is run.
-    monkeypatch : class MonkeyPatch
-        A pytest object. It allows us to mock the input() function.
-    case : [str, str, str, str]
-        A list of four strings that have been parameterized to be used
-        for testing. The four strings represent (in order):
-        mode (view | download), status (raise | noraise) input link,
-        output link.
+    capsys : pytest.CaptureFixture
+        Pytest object that captures stdout and stderr.
+    monkeypatch : pytest.MonkeyPatch
+        Pytest object used to mock the input function.
+    case : list[str]
+        Parameterized test case containing mode, status, input link, and
+        expected output link.
     """
     mode, status, linkin, linkout = tuple(case)
     args = Namespace()
@@ -55,4 +52,4 @@ def test_fix_link(capsys, monkeypatch, case):
         print(f"Simulated user input: {linkin}")
         assert linkout in useroutput
     else:
-        assert "not a valid Google Drive Sharing Link" in useroutput
+        assert "not a valid Google Drive sharing link" in useroutput

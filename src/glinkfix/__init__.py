@@ -1,1 +1,1 @@
-"""Package."""
+"""Google Drive link fixer."""
