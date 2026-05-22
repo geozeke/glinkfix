@@ -41,6 +41,10 @@
    running Linux and links are not automatically copied to the clipboard,
    [refer to this note][def8] from the pyperclip documentation.
 
+4. _glinkfix_ is tested on Linux, macOS, and Windows in continuous
+   integration. Clipboard behavior still depends on the local desktop or
+   server environment.
+
 ## Installation
 
 The preferred way to install _glinkfix_ is with [pipx][def3]:
