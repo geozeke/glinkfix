@@ -13,8 +13,7 @@
 
 <br>
 
-<img src="https://raw.githubusercontent.com/geozeke/glinkfix/main/assets/glinkfix-logo.png"
-alt="Dinobox logo" width="120"/>
+<img src="assets/glinkfix-logo.png" alt="glinkfix logo" width="120"/>
 
 ## Google Drive Link Fixer
 
@@ -40,51 +39,7 @@ alt="Dinobox logo" width="120"/>
    uses the [pyperclip][def9] library, and automatic copying to the
    clipboard should work seamlessly on Windows and macOS. If you're
    running Linux and links are not automatically copied to the clipboard,
-   [refer to this note][def8] from the
-   pyperclip developer.
-
-## To Developers
-
-If you're a developer looking to fork this repository and modify
-_glinkfix_, there are two important considerations:
-
-1. _glinkfix_ requires [uv][def11] for dependency management. Visit the
-   [uv site][def11] and install it using the instructions for your
-   operating system.
-
-2. I've included a file called `global-gitignore.txt` which is a copy of
-   the `.gitignore` I placed in my home directory and configured
-   globally for all my development projects. The `global-gitignore.txt`
-   file reflects my development setup (for example, using tools like
-   VSCode), but yours may be different. Just cherry-pick any necessary
-   elements from `global-gitignore.txt` for your own use.
-
-   _Details on gitignore files are available on [GitHub][def2]._
-
-Common maintainer commands are available through `just`:
-
-```text
-just setup
-just dev
-just lint
-just test
-just typecheck
-just build
-```
-
-Use `just bump <version>` to generate changelog entries and update
-project metadata. Changelog files use the same release-section format as
-`dsap`, with older releases archived by minor version under
-`changelogs/`. Use `just tag-release` or `just tag-release-latest` to
-create guarded release tags after the release commit has landed on
-`main`. Use `just outdated` and `just upgrade` for targeted first-order
-dependency upgrades.
-
-The link parser uses Python's standard-library URL parsing tools. New
-dependencies are acceptable when they provide a clear correctness,
-performance, or maintainability benefit, but this project avoids adding
-dependency surface for parsing work that the standard library already
-handles efficiently.
+   [refer to this note][def8] from the pyperclip documentation.
 
 ## Installation
 
@@ -133,21 +88,21 @@ You have to copy the link to a text editor, carve it up manually, and
 reassemble it. If you've got a lot of links to deal with, the process
 gets repetitive. This tool is designed to remove that tedium.
 
-_Note: The images below are actually hosted on Google Drive, and the
-"fixed" links are embedded into this README file._
+_Note: The images below demonstrate Google Drive sharing links and their
+"fixed" equivalents._
 
 ---
 
 Start by getting a sharing link to a file on Google Drive. Make sure
 it's set up for public access (_Anyone with the link_):
 
-<img src="https://lh3.googleusercontent.com/d/1aHqCi_R6S9T9OI8kYLj-bH-Rd1eEgiWd"
+<img src="assets/google-drive-get-link.png"
 alt="Getting Link" width="450"/>
 
 ---
 
-<img src="https://lh3.googleusercontent.com/d/1DM7C91o8K32B95YkVPUv9rVga6lJdYzA"
-alt="Getting Link" width="450"/>
+<img src="assets/google-drive-copy-link.png"
+alt="Copying Link" width="450"/>
 
 Now run _glinkfix_ and paste the link into the terminal. Copy the
 "fixed" version and use it as required.
@@ -175,9 +130,9 @@ options:
 
 ## Usage Notes
 
-* There is a 40MB size limit for a single file when using Google Drive
+* There is a 40 MB size limit for a single file when using Google Drive
   sharing links directly for viewing or downloading. Individual files
-  larger than 40MB will not render or download properly. This limit is a
+  larger than 40 MB will not render or download properly. This limit is a
   function of how Google Drive works and is not related to _glinkfix_.
 * When creating a download link for use with `curl`, make sure to use
   `curl`'s `-L` option to allow for redirects.
@@ -189,6 +144,10 @@ options:
 * _glinkfix_ supports Drive file links only. It does not convert Google
   Drive folder links or native Google Docs, Sheets, or Slides editor
   links.
+* The link parser uses Python's standard-library URL parsing tools for
+  lightweight, dependency-minimal processing. New dependencies are
+  acceptable when they provide a clear correctness, performance, or
+  maintainability benefit.
 
 ### License
 
@@ -203,14 +162,13 @@ for license details.
 
 <!--------------------------------------------------------------------->
 
-[def11]: https://docs.astral.sh/uv/
-[def2]: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 [def3]: https://pipx.pypa.io/stable/
 [def4]: https://github.com/asweigart/pyperclip
 [def5]: ./LICENSE
 [def6]: https://support.google.com/a/answer/10685032
 [def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
 [def9]: https://pypi.org/project/pyperclip/
+[def11]: https://docs.astral.sh/uv/
 [github-commit]: https://img.shields.io/github/last-commit/geozeke/glinkfix
 [github-issues]: https://img.shields.io/github/issues/geozeke/glinkfix
 [github-size]: https://img.shields.io/github/repo-size/geozeke/glinkfix
