@@ -13,7 +13,8 @@
 
 <br>
 
-<img src="assets/glinkfix-logo.png" alt="glinkfix logo" width="120"/>
+<img src="https://raw.githubusercontent.com/geozeke/glinkfix/main/assets/glinkfix-logo.png"
+alt="glinkfix logo" width="120"/>
 
 ## Google Drive Link Fixer
 
@@ -100,12 +101,12 @@ _Note: The images below demonstrate Google Drive sharing links and their
 Start by getting a sharing link to a file on Google Drive. Make sure
 it's set up for public access (_Anyone with the link_):
 
-<img src="assets/google-drive-get-link.png"
+<img src="https://raw.githubusercontent.com/geozeke/glinkfix/main/assets/google-drive-get-link.png"
 alt="Getting Link" width="450"/>
 
 ---
 
-<img src="assets/google-drive-copy-link.png"
+<img src="https://raw.githubusercontent.com/geozeke/glinkfix/main/assets/google-drive-copy-link.png"
 alt="Copying Link" width="450"/>
 
 Now run _glinkfix_ with the sharing link:
