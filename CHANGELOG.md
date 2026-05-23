@@ -1,3 +1,13 @@
+## 2.2.1 (2026-05-23)
+
+### 🐛 Bug Fixes
+
+- Fix broken links in README (cc3ef62)
+
+### ⚙️ Miscellaneous Tasks
+
+- Add github release workflow (d7f618d)
+
 ## 2.2.0 (2026-05-22)
 
 ### 🛠️ Changes
