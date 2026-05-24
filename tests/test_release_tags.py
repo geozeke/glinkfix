@@ -4,9 +4,15 @@ from __future__ import annotations
 
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
+
+pytestmark = pytest.mark.skipif(
+    sys.platform == "win32",
+    reason="release_tags.sh is a Bash release helper",
+)
 
 
 def release_script(tmp_path: Path, version: str) -> Path:
