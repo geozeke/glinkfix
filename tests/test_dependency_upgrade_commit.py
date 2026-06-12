@@ -86,10 +86,12 @@ def test_dependency_updates_ignores_transitive_only_changes() -> None:
 def test_outdated_first_order_packages_ignores_transitive_packages() -> None:
     """Test parsing outdated first-order packages from ``uv tree`` output."""
     dependencies = {
+        "coverage": "coverage",
         "pyperclip": "pyperclip",
         "pytest": "pytest",
     }
     tree_output = """Resolved 12 packages in 3ms
+coverage[toml] v7.14.0 (group: dev) (latest: v7.14.1)
 glinkfix v2.1.0
 ├── pyperclip v1.9.0 (latest: v1.11.0)
 ├── pytest v8.3.3 (latest: v9.0.3) (group: dev)
@@ -102,7 +104,7 @@ glinkfix v2.1.0
         tree_output,
     )
 
-    assert packages == ["pyperclip", "pytest"]
+    assert packages == ["coverage", "pyperclip", "pytest"]
 
 
 def test_render_commit_message_lists_changed_direct_dependencies() -> None:

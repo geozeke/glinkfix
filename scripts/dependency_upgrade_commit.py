@@ -13,15 +13,16 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-try:
+if sys.version_info >= (3, 11):
     import tomllib
-except ModuleNotFoundError:  # pragma: no cover - Python 3.10 compatibility.
+else:
     import tomli as tomllib
 
 COMMIT_SUBJECT = "deps: DEPS-See commit msg for list"
 NAME_PATTERN = re.compile(r"^\s*([A-Za-z0-9_.-]+)")
 OUTDATED_TREE_PATTERN = re.compile(
-    r"^[\s│]*[├└]── (?P<name>[A-Za-z0-9_.-]+) v\S+ .*latest:"
+    r"^[\s│]*(?:[├└]── )?(?P<name>[A-Za-z0-9_.-]+)"
+    r"(?:\[[^\]]+\])? v\S+ .*latest:"
 )
 
 
