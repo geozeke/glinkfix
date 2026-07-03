@@ -1,3 +1,24 @@
+## 2.2.2 (2026-07-03)
+
+### 🐛 Bug Fixes
+
+- Lint project tooling (184fc5e)
+
+### 🗑️ Removed
+
+- Remove "dev" recipe from justfile (bda0d17)
+
+### 📦 Dependency Upgrades
+
+- DEPS-See commit msg for list (0a54dd7)
+- DEPS-See commit msg for list (434363a)
+- DEPS-See commit msg for list (552413e)
+- DEPS-See commit msg for list (c63537d)
+
+### ⚙️ Miscellaneous Tasks
+
+- Prevent latest tagging of beta builds (0faa345)
+
 ## 2.2.1 (2026-05-23)
 
 ### 🐛 Bug Fixes
