@@ -4,6 +4,14 @@ All notable changes to glinkfix are documented here. The format is based
 on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this
 project uses canonical release versions.
 
+## [2.2.3rc1] - 2026-08-02
+
+[Compare with 2.2.2](https://github.com/geozeke/glinkfix/compare/v2.2.2...v2.2.3rc1)
+
+### Deployment & Operations
+
+- Upgrade changelog and release pipelines (#90) ([3e3559c](https://github.com/geozeke/glinkfix/commit/3e3559cd1a069b6dd84c3b2e1324d34ede1bbb7e))
+
 ## [2.2.2] - 2026-07-03
 
 ### Changed
