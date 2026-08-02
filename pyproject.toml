@@ -45,7 +45,7 @@ dependencies = [
 glinkfix = "glinkfix.app:main"
 
 [build-system]
-requires = ["uv-build>=0.10,<0.12"]
+requires = ["uv-build>=0.10,<0.13"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
