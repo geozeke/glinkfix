@@ -10,6 +10,22 @@ permissions:
   contents: read
 
 jobs:
+  commit-title:
+    name: Validate pull request title
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v8.1.0
+        with:
+          python-version: "3.10"
+          enable-cache: true
+      - run: uv sync --all-groups --frozen
+      - name: Validate Conventional Commit title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: uv run python -m scripts.check_commit_title "$PR_TITLE"
+
   lint:
     name: Lint
     runs-on: ubuntu-latest

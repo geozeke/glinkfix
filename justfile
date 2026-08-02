@@ -1,8 +1,9 @@
 set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
 project_name := "glinkfix"
 
-# Show help
-default: help
+# Show available recipes
+default:
+    @just --list
 
 # --------------------------------------------
 
@@ -39,33 +40,15 @@ build:
 
 # --------------------------------------------
 
-# Bump the project version and generate changelog
+# Prepare a project version and generate its changelog
 bump version:
-    #!/usr/bin/env bash
-    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
-    new_version="{{version}}"
-    new_version="${new_version#v}"
-    git cliff --unreleased --tag "$new_version" --prepend CHANGELOG.md
-    uv run python scripts/archive_changelog.py "$new_version"
-    tmp_changelog="$(mktemp)"
-    awk '
-        NR == 1 { print; prev = $0; next }
-        /^## / && prev !~ /^[[:space:]]*$/ { print "" }
-        { print; prev = $0 }
-    ' CHANGELOG.md > "$tmp_changelog"
-    mv "$tmp_changelog" CHANGELOG.md
-    tmp_file="$(mktemp)"
-    awk -v version="$new_version" '
-        BEGIN { replaced = 0 }
-        /^version = "/ && !replaced {
-            print "version = \"" version "\""
-            replaced = 1
-            next
-        }
-        { print }
-    ' pyproject.toml > "$tmp_file"
-    mv "$tmp_file" pyproject.toml
-    just sync
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run python -m scripts.bump_version {{version}}
+
+# --------------------------------------------
+
+# Preview user-visible changes since the latest release
+changelog:
+    git-cliff --unreleased
 
 # --------------------------------------------
 
@@ -113,12 +96,6 @@ format:
 
 # --------------------------------------------
 
-# Show available recipes
-help:
-    @just --list
-
-# --------------------------------------------
-
 # Run lint checks
 lint:
     UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run ruff check .
@@ -141,26 +118,6 @@ outdated:
             }
         }
     '
-
-# --------------------------------------------
-
-# Publish package to pypi.org for production
-publish-production: build
-    #!/usr/bin/env bash
-    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
-    set -a
-    eval $(grep '^PYPI_' "$HOME/.secrets")
-    uv publish --publish-url https://upload.pypi.org/legacy/ -t "$PYPI_PROD"
-
-# --------------------------------------------
-
-# Publish package to test.pypi.org for testing
-publish-test: build
-    #!/usr/bin/env bash
-    export UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}"
-    set -a
-    eval $(grep '^PYPI_' "$HOME/.secrets")
-    uv publish --publish-url https://test.pypi.org/legacy/ -t "$PYPI_TEST"
 
 # --------------------------------------------
 
@@ -211,15 +168,9 @@ sync: _require_setup
 
 # --------------------------------------------
 
-# Generate release tag
+# Generate and push the validated release tag
 tag-release:
-    bash ./scripts/release_tags.sh
-
-# --------------------------------------------
-
-# Generate release tag and update latest
-tag-release-latest:
-    bash ./scripts/release_tags.sh --latest
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run python -m scripts.tag_release
 
 # --------------------------------------------
 
@@ -231,7 +182,7 @@ test:
 
 # Run static type checks
 typecheck:
-    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run mypy src
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run mypy src scripts
 
 # --------------------------------------------
 
