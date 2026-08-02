@@ -82,25 +82,37 @@ DOWNLOAD_LINK = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
             VIEW_LINK,
         ),
         (
-            "https://drive.google.com/file/d/"
-            f"{RESOURCE_FILE_ID}/view?usp=sharing&resourcekey={RESOURCE_KEY}",
+            (
+                "https://drive.google.com/file/d/"
+                f"{RESOURCE_FILE_ID}/view?usp=sharing&resourcekey={RESOURCE_KEY}"
+            ),
             False,
-            f"https://lh3.googleusercontent.com/d/{RESOURCE_FILE_ID}"
-            f"?resourcekey={RESOURCE_KEY}",
+            (
+                f"https://lh3.googleusercontent.com/d/{RESOURCE_FILE_ID}"
+                f"?resourcekey={RESOURCE_KEY}"
+            ),
         ),
         (
-            "https://drive.google.com/file/d/"
-            f"{RESOURCE_FILE_ID}/view?usp=share_link&resourcekey={RESOURCE_KEY}",
+            (
+                "https://drive.google.com/file/d/"
+                f"{RESOURCE_FILE_ID}/view?usp=share_link&resourcekey={RESOURCE_KEY}"
+            ),
             True,
-            "https://drive.google.com/uc?export=download"
-            f"&id={RESOURCE_FILE_ID}&resourcekey={RESOURCE_KEY}",
+            (
+                "https://drive.google.com/uc?export=download"
+                f"&id={RESOURCE_FILE_ID}&resourcekey={RESOURCE_KEY}"
+            ),
         ),
         (
-            "https://drive.google.com/file/d/"
-            f"{RESOURCE_FILE_ID}/view?resourcekey={RESOURCE_KEY}&usp=drive_link",
+            (
+                "https://drive.google.com/file/d/"
+                f"{RESOURCE_FILE_ID}/view?resourcekey={RESOURCE_KEY}&usp=drive_link"
+            ),
             False,
-            f"https://lh3.googleusercontent.com/d/{RESOURCE_FILE_ID}"
-            f"?resourcekey={RESOURCE_KEY}",
+            (
+                f"https://lh3.googleusercontent.com/d/{RESOURCE_FILE_ID}"
+                f"?resourcekey={RESOURCE_KEY}"
+            ),
         ),
     ],
 )

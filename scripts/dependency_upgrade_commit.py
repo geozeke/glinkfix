@@ -18,7 +18,7 @@ if sys.version_info >= (3, 11):
 else:
     import tomli as tomllib
 
-COMMIT_SUBJECT = "deps: DEPS-See commit msg for list"
+COMMIT_SUBJECT = "build(deps): update direct dependencies"
 NAME_PATTERN = re.compile(r"^\s*([A-Za-z0-9_.-]+)")
 OUTDATED_TREE_PATTERN = re.compile(
     r"^[\s│]*(?:[├└]── )?(?P<name>[A-Za-z0-9_.-]+)"

@@ -24,8 +24,8 @@ links into links suitable for embedding or direct download.
 - Use `rg` for searches and `just` or `uv` for common project tasks.
 - Keep maintenance automation in `scripts/`; do not reintroduce a
   generated `run/` wrapper layer.
-- Keep changelog files in the `dsap` heading format and archive older
-  releases by minor version under `changelogs/`.
+- Keep changelog files in the current Keep a Changelog-style format and
+  archive older releases by minor version under `changelogs/`.
 - Use project-local `UV_CACHE_DIR=.uv-cache` for `uv` workflows when
   practical.
 - Prefer `pathlib.Path` objects over raw path strings where practical.
@@ -43,6 +43,10 @@ links into links suitable for embedding or direct download.
 - Keep documentation and metadata consistent with code changes,
   including README content, AGENTS.md, argparse messages, docstrings, and
   code comments.
+- Do not edit generated release sections directly. Use `just bump <version>`
+  and preview user-visible changes with `just changelog`.
+- Use Conventional Commit pull-request titles. User-visible types and release
+  procedures are documented in README.md.
 
 ## Verification
 

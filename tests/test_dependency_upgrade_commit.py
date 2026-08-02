@@ -125,7 +125,7 @@ def test_render_commit_message_lists_changed_direct_dependencies() -> None:
     message = dependency_upgrade_commit.render_commit_message(updates)
 
     assert message == (
-        "deps: DEPS-See commit msg for list\n"
+        "build(deps): update direct dependencies\n"
         "\n"
         "- pyperclip: 1.9.0 -> 1.11.0\n"
         "- pytest: 8.3.3 -> 9.0.3\n"

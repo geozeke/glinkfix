@@ -186,6 +186,51 @@ options:
   acceptable when they provide a clear correctness, performance, or
   maintainability benefit.
 
+## Development and releases
+
+Pull-request titles use Conventional Commits. User-visible types are `feat`,
+`change`, `deprecate`, `remove`, `fix`, `security`, `perf`, `deploy`, `docs`,
+`revert`, and dependency-scoped `build(deps...)` or `chore(deps...)`.
+Routine `build`, `chore`, `ci`, `refactor`, `style`, and `test` changes are
+hidden from release notes unless marked as breaking with `!`.
+
+Preview pending user-visible entries with:
+
+```text
+just changelog
+```
+
+Prepare a release from a clean branch with a canonical version such as
+`2.2.3`, `2.2.3b1`, or `2.2.3rc1`:
+
+```text
+just bump 2.2.3
+just lint
+just typecheck
+just test
+just build
+git add CHANGELOG.md changelogs pyproject.toml uv.lock
+git commit -m "chore(release): prepare for 2.2.3"
+```
+
+After merging the release-preparation commit, update local `main` and run
+`just tag-release`. It pushes one annotated `v<version>` tag. Prereleases
+publish to TestPyPI and create GitHub prereleases; stable releases publish to
+PyPI and create stable GitHub Releases. Only successful stable releases move
+the mutable `latest` tag.
+
+The release workflow uses PyPI Trusted Publishing. Before the first release,
+configure pending publishers for this repository in TestPyPI and PyPI using
+the `release.yml` workflow and the `testpypi` and `pypi` GitHub environments.
+Allow the workflow to force-update the mutable `latest` tag; do not attach a
+GitHub Release to that tag.
+
+Dependabot checks direct Python and GitHub Actions dependencies weekly. It
+groups eligible Python minor and patch updates, and automatically enables
+squash auto-merge only for Dependabot-authored direct minor or patch updates
+without maintainer changes. Major and otherwise ineligible updates require
+manual review.
+
 ### License
 
 This project is licensed under the MIT License. See the [LICENSE][def5]
