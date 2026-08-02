@@ -44,7 +44,7 @@ jobs:
         run: >-
           uv run python -m scripts.extract_release_notes "$GITHUB_REF_NAME"
           .release-notes.md
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: python-package-distributions
           path: |
