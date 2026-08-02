@@ -132,7 +132,7 @@ wheels = [
 
 [[package]]
 name = "glinkfix"
-version = "2.2.2"
+version = "2.2.3rc1"
 source = { editable = "." }
 dependencies = [
     { name = "pyperclip" },
