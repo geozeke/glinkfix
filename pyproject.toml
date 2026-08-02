@@ -74,4 +74,4 @@ omit = ["tests/*"]
 exclude_also = ["except pc.PyperclipException:", "if __name__ == \"__main__\":"]
 
 [dependency-groups]
-dev = ["coverage[toml]>=7.6.1", "mypy>=1.13.0", "pytest>=8.3.3", "ruff>=0.7.1"]
+dev = ["coverage[toml]>=7.6.1,<8", "mypy>=1.13.0,<2", "pytest>=8.3.3,<9", "ruff>=0.16,<1",]
