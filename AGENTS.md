@@ -12,8 +12,8 @@ links into links suitable for embedding or direct download.
 - `pyproject.toml`: package metadata, build backend, dependencies, and
   Ruff/Coverage settings.
 - `justfile`: common setup, test, build, release, and maintenance tasks.
-- `.github/workflows/ci.yml`: GitHub Actions checks matching the local
-  lint, typecheck, test, and build workflow.
+- `.github/workflows/`: GitHub Actions CI, release publishing, and
+  Dependabot automation.
 
 ## Working Constraints
 

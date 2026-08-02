@@ -213,6 +213,9 @@ git add CHANGELOG.md changelogs pyproject.toml uv.lock
 git commit -m "chore(release): prepare for 2.2.3"
 ```
 
+`just bump` requires at least one user-visible change. A release-preparation
+`chore(release)` commit is hidden and does not satisfy that requirement.
+
 After merging the release-preparation commit, update local `main` and run
 `just tag-release`. It pushes one annotated `v<version>` tag. Prereleases
 publish to TestPyPI and create GitHub prereleases; stable releases publish to
@@ -248,7 +251,7 @@ for license details.
 [def4]: https://github.com/asweigart/pyperclip
 [def5]: ./LICENSE
 [def6]: https://support.google.com/a/answer/10685032
-[def8]: https://pyperclip.readthedocs.io/en/latest/index.html#not-implemented-error
+[def8]: https://pyperclip.readthedocs.io/en/latest/introduction.html#not-implemented-error
 [def9]: https://pypi.org/project/pyperclip/
 [def11]: https://docs.astral.sh/uv/
 [github-commit]: https://img.shields.io/github/last-commit/geozeke/glinkfix
