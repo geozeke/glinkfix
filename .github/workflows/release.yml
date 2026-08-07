@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: "3.10"
           enable-cache: true
-      - uses: extractions/setup-just@v3
+      - uses: extractions/setup-just@v4
       - name: Sync locked dependencies
         run: uv sync --locked --all-groups
       - name: Validate release metadata and notes
