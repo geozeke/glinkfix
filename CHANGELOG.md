@@ -4,6 +4,28 @@ All notable changes to glinkfix are documented here. The format is based
 on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this
 project uses canonical release versions.
 
+## [2.2.3] - 2026-08-21
+
+[Compare with 2.2.3rc3](https://github.com/geozeke/glinkfix/compare/v2.2.3rc3...v2.2.3)
+
+### Deployment & Operations
+
+- Add command for local quality runs ([a7c58d0](https://github.com/geozeke/glinkfix/commit/a7c58d0ae46f3d2f1bf427dae0bca646f6475abc))
+
+### Documentation
+
+- Perform documentation audit. ([eb76905](https://github.com/geozeke/glinkfix/commit/eb7690551625b65022aedd67e6b73ff963e03b07))
+
+### Dependencies
+
+- *(deps)* Bump actions/checkout from 5 to 7 ([d9cf2c2](https://github.com/geozeke/glinkfix/commit/d9cf2c2be76cb23c8ec96b17a69a78a267165bce))
+- *(deps-dev)* Bump mypy from 1.20.2 to 2.3.0 ([0717739](https://github.com/geozeke/glinkfix/commit/07177397a5608670658f254d81f36586bbaa46f1))
+- *(deps)* Bump astral-sh/setup-uv from 8.1.0 to 9.0.0 ([964645d](https://github.com/geozeke/glinkfix/commit/964645dd4ebc75414ca4d8ac43f7457d5da5cf6d))
+- *(deps)* Bump actions/upload-artifact from 4 to 7 ([49b367e](https://github.com/geozeke/glinkfix/commit/49b367e5bf68fc120709832d505bb91b20c2f7bd))
+- *(deps)* Bump extractions/setup-just from 3 to 4 ([45a51da](https://github.com/geozeke/glinkfix/commit/45a51dae9a82284c345cbd5b7045c63448f6fb1f))
+- *(deps-dev)* Bump ruff in the python-dependencies group (#106) ([b6f2da6](https://github.com/geozeke/glinkfix/commit/b6f2da6fe18f0b375cf13bfe78591aa071bac84e))
+- *(deps-dev)* Bump the python-dependencies group with 2 updates (#107) ([e02ce43](https://github.com/geozeke/glinkfix/commit/e02ce430ad5d06a1fac4b0b63cfa1545784ec577))
+
 ## [2.2.3rc3] - 2026-08-02
 
 [Compare with 2.2.3rc2](https://github.com/geozeke/glinkfix/compare/v2.2.3rc2...v2.2.3rc3)
