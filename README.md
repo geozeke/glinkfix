@@ -205,9 +205,7 @@ Prepare a release from a clean branch with a canonical version such as
 
 ```text
 just bump 2.2.3
-just lint
-just typecheck
-just test
+just check
 just build
 git add CHANGELOG.md changelogs pyproject.toml uv.lock
 git commit -m "chore(release): prepare for 2.2.3"
