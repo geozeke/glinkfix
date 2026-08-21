@@ -168,6 +168,11 @@ sync: _require_setup
 
 # --------------------------------------------
 
+# Run the complete local quality-check suite
+check: lint typecheck test
+
+# --------------------------------------------
+
 # Generate and push the validated release tag
 tag-release:
     UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run python -m scripts.tag_release
