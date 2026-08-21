@@ -32,10 +32,7 @@ jobs:
           uv run python -m scripts.validate_release "$GITHUB_REF_NAME"
           --github-output "$GITHUB_OUTPUT"
       - name: Run release quality checks
-        run: |
-          just lint
-          just typecheck
-          just test
+        run: just check
       - name: Build distributions
         run: |
           uv build --sdist --no-sources

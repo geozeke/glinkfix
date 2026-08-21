@@ -68,7 +68,13 @@ def prompt_for_link() -> str | None:
 
 
 def main() -> int:
-    """Run the glinkfix command-line interface."""
+    """Run the glinkfix command-line interface.
+
+    Returns
+    -------
+    int
+        Process exit code.
+    """
     msg = """
     Convert a Google Drive file sharing link into a link suitable for
     embedding in a document, such as an image in Markdown or HTML, or
