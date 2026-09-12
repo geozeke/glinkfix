@@ -4,6 +4,17 @@ All notable changes to glinkfix are documented here. The format is based
 on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this
 project uses canonical release versions.
 
+## [2.2.4] - 2026-09-12
+
+[Compare with 2.2.3](https://github.com/geozeke/glinkfix/compare/v2.2.3...v2.2.4)
+
+### Dependencies
+
+- *(deps)* Bump astral-sh/setup-uv from 9.0.0 to 10.0.1 ([b87ce70](https://github.com/geozeke/glinkfix/commit/b87ce7028bf92f245061ecec5a59b4acf83eedc9))
+- *(deps-dev)* Bump ruff in the python-dependencies group (#110) ([5e41783](https://github.com/geozeke/glinkfix/commit/5e41783996c5907b05b701e3963aacd8dab6f0ba))
+- *(deps-dev)* Bump ruff in the python-dependencies group (#111) ([adb54ef](https://github.com/geozeke/glinkfix/commit/adb54efedf56a04ae88c2ae90fe28debd701aa78))
+- *(deps-dev)* Bump ruff in the python-dependencies group (#112) ([2ae6542](https://github.com/geozeke/glinkfix/commit/2ae6542ce9c6a4aaccc939643a12d960c3f8f558))
+
 ## [2.2.3] - 2026-08-21
 
 [Compare with 2.2.3rc3](https://github.com/geozeke/glinkfix/compare/v2.2.3rc3...v2.2.3)
