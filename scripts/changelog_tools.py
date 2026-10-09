@@ -3,14 +3,9 @@
 from __future__ import annotations
 
 import re
-import sys
+import tomllib
 from dataclasses import dataclass
 from pathlib import Path
-
-if sys.version_info >= (3, 11):
-    import tomllib
-else:
-    import tomli as tomllib
 
 PROJECT_NAME = "glinkfix"
 REPOSITORY_URL = "https://github.com/geozeke/glinkfix"
