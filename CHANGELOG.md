@@ -4,6 +4,27 @@ All notable changes to glinkfix are documented here. The format is based
 on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this
 project uses canonical release versions.
 
+## [2.2.5] - 2026-10-09
+
+[Compare with 2.2.4](https://github.com/geozeke/glinkfix/compare/v2.2.4...v2.2.5)
+
+### Removed
+
+- Drop python 3.10 support (EOL on 10/1/26) ([863f415](https://github.com/geozeke/glinkfix/commit/863f415d2543d471efddb02ded8bb3b9cc249359))
+
+### Deployment & Operations
+
+- Migrate type checker from mypy to pyrefly ([4e9cd55](https://github.com/geozeke/glinkfix/commit/4e9cd558262e61c0d74a9141686da213f5af8b0f))
+
+### Dependencies
+
+- *(deps-dev)* Bump ruff in the python-dependencies group (#114) ([4701ff5](https://github.com/geozeke/glinkfix/commit/4701ff5076afc0762580526d9cd7f3ff2456cc4b))
+- *(deps)* Bump astral-sh/setup-uv from 10.0.1 to 10.1.0 ([a474198](https://github.com/geozeke/glinkfix/commit/a47419837b959961225b79f109da1e6be67ec110))
+- *(deps-dev)* Bump ruff in the python-dependencies group (#116) ([68991b2](https://github.com/geozeke/glinkfix/commit/68991b2a0fdcbe715988639e9ccfae0fe113d4cd))
+- *(deps)* Bump astral-sh/setup-uv from 10.1.0 to 10.2.0 ([0e6794f](https://github.com/geozeke/glinkfix/commit/0e6794fbb5cbd79f98a558b8bec98f896da37d8f))
+- *(deps-dev)* Bump ruff (#118) ([d45ef18](https://github.com/geozeke/glinkfix/commit/d45ef18a780771985832eab96910297456369d6f))
+- *(deps-dev)* Bump the python-dependencies group with 2 updates (#119) ([7418262](https://github.com/geozeke/glinkfix/commit/7418262d8c3e8fd8205b4f08a9d35e8da7dae476))
+
 ## [2.2.4] - 2026-09-12
 
 [Compare with 2.2.3](https://github.com/geozeke/glinkfix/compare/v2.2.3...v2.2.4)
