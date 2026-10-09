@@ -24,7 +24,6 @@ def test_first_order_dependencies_include_runtime_and_groups(tmp_path: Path) -> 
         """[project]
 dependencies = [
     "pyperclip>=1.9.0",
-    "tomli>=1.1.0 ; python_full_version < '3.11'",
 ]
 
 [dependency-groups]
@@ -40,7 +39,6 @@ dev = [
 
     assert dependencies == {
         "pyperclip": "pyperclip",
-        "tomli": "tomli",
         "pytest": "pytest",
         "coverage": "coverage",
     }

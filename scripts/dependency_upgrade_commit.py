@@ -10,13 +10,9 @@ import argparse
 import json
 import re
 import sys
+import tomllib
 from dataclasses import dataclass
 from pathlib import Path
-
-if sys.version_info >= (3, 11):
-    import tomllib
-else:
-    import tomli as tomllib
 
 COMMIT_SUBJECT = "build(deps): update direct dependencies"
 NAME_PATTERN = re.compile(r"^\s*([A-Za-z0-9_.-]+)")
