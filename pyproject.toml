@@ -73,10 +73,17 @@ omit = ["tests/*"]
 [tool.coverage.report]
 exclude_also = ["except pc.PyperclipException:", "if __name__ == \"__main__\":"]
 
+[tool.pyrefly]
+preset = "strict"
+project-includes = ["src", "scripts"]
+required-version = "==1.3.2"
+search-path = [".", "src"]
+
 [dependency-groups]
 dev = [
     "coverage[toml]>=7.6.1,<8",
-    "mypy>=1.13.0,<3",
+    "pyrefly==1.3.2",
     "pytest>=8.3.3,<10",
     "ruff>=0.16,<1",
+    "types-pyperclip>=1.11.0.20260508",
 ]

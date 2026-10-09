@@ -187,7 +187,7 @@ test:
 
 # Run static type checks
 typecheck:
-    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run mypy src scripts
+    UV_CACHE_DIR="${UV_CACHE_DIR:-.uv-cache}" uv run pyrefly check
 
 # --------------------------------------------
 
