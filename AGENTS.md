@@ -50,6 +50,8 @@ links into links suitable for embedding or direct download.
 
 ## Verification
 
+- After Python changes, run `just typecheck`, correct diagnostics, and
+  rerun until it passes.
 - `just lint`
 - `just test`
 - `just typecheck`

@@ -6,7 +6,7 @@ import argparse
 import sys
 from importlib.metadata import version
 
-import pyperclip as pc  # type: ignore
+import pyperclip as pc
 
 from glinkfix.links import convert_link
 

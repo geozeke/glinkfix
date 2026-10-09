@@ -49,7 +49,7 @@ jobs:
           python-version: "3.10"
           enable-cache: true
       - run: uv sync --all-groups --frozen
-      - run: uv run mypy src
+      - run: uv run pyrefly check
 
   test:
     name: Test Python ${{ matrix.python-version }} on ${{ matrix.os }}
